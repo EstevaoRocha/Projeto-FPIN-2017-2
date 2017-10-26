@@ -1,4 +1,5 @@
 # Projeto FPIN 2017-2
+Desenvolvido pelos alunos do Bacharelado em Sistemas de Informação, na disciplina do 3° período, Fundamentos de Programação Internet
 
 Estevao Gabriel (estevaogabrielsr@outlook.com.br)
 Joao Paulo Montenegro (jpbandrao10@gmail.com)
