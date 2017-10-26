@@ -1,0 +1,742 @@
+*{
+	margin: 0 auto;
+} /* CSS RESET da configuração padrão dos navegadores*/
+
+/* Configurar o estilo do campo tipo texto */
+.cad_user {
+    width: 100%; /* Largura de 100% do campo */
+    padding: 12px; /* Altura de 12px*/
+    margin: 8px 0; /* 8px de distância, 0 para alinhar */
+    display: inline-block; 
+    border: 2px solid #ccc; /* Borda do campo e cor da borda*/
+    border-radius: 4px; /* Curva da borda */
+    box-sizing: border-box; /* Adiciona as bordas em todos os lados*/
+    font-family: verdana /* Estilo da fonte*/
+}
+
+/* Configurar o estilo do campo tipo submit*/
+#bt{
+    width: 30%; /* largura de 30% */
+    background-color: #FF4400; /* Cor do botão*/
+    color: white;
+    padding: 20px 0px;
+    margin: 5px 0;
+    border: 2px solid #FF4400;
+    border-radius: 4px;
+    cursor: pointer;
+} 
+
+/* Quando passar o mouse por cima do botão submit*/
+#bt:hover{
+    background-color: #45a049;
+}
+
+/* Propriedades da div que abriga o modal*/
+div.form {
+    font-family: verdana;
+    color: white;
+    border-radius: 7px;
+    background-color: #333;
+    padding: 7px;
+}
+
+/* Propriedades do modal */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 50px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 10px;
+    border: 1px solid #888;
+    width: 60%;
+}
+
+/* The Close Button */
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+/* Efeito ao passar o mouse por cima do botão de fechar do modal */
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* background da pagina */
+body{
+	/*background:url(../image/fundo.png);*/
+	background-color: #1e2934;
+}
+
+/* propriedades da section que abriga toda a página do cabeçalho ao rodape */
+#tudo{
+	width:1080px; 
+	height: 1000px;
+	margin: 0 auto;
+	background:none;
+}
+
+/* propriedades da section que abriga todo conteudo com exceção do rodape */
+#geral{
+	width:1080px; 
+	min-height: 1250px;
+	float:left; 
+	background:white;
+}
+
+/* cabeçalho da pagina */
+header{
+	float:left;
+	width: 1080px;
+	height: 35px;
+	background:#2c2c2c;
+	border-bottom: 3px solid #ff4400;
+	margin:0 0 0 0;
+}
+
+/* barra de menu  */
+menu{
+	width:1040px; 
+	height:35px; 
+	background:none; 
+	float:left;
+}
+
+/* propriedades dos itens do menu*/
+
+a.item{
+	float: left;
+	margin : 12px 15px 0 25px;
+	color:#ffffff;
+	text-decoration : none;
+	font-size: 11px;
+	font-family : 'Oswald';
+}
+
+/* propriedades da imagem da logo */
+ 
+#logo{
+	float:left;
+	width:150px; 
+	height:58px; 
+	margin:15px 0 0 50px;
+}
+
+/* espaço reservado ao titulo da pagina */
+
+#ad{
+	float: right;
+	width:728px; 
+	height: 90px;
+	margin:20px 42px 0 0;
+	font-family: sans-serif;
+	font-size: 34px;
+}
+
+/* propriedades do titulo */
+
+#titulo{
+	float: left;
+	margin: 20px 50px;
+}
+
+/* propriedades dos itens do menu de pesquisa */
+
+a.item2{
+	float: left;
+	min-width: 33px;
+	min-height: 15px;
+	font-size : 13px; 
+	text-decoration : none;
+	color:#ffffff;
+	margin: 15px 8px 0px 14px;
+}
+
+/* propriedade do icone home do menu de pesquisa */
+
+a.item3{
+	float: left;
+}
+
+/* propriedade do icone da lupa do menu de pesquisa */
+
+input.item4{
+	float: right;
+	margin: 0px -215px 0 0;
+}
+
+/* propridade da caixa de pesquisa do menu */
+
+#pesqInput{
+	float: right;
+	margin: 5px 0px;
+	height: 35px;
+}
+
+/* propriedades da barra que abriga os elementos do menu de pesquisa ex.: item2, item3, pesqInput */
+
+#barra1{
+	float: left;
+	width: 950px;
+	height: 43px;
+	background: #2c2c2c;
+	margin: 20px 26px 30px 45px;
+	border-bottom : 3px solid #ff4400;
+}
+
+/* barra que abriga o titulo destaque */
+
+#barra2{
+	float: left;
+	min-width: 200px;
+	height: 28px;
+	background: #ff4400;
+	text-align: center; 
+	margin: 200px 0 0 45px;
+}
+
+/* titulo DESTAQUE */
+h3.recent{
+	color: #ffffff; 
+	margin: 3px 0px 0px 40px;
+	text-decoration: none;
+	font-family : 'Oswald';
+}
+
+/* barra de cor preta acoplada a barra2  */
+
+#barra3{
+	float: left;
+	min-width: 500px;
+	height: 25px;
+	background: #2c2c2c;
+	text-align : center;
+	margin: 200px 0 0 0px;
+	border-bottom : 3px solid #ff4400;
+}
+
+/* *************************************************************************************************************************** */
+
+/* Section que compõe o lado direito do espaço em branco(#geral)  */
+
+#direita{
+	background: none;
+	height: 1000px; 
+	width: 360px;
+	float: right;
+	margin: -184.5px 0 0 0;
+}
+
+/* barra laranja que abriga o titulo pesquisa  */
+
+#barra4{
+	float: left;
+	min-width: 105px;
+	height: 28px;
+	background: #ff4400;
+	text-align : center; 
+	margin:-27.5px 0 0 45px;
+}
+
+/* barra preta que compõe a barra pesquisa */
+
+#barra5{
+	float: left;
+	min-width: 162px;
+	height: 25px;
+	background: #2c2c2c;
+	text-align : center; 
+	margin: -27.5px 0 0 0px;
+	border-bottom : 3px solid #ff4400;
+}
+
+/* propriedades da caixa que abriga os graficos de pesquisas */
+
+#pesq{
+	float: left; 
+	width: 280px; 
+	height: 214px;
+	margin: 15px 0px 10px 45px;
+}
+
+/* propriedades da imagem(grafico) da caixa pesq */
+
+img.graph{
+	width: 267;
+	height: 214;
+}
+
+/* barra preta que compõe a barra recentes */
+
+#barra6{
+	float: left;
+	min-width: 267px;
+	height: 25px;
+	background: #2c2c2c;
+	text-align : center;
+	margin:30px 0 0 0px;
+	border-bottom : 3px solid #ff4000;
+	font-size: 13px;
+}
+
+/* propriedades do titulo recentes */
+
+a.recent2{
+	float: left;
+	color: #ffffff; 
+	padding:5px 0 0 0; 
+	text-align : center;
+	text-decoration: none;
+	font-family : 'Oswald';
+	width:93px ;
+	height: 20px;
+	background: #ff4400;
+}
+
+/* propriedade de possivel titulo a ser colocado ao lado de recentes */
+
+a.recent3{
+	float: left;
+	color: #ffffff;
+	margin: 5px 0 0 0px;
+	text-decoration: none;
+	font-family: 'Oswald';
+	text-align: center;
+	width:93px; 
+	height: 31px;
+}
+  
+/* ação ocorrida ao passar o mouse sobre o possivel titulo */ 
+ 
+a.recent3:hover{
+	float: left;
+	color: #BDBDBD; 
+	margin: 5px 0 0px 0px;
+	text-decoration: none;
+	font-family: 'Oswald';
+	text-align: center;
+	width:93px;
+	height:31px;
+}
+
+/* mesma coisa que o recent3 e recent3:hover */
+
+a.recent4{
+	float: right;
+	color: #ffffff; 
+	margin: 5px 0 0 0px;
+	text-decoration: none;
+	font-family : 'Oswald';
+	text-align : center;
+	width:93px; 
+	height: 31px;
+}
+
+a.recent4:hover{
+	float: left;
+	color: #BDBDBD; 
+	margin: 5px 0 0 0px;
+	text-decoration: none;
+	font-family : 'Oswald';
+	text-align : center;
+	width:93px;
+	height: 31px;
+}
+
+/* propriedades do titulo pesquisa */
+
+.recent{
+	float: left;
+	color: #ffffff; 
+	margin: 5px 0 0 11.5px;
+	text-decoration: none;
+	font-family : 'Oswald';
+	text-align : center;
+}
+
+/* article que abriga o conteudo das noticias a direita  */
+
+#mini{
+	width: 320;
+	min-height: 365;
+	background: none;
+	margin: 300px 0 0 30px;
+}
+
+/* propriedades das imagens das noticias */
+
+.imgmini1{
+	float: left; 
+	margin: 10px 0 0 0px;
+}
+
+/* propriedades dos textos das noticias */
+
+.txtmini1{
+	text-decoration : none;
+	margin: -70px 0 0 101px;
+	float: left;
+}
+
+/* barra preta que compõe a barra inscreva-se */
+
+#barra7{
+	width: 300px; 
+	height: 27px;
+	background: #2c2c2c;
+}
+
+/* barra laranja que abriga o titulo inscreva-se */
+
+#minibar{
+	width: 90px; 
+	height: 27px;
+	background: #ff4400;
+	float: left;
+	margin: -27px 0 0 30px;
+	font-size : 15px;
+	text-align : center;
+}
+
+/* propriedades do titulo inscreva-se */
+
+h5.recent5{
+	float: left;
+	margin: 5px 0 0 4px;
+	color: #ffffff;
+}
+
+/* propriedades do texto dentro da caixa do inscreva-se */
+
+h5.texto3{
+	float: left;
+	color: #white;
+	margin: 05px 0 0 10px;
+}
+
+/* propiedades da caixa que abrigam o texto do inscreva-se */
+
+#subscribe{
+	width: 300px; 
+	height: 124px;
+	background : #2c2c2c;
+	border-top : 3px solid #ff4000;
+	color: #ffffff;
+}
+
+/* propriedades da caixa de texto para digitar o e-mail  */
+
+input.inp1{
+	float: left; 
+	margin: -65px 0 0 40px;
+	width: 275px;
+}
+
+/* propriedades do botão enviar */
+
+input.inp2{
+	float: left; 
+	margin: -35px 0 0 40px;
+	width: 275px;
+	height: 30px;
+	background: #ff4400;
+	color: #ffffff;
+	border: none;
+}
+
+/* barra preta que compõe a barra páginas */
+
+#barra8{
+	width: 300px;
+	height: 27px;
+	background: #2c2c2c;
+	float: left;
+	margin : 10px 0 0 30px;
+	border-bottom : 3px solid #ff4400;
+}
+
+/* barra laranja que abriga o titulo páginas */
+
+#minibar2{
+	width: 70px; 
+	height: 27px;
+	background: #ff4400;
+	float: left;
+	margin: -30px 0 0 30px;
+	font-size : 15px;
+	text-align : center;
+}
+
+/* propriedades do link página inicial */
+
+a.fim1{
+	text-decoration : none;
+	float: left;
+	margin: 10px 0 0 30px;
+	font-weight : bold;
+}
+
+/* propriedades do link criar conta */
+
+a.fim2{
+	text-decoration : none;
+	float: left;
+	margin: 35px 0 0 -95px;
+}
+
+/* propriedades do link entrar */
+
+a.fim3{
+	text-decoration : none;
+	float: left;
+	margin: 60px 0 0 -95px;
+}
+
+/* *************************************************************************************************************************** */
+
+/* article que abriga as informações preenchidas a esquerda da página em branco (#geral) */
+
+#artigo1{
+	float: left;
+	width: 679px; 
+	height: 184px; 
+	background: none; 
+	margin: 0 0 0 45px;
+}
+
+/* propriedades da imagem da primeiro candidato em destaque */
+
+img.img1{
+	float: left;
+	margin: 20px 0 0 0px;
+}
+
+/* propriedades do titulo(link) do primeiro candidato em destaque */
+
+a.link1{
+	text-decoration : none;
+	font-size : 20px;
+	float:left; 
+	margin: -170px 0 0 320px;
+}
+
+/* propriedades do texto do primeiro candidato em destaque */
+
+h5.texto1{
+	float: left; 
+	margin: -130px 0 0 320px;
+}
+
+/* propriedades do rodape da pagina */
+footer{
+	display: block;
+	float:left; 
+	width: 1080px; 
+	height: 342px;
+	border-top: 4px solid #ff4400;
+	background: #2c2c2c;
+	font-family: 'Oswald';
+}
+
+/* propriedades do titulo do rodape (APRESENTACAO)  */
+
+h3.txt1{
+	color:#ffffff;
+	float: left;
+	margin : 15px 0px 0px 30px;
+	font-family : 'Oswald';
+}
+
+/* propriedades do texto do rodape */
+
+pre.about{
+	color:#ffffff;
+	float: left;
+	margin: 50px 50px 50px -352px;
+	font-family : 'Oswald';
+	font-size: 20px;
+}
+
+/* propriedades da borda inferior do rodape  */
+
+#rodape{
+	width: 1080;
+	height: 50px;
+	background: #232323;
+	margin: 342px 0 0 0;
+}
+
+/* propriedades da linha laranja que divide o rodape */
+
+.borda{
+	width : 1035;
+	height: 50px;
+	background: none;
+	margin: 342px 0px 0 22px;
+	border-top: 3px solid #ff4000;
+}
+
+/* propriedades do texto da parte inferior do rodape */
+
+.txt2{
+	float: left;
+	margin: 15px 0 0px 30px;
+	color: #ffffff;
+	font-family : 'Oswald';
+}
+
+/* tabelas das paginas*/
+table
+{
+	width: 90%;
+	border-collapse: collapse;
+}
+
+
+
+td {
+    padding: 8px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    padding: 8px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+/*tabela zebrada*/
+
+tr:nth-child(even){background-color: #f2f2f2} 
+
+/*quando passar mouse em cima da linha fica com uma cor diferente e cor da letra muda*/
+
+tr:hover{
+	background-color:#FF7F50;
+	color: #ffffff;
+	}
+	
+/*cabeçalho da tabela com uma cor*/
+	
+tr:nth-child(1){
+	background-color: #ff4400;
+	color: #ffffff;
+}
+
+div.about{
+	color:#ffffff;
+	float: left;
+	margin : 15px 0px 0px 30px;
+	font-family : 'Oswald';
+	font-size: 20px;
+}
+
+/* Retirando sublinhado e azul dos links*/
+
+a:link 
+{ 
+ text-decoration:none; /*sublinhado sem*/
+ 
+} 
+
+a:visited:not(.item2):not(.item):not(.edit) /* todos os "a" visitados, menos (not (.item2)) os da classe .item2 recebem essas definições*/
+{
+	color: inherit; /* herdando cor do pai */
+}
+
+a:link:not(.item2):not(.item):not(.edit)
+{ 
+ 
+ color: inherit; /* herdando cor do pai */
+ 
+} 
+
+div.tabela{
+	margin: 0px 0px 0px 0px;
+}
+
+div.				{
+	/*float: left;*/
+	width: 679px; 
+	height: 184px; 
+	background: none; 
+	margin: 0 0 0 45px;
+}
+
+img.perfil{
+	margin: 20px 0 0 50px;
+}
+
+div.textocand{
+	float: left;
+	margin: 20px 0px 20px 0px;
+	text-align: justify;
+}
+
+
+
+/*lista alunos e mapas no sobre*/
+
+
+ul.alunos, ul.mapa {
+    margin-bottom: 14px;
+	margin-top: 20px;
+    list-style: none;
+}
+
+ul.alunos li , ul.mapa li{ width: 300px; height: 30px;  margin: 0 0 7px 0; }
+
+ul.alunos li a , ul.mapa li a{ 
+    display: block;
+	width: 500px;
+	height: 30px;
+	margin: 0 0 7px 0;
+	background: #F7F5F2;
+	font-size: 18px;
+	color: #333;
+	padding: 5px 0 0 20px;
+	text-decoration: none;
+}
+
+ul.alunos li a:hover , ul.mapa li a:hover{ 
+	background-color: #EFEFEF; 
+}
+
+.orange { border-left: 5px solid #F5876E; }
+
+.red{ border-left: 5px solid red; }
+
+.blue{ border-left: 5px solid #61A8DC; }
+
+.green{ border-left: 5px solid #8EBD40; }
+
+.purple { border-left: 5px solid #988CC3; }
+
+.gold { border-left: 5px solid #D8C86E; }
+
+
+/**texto do sobre **/
+
+h3.sobre{
+	margin: 20px 0px 0px 0px;
+}
+

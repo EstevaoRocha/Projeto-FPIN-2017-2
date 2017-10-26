@@ -1,0 +1,57 @@
+
+
+.edit_cand{
+	width: 100%; /* Largura de 100% do campo */
+    padding: 30px; /* Altura de 12px*/
+    margin: 8px 0; /* 8px de distância, 0 para alinhar */
+    border: 2px solid #ccc; /* Borda do campo e cor da borda*/
+    border-radius: 4px; /* Curva da borda */
+    box-sizing: border-box; /* Adiciona as bordas em todos os lados*/
+    font-family: verdana /* Estilo da fonte*/
+}
+
+/*Propriedades do botão EDITAR*/
+
+.edit{
+	float: right;
+	margin: 3px;
+	color: #F2FFF2;
+}
+
+/* *************************************************************************************************************************** */
+
+
+/*propriedades do titulo perfil*/
+
+.perfil{
+	color: #ffffff;
+	text-decoration: none;
+	font-family : 'Oswald';
+	text-align: center;
+}
+
+
+/* propriedades das informações adicionadas sobre o candidato */
+
+.info{
+	float: left;
+	margin : 0px 0px 30px 40px;
+	font-size: 14px;
+}
+
+
+/*texto informativo abaixo do artigo sobre o candidato*/
+.extra{
+	float: left;
+	margin: 0px 0px 0px -500px;
+}
+
+h5.texto1{
+	font-size: 15px;
+}
+
+#tabela_candidato{
+	margin-top: 50px;
+}
+
+

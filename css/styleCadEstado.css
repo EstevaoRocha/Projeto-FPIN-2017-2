@@ -1,0 +1,40 @@
+
+
+/* Propriedades da div que abriga o modal*/
+div.form2 {
+    font-family: verdana;
+    color: white;
+    border-radius: 7px;
+    background-color: #333;
+    padding: 3px;
+	width: 95%;
+	margin-left: 3%;
+	margin-top: 20px;
+	
+}
+
+
+
+
+/* propriedades da tabela da lista de candidatos */
+
+table{
+	border: 1px solid black;
+	float: left;
+	background-color: #f8f9fa;
+	width: 90%;
+	border-collapse: collapse;
+	
+}
+
+th, td{
+	height: 30px;
+	border: 1px solid black;
+}
+
+
+
+
+
+
+
