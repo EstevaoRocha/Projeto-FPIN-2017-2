@@ -18,7 +18,7 @@
 		}
 		
 		if($db_sigla == $part_sigla){
-			echo "<script type='text/javascript'> alert( 'Sigla J? Cadastrada', window.location='cad_partido.php'); </script>";
+			echo "<script type='text/javascript'> alert( 'Sigla Já Cadastrada', window.location='cad_partido.php'); </script>";
 		}else{
 		
 	$insert = "INSERT INTO partido (part_name, part_sigla, part_cand, part_city) VALUES ('$part_name','$part_sigla','$part_cand','$part_city')";

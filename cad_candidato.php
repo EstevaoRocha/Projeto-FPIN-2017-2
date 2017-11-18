@@ -75,12 +75,17 @@
 								
 								<label for="sex">Partido:</label>
 								<select class="cad_user" id="" name="cand_part">
-								  <option> Selecione o Partido </option> <!-- precisa selecionar do banco -->
-								  <option value="PDT">Partido Democrático Trabalhista</option>
-								  <option value="PT">Partido dos Trabalhadores</option>
-								  <option value="PODE">Podemos</option>
-								  <option value="PMDB">Partido do Movimento Democrático Brasileiro</option>
-								  <option value="PSB">Partido Socialista Brasileiro</option>
+								  <option> Selecione o Partido </option> 
+								  <?php //Pegando os partidos do banco
+									$sel_part = "SELECT * FROM partido ORDER BY part_name";
+									$sql = mysqli_query($connection, $sel_part);
+									
+									while($line_part = mysqli_fetch_array($sql)){
+										$part_sigla = $line_part['part_sigla'];
+										$part_name = $line_part['part_name'];
+										echo "<option value='$part_sigla'>$part_name</option>";
+									}
+								  ?>
 								</select>
 								
 								<label for="fname">Realizações:</label>
@@ -100,9 +105,16 @@
 								
 								<label for="sex">Cidade:</label>
 								<select class="cad_user" id="sex_edit" name="cand_city">
-								  <option> Selecione </option><!-- precisa pegar do banco -->
-								  <option value="maceio">Maceió</option>
-								  <option value="recife">Recife</option>
+								  <option> Selecione </option>
+								  <?php //Pegando as cidades do banco
+									$sel_city = "SELECT * FROM cidade ORDER BY city_name";
+									$sql2 = mysqli_query($connection, $sel_city);
+									
+									while($line_city = mysqli_fetch_array($sql2)){
+										$city_name = $line_city['city_name'];
+										echo "<option value='$city_name'>$city_name</option>";
+									}
+								  ?>
 								</select>
 								
 								<center>
