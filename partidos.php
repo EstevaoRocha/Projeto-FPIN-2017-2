@@ -25,7 +25,7 @@
 						<a href="index.php" class="item3"> <img src="image/home.png" class="home"> </a>
 						<a href="candidatos.php" class="item2">CANDIDATOS</a>
 						<a href="partidos.php" class="item2">PARTIDOS</a>
-						<a href="cidadestado.html" class="item2">CIDADES/ESTADOS</a>
+						<a href="cidadeestado.php" class="item2">CIDADES/ESTADOS</a>
 						<a href="sobre.html" class="item2">SOBRE</a>
 						<a href="" class="item2"></a>
 						<a href="" class="item2"></a>

@@ -1,7 +1,7 @@
 <html>
 	<head>
-		<title> Wikilítica partidos.php Estados </title>
-		<meta charset="UTFpartidos.php8">
+		<title> Wikilítica - Estados </title>
+		<meta charset="UTF-8">
 		<link rel="stylesheet" type="text/css" href="css/styleCandidatos.css">
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 		<link rel="shortcut icon" href="image/favicon.ico">		
@@ -19,13 +19,13 @@
 						<a href="index.php" > <img src="image/logotipo.png" class="logo"> </a>
 					</div>
 					<div id="ad">
-						<h1 id="titulo">Bempartidos.phpvindos à Wikilítica</h1>
+						<h1 id="titulo">Bem-vindos à Wikilítica</h1>
 					</div>
 					<nav id="barra1">
 						<a href="index.php" class="item3"> <img src="image/home.png" class="home"> </a>
 						<a href="candidatos.php" class="item2">CANDIDATOS</a>
-						<a href="partidos.html" class="item2">PARTIDOS</a>
-						<a href="cidadestado.html" class="item2">CIDADES/ESTADOS</a>
+						<a href="-" class="item2">PARTIDOS</a>
+						<a href="cidadeestado.php" class="item2">CIDADES/ESTADOS</a>
 						<a href="sobre.html" class="item2">SOBRE</a>
 						<form name="" method="" action="">							
 							<input type="search" name="search" placeholder="Pesquisar na Wiki" title="Pesquisar" id="pesqInput" tabindex="1" autocomplete="off">
@@ -74,7 +74,7 @@
 							</table>
 						</div>
 					</section>
-					<!partidos.phppartidos.php *************************************************************************************************************************** partidos.phppartidos.php>
+					<!-- *************************************************************************************************************************** -->
 					<section id="direita">
 						<nav id="barra4">
 							<a class="recent"> PESQUISA </a>
@@ -103,12 +103,12 @@
 						</article>
 						<div id="barra7">
 						</div>
-						<div id="minibar"> <h5 class="recent5"> INSCREVApartidos.phpSE </h5> </div>
+						<div id="minibar"> <h5 class="recent5"> INSCREVA-SE </h5> </div>
 						<div id="subscribe">
-								<h5 class="texto3" > Digite seu endereço de epartidos.phpmail para e receber notificações de novas postagens por epartidos.phpmail. </h5>
+								<h5 class="texto3" > Digite seu endereço de e-mail para e receber notificações de novas postagens por e-mail. </h5>
 						</div>
 						<form method="" action ="">
-							<input class="inp1" type="text" placeholder="Endereço de Epartidos.phpmail"> 
+							<input class="inp1" type="text" placeholder="Endereço de E-mail"> 
 							<input class="inp2" type="submit" value="ENVIAR">
 						</form>
 						<div id="barra8">
@@ -117,7 +117,7 @@
 						<div id="finish">
 							<a href="index.php" class="fim1"> Página Inicial </a>
 							<a href="candidatos.php" class="fim2"> Candidatos </a>
-							<a href="partidos.html" class="fim3"> Partidos </a>
+							<a href="-" class="fim3"> Partidos </a>
 						</div>
 					</section>
 				</section>
@@ -133,7 +133,7 @@
 				</div>
 				<div id="rodape">
 					<div class ="txt2">
-						PROJETO FPIN partidos.php HTML/CSS WikiLítica © 2017
+						PROJETO FPIN - HTML/CSS WikiLítica © 2017
 					</div>
 					<div class="borda">
 					</div>
@@ -142,19 +142,19 @@
 		</section>
 	</body>	
 	
-	<!partidos.phppartidos.php MODAIS partidos.phppartidos.php>
+	<!-- MODAIS -->
 	
-<!partidos.phppartidos.php Criação do Modalpartidos.phppartidos.php>
+<!-- Criação do Modal-->
 <div id="myModal" class="modal">
 
-  <!partidos.phppartidos.php Conteúdo do Modalpartidos.phppartidos.php>
-  <div class="modalpartidos.phpcontent">
-    <!partidos.phppartidos.php <span class="close">&times;</span> partidos.phppartidos.php>
+  <!-- Conteúdo do Modal-->
+  <div class="modal-content">
+    <!-- <span class="close">&times;</span> -->
     <div class="form">
 	  <h1> Cadastro de Usuário </h1>
 	  <form action="" method="">
-		<label for="fname">Epartidos.phpmail:</label>
-		<input class="cad_user" type="email" id="user_mail" name="email" placeholder="Preencha com seu epartidos.phpmail">
+		<label for="fname">E-mail:</label>
+		<input class="cad_user" type="email" id="user_mail" name="email" placeholder="Preencha com seu e-mail">
 		
 		<label for="fname">Senha:</label>
 		<input class="cad_user" type="password" id="user_pass" name="pass" placeholder="Preencha com sua senha">
@@ -194,14 +194,14 @@
 </div>
 
 <div id="myModal2" class="modal">
-  <!partidos.phppartidos.php Conteúdo do Modalpartidos.phppartidos.php>
-  <div class="modalpartidos.phpcontent">
-    <!partidos.phppartidos.php <span class="close">&times;</span> partidos.phppartidos.php>
+  <!-- Conteúdo do Modal-->
+  <div class="modal-content">
+    <!-- <span class="close">&times;</span> -->
     <div class="form">
 	  <h1> Logar </h1>
 	  <form action="usuariologado.html" method="">
-		<label for="fname">Epartidos.phpmail:</label>
-		<input class="cad_user" type="email" id="user_mail" name="email" placeholder="Preencha com seu epartidos.phpmail">
+		<label for="fname">E-mail:</label>
+		<input class="cad_user" type="email" id="user_mail" name="email" placeholder="Preencha com seu e-mail">
 		
 		<label for="fname">Senha:</label>
 		<input class="cad_user" type="password" id="user_pass" name="pass" placeholder="Preencha com sua senha">	

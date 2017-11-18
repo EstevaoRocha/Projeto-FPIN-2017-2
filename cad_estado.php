@@ -38,7 +38,7 @@
 						<a href="index.php" class="item3"> <img src="image/home.png" class="home"> </a>
 						<a href="candidatos.php" class="item2">CANDIDATOS</a>
 						<a href="partidos.php" class="item2">PARTIDOS</a>
-						<a href="cidadestado.html" class="item2">CIDADES/ESTADOS</a>
+						<a href="cidadeestado.php" class="item2">CIDADES/ESTADOS</a>
 						<a href="sobre.html" class="item2">SOBRE</a>
 						<form name="" method="" action="">							
 							<input type="search" name="search" placeholder="Pesquisar na Wiki" title="Pesquisar" id="pesqInput" tabindex="1" autocomplete="off">
