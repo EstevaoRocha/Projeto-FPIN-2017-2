@@ -1,3 +1,14 @@
+<?php
+	session_start();
+	include ('conf.php');
+	if($_SESSION['logado']!="ok"){
+		header("Location:index.php");// caso a sessão não seja autorizada será redirecionado para index.php
+	}	
+	
+	$usuario_logado = $_SESSION['name_user']; // pega o nome do usuário logado através da sessão
+	$nome = explode(" ", $usuario_logado); // pega somente o primeiro nome do usuário
+?>
+
 <html>
 	<head>
 		<title> Wikilítica - Candidatos </title>
@@ -11,21 +22,21 @@
 			<section id="geral">
 				<header>				
 					<menu>
-						<a href="index.html" class="item">PÁGINA INICIAL</a>
+						<a href="index.php" class="item">PÁGINA INICIAL</a>
 						<a href="#myBtn" class="item" id="myBtn">EDITAR INFORMAÇÕES</a>		
-						<a href="cad_candidato.html" class="item">CADASTRAR CANDIDATO</a>
+						<a href="cad_candidato.php" class="item">CADASTRAR CANDIDATO</a>
 						<!--<a href="cad_partido.html" class="item">GERENCIAR PARTIDO</a>
 						<a href="cad_estado.html" class="item">GERENCIAR ESTADO</a>-->
-						<a href="index.html" class="item">SAIR</a>
+						<a href="index.php" class="item">SAIR</a>
 					</menu>
 					<div id="logo">
-						<a href="index.html" > <img src="image/logotipo.png" class="logo"> </a>
+						<a href="index.php" > <img src="image/logotipo.png" class="logo"> </a>
 					</div>
 					<div id="ad">
-						<h1 id="titulo">Bem-vindos à Wikilítica</h1>
+						<h1 id="titulo">Bem-vindo(a) <?php echo $nome[0] ?> </h1>
 					</div>
 					<nav id="barra1">
-						<a href="index.html" class="item3"> <img src="image/home.png" class="home"> </a>
+						<a href="index.php" class="item3"> <img src="image/home.png" class="home"> </a>
 						<a href="candidatos.html" class="item2">CANDIDATOS</a>
 						<a href="partidos.html" class="item2">PARTIDOS</a>
 						<a href="cidadestado.html" class="item2">CIDADES/ESTADOS</a>
@@ -45,24 +56,26 @@
 						<div id="artigo1">
 							<div class="form2">
 							  <h1> Cadastrar Candidato </h1>
-							  <form action="" method="">
+							  <form action="submit_cand.php" method="post">
 								<label for="fname">Nome:</label>
-								<input class="cad_user" type="text" id="cand_perf" name="perf">
+								<input class="cad_user" type="text" id="cand_perf" name="cand_name">
 								
 								<label for="sex">Sexo:</label>
-								<select class="cad_user" id="sex_edit" name="sex_edit">
-								  <option value="ma">Masculino</option>
-								  <option value="fe">Feminino</option>
+								<select class="cad_user" id="sex_edit" name="cand_sex">
+								  <option> Selecione </option>
+								  <option value="1">Masculino</option>
+								  <option value="2">Feminino</option>
 								</select>
 								
 								<label for="fname">Idade:</label>
-								<input class="cad_user" type="text" id="cand_perf" name="perf">
+								<input class="cad_user" type="text" id="cand_perf" name="cand_age">
 								
 								<label for="fname">Profissão:</label>
-								<input class="cad_user" type="text" id="cand_perf" name="perf">
+								<input class="cad_user" type="text" id="cand_perf" name="cand_job">
 								
 								<label for="sex">Partido:</label>
-								<select class="cad_user" id="" name="partido">
+								<select class="cad_user" id="" name="cand_part">
+								  <option> Selecione o Partido </option> <!-- precisa selecionar do banco -->
 								  <option value="PDT">Partido Democrático Trabalhista</option>
 								  <option value="PT">Partido dos Trabalhadores</option>
 								  <option value="PODE">Podemos</option>
@@ -71,22 +84,26 @@
 								</select>
 								
 								<label for="fname">Realizações:</label>
-								<input class="cad_user" type="text" id="cand_perf" name="realizacoes">
+								<input class="cad_user" type="text" id="cand_perf" name="cand_work">
 								
 								<label for="fname">História</label>
-								<input class="cad_user" type="textarea" id="cand_text" name="cand_histo">	
+								<input class="cad_user" type="textarea" id="cand_text" name="cand_hist">	
 								
 								<label for="fname">Propostas</label>
-								<input class="cad_user" type="textarea" id="cand_text" name="cand_proposta">	
-								
-								<label for="fname">Fonte Propostas</label>
-								<input class="cad_user" type="textarea" id="cand_text" name="cand_proposta">	
+								<input class="cad_user" type="textarea" id="cand_text" name="cand_prop">	
 								
 								<label for="fname">Ideias</label>
-								<input class="cad_user" type="textarea" id="cand_text" name="cand_proposta">	
+								<input class="cad_user" type="textarea" id="cand_text" name="cand_idea">	
 								
-								<label for="fname">Fonte Idéias</label>
-								<input class="cad_user" type="textarea" id="cand_text" name="cand_proposta">	
+								<label for="fname">Fonte Ideias</label>
+								<input class="cad_user" type="textarea" id="cand_text" name="cand_source">
+								
+								<label for="sex">Cidade:</label>
+								<select class="cad_user" id="sex_edit" name="cand_city">
+								  <option> Selecione </option><!-- precisa pegar do banco -->
+								  <option value="maceio">Maceió</option>
+								  <option value="recife">Recife</option>
+								</select>
 								
 								<center>
 								<input id="bt" type="submit" value="Cadastrar">
@@ -136,7 +153,7 @@
 						</div>
 						<div id="minibar2"> <h5 class="recent5"> PÁGINAS </h5> </div>
 						<div id="finish">
-							<a href="index.html" class="fim1"> Página Inicial </a>
+							<a href="index.php" class="fim1"> Página Inicial </a>
 							<a href="candidatos.html" class="fim2"> Candidatos </a>
 							<a href="partidos.html" class="fim3"> Partidos </a>
 						</div>

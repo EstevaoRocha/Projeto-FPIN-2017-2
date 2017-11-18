@@ -1,6 +1,11 @@
+<?php
+	session_start();
+	include ('conf.php');
+?>
+
 <html>
 	<head>
-		<title> Wikilítica </title>
+		<title> Wikilítica - Candidatos </title>
 		<meta charset="UTF-8">
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 		<link rel="shortcut icon" href="image/favicon.ico">		
@@ -10,23 +15,22 @@
 			<section id="geral">
 				<header>				
 					<menu>
-						<a href="index.html" class="item">PÁGINA INICIAL</a>
-						<a href="#myBtn" class="item" id="myBtn">EDITAR INFORMAÇÕES</a>
-						<a href="cad_candidato.html" class="item">CADASTRAR CANDIDATO</a>
-						<a href="index.html" class="item">SAIR</a>
+						<a href="index.php" class="item">PÁGINA INICIAL</a>
+						<a href="#myBtn" class="item" id="myBtn">CRIAR CONTA</a>
+						<a href="#myBtn2" class="item" id="myBtn2">ENTRAR</a>
 					</menu>
 					<div id="logo">
-						<a href="index.html" > <img src="image/logotipo.png" class="logo"> </a>
+						<a href="index.php" > <img src="image/logotipo.png" class="logo"> </a>
 					</div>
 					<div id="ad">
 						<h1 id="titulo">Bem-vindos à Wikilítica</h1>
 					</div>
 					<nav id="barra1">
-						<a href="" class="item3"> <img src="image/home.png" class="home"> </a>
+						<a href="index.php" class="item3"> <img src="image/home.png" class="home"> </a>
 						<a href="candidatos.html" class="item2">CANDIDATOS</a>
 						<a href="partidos.html" class="item2">PARTIDOS</a>
 						<a href="cidadestado.html" class="item2">CIDADES/ESTADOS</a>
-						<a href="sobre.html" class="item2">SOBRE</a>
+						<a href="sobre.html" class="item2">SOBRE</a>	
 						<form name="" method="" action="">							
 							<input type="search" name="search" placeholder="Pesquisar na Wiki" title="Pesquisar" id="pesqInput" tabindex="1" autocomplete="off">
 							<input type="image" src="image/lupa.png" width="42px" height="46px" class="item4" onClick="this.form.submit()">
@@ -36,30 +40,53 @@
 				<section id="meio">
 					<section id="esquerda">
 						<nav id="barra2">
-							 <h3 class="recent" > DESTAQUES </h3>
+							 <h3 class="recent" > CANDIDATOS </h3>
 						</nav>
 						<nav id="barra3"> </nav>
-						<article id="artigo1">
-							<a href="" > <img src="image/post1.jpg" width="290px" height="170px" class="img1" > </a>
-							<a href="candidato.html" class="link1"> RONALDO LESSA </a>
-							<h5 class="texto1"> Atualmente Deputado Federal , Partido Democrático Trabalhista <a href=""> (PDT) </a> , Foi um dos envolvidos no escândalo conhecido como Operação Navalha. <a href=""> MACEIÓ-AL </a> </h5>
+						<div id="artigo1">
+							<?php
+								$selecao_cand = "SELECT * FROM candidato"; // seleciona tudo da tabela candidato
+								$sql_cand = mysqli_query($connection, $selecao_cand); // executa query
+							 	$num_cand = mysqli_num_rows($sql_cand); // obtem o numero de linhas da tabela candidato
+							 ?>
+							<h3>TOTAL DE CANDIDATOS <?php echo $num_cand; ?></h3><br>
+							<table class="tabela">
+								<tr>
+									<th> Candidatos </th>
+									<th> Partido </th>
+									<th> Cidade </th>
+								</tr>
 							
-							<a href="" > <img src="image/post2.png" width="290px" height="170px" class="img1" > </a>
-							<a href="" class="link1"> PAULO FERNANDO </a>
-							<h5 class="texto1"> é um sindicalista e político brasileiro, atualmente Deputado Federal pelo Estado de Alagoas, filiado ao <a href=""> (PT) </a>. É um dos condenados na chamada Operação Taturana. <a href=""> RECIFE-PE </a> </h5>
 							
-							<a href="" > <img src="image/post3.png" width="290px" height="170px" class="img1" > </a>
-							<a href="" class="link1"> CÍCERO ALMEIDA </a>
-							<h5 class="texto1"> Foi prefeito de Maceió, atualmente Deputado Federal pelo Estado de Alagoas, eleito em 2014 pelo <a href=""> (PRTB) </a> mas hoje filiado ao Podemos <a href=""> (PODE) </a>. É um dos condenados no chamado Escândalo das Taturanas. é réu no Supremo Tribunal Federal por envolvimento na Máfia do Lixo de Maceió. <a href=""> MACEIÓ-AL </a> </h5>
-							
-							<a href="" > <img src="image/post4.jpg" width="290px" height="170px" class="img1" > </a>
-							<a href="" class="link1"> RENAN FILHO </a>
-							<h5 class="texto1"> Filiado ao <a href=""> (PMDB) </a>, é o atual Governador do Estado de Alagoas. É filho de Renan Calheiros, ex-presidente do Senado Federal. <a href=""> MACEIÓ-AL </a> </h5>
-							
-							<a href="" > <img src="image/post5.jpg" width="290px" height="170px" class="img1" > </a>
-							<a href="" class="link1"> JOÃO HENRIQUE CALDAS </a>
-							<h5 class="texto1"> Também conhecido como JHC , filiado ao Partido Socialista Brasileiro <a href=""> (PSB) </a>. Foi o candidato a deputado federal mais votado em seu estado nas eleições de 2014 e hoje exerce a função de Terceiro-Secretário da Mesa da Câmara dos Deputados do Brasil. <a href=""> MACEIÓ-AL </a> </h5>
-						</article>
+								<?php
+									$select = "SELECT * FROM candidato ORDER BY cand_id";
+									$sql = mySQLi_query($connection, $select);
+										
+									while($line = mysqli_fetch_array($sql)){
+										$cand_id = $line['cand_id'];
+										$cand_name = $line['cand_name'];
+										$cand_sex = $line['cand_sex']; 
+										$cand_age = $line['cand_age'];
+										$cand_job = $line['cand_job'];
+										$cand_part = $line['cand_part']; 
+										$cand_work = $line['cand_work'];
+										$cand_hist = $line['cand_hist'];
+										$cand_prop = $line['cand_prop'];
+										$cand_idea = $line['cand_idea'];
+										$cand_source = $line['cand_source'];
+										//$cand_city = $line['$cand_city'];
+										}
+										
+									echo "<tr>
+											<td>$cand_name</td>
+											<td>$cand_part</td>
+											<td></td> 
+										  </tr>";
+									?>
+								
+
+							</table>
+						</div>
 					</section>
 					<!-- *************************************************************************************************************************** -->
 					<section id="direita">
@@ -102,7 +129,7 @@
 						</div>
 						<div id="minibar2"> <h5 class="recent5"> PÁGINAS </h5> </div>
 						<div id="finish">
-							<a href="index.html" class="fim1"> Página Inicial </a>
+							<a href="index.php" class="fim1"> Página Inicial </a>
 							<a href="candidatos.html" class="fim2"> Candidatos </a>
 							<a href="partidos.html" class="fim3"> Partidos </a>
 						</div>
@@ -136,27 +163,23 @@
 
   <!-- Conteúdo do Modal-->
   <div class="modal-content">
-    <!-- <span class="close">&times;</span> -->
     <div class="form">
-	  <h1> Editar Meu Usuário </h1>
+	  <h1> Cadastro de Usuário </h1>
 	  <form action="" method="">
 		<label for="fname">E-mail:</label>
-		<input class="cad_user" type="email" id="user_mail" name="email" placeholder="emailexample@outlook.com.br">
+		<input class="cad_user" type="email" id="user_mail" name="email" placeholder="Preencha com seu e-mail">
 		
 		<label for="fname">Senha:</label>
-		<input class="cad_user" type="password" id="user_pass" name="pass" placeholder="Redigite sua Senha para não alterar">
-		
-		<label for="fname">Antiga Senha:</label>
-		<input class="cad_user" type="password" id="user_pass" name="pass" placeholder="Confirme a Senha">
+		<input class="cad_user" type="password" id="user_pass" name="pass" placeholder="Preencha com sua senha">
 		
 		<label for="fname">CPF:</label>
-		<input class="cad_user" type="text" id="user_cpf" name="cpf" placeholder="999.999.999-99">
+		<input class="cad_user" type="text" id="user_cpf" name="cpf" placeholder="Preencha com o seu CPF">
 	  
 		<label for="fname">Nome:</label>
-		<input class="cad_user" type="text" id="user_name" name="firstname" placeholder="Estevao Gabriel Santos Rocha">
+		<input class="cad_user" type="text" id="user_name" name="firstname" placeholder="Preencha com o seu nome completo">
 
 		<label for="fname">Data de Nascimento:</label>
-		<input class="cad_user" type="date" id="user_birth" name="birth">
+		<input class="cad_user" type="date" id="user_birth" name="birth" placeholder="Preencha com sua cidade">
 		
 		<label for="fname">Endereço:</label>
 		<input class="cad_user" type="text" id="user_address" name="address" placeholder="Preencha com seu endereço">
@@ -174,7 +197,7 @@
 		</select>
 		
 		<center>
-		<input id="bt" type="submit" value="Confirmar">
+		<input id="bt" type="submit" value="Cadastrar">
 		<input id="bt" type="reset" value="Limpar Campos">
 		</center>
 	  </form>
@@ -182,22 +205,52 @@
   </div>
 
 </div>
+
+<div id="myModal2" class="modal">
+  <!-- Conteúdo do Modal-->
+  <div class="modal-content">
+    <!-- <span class="close">&times;</span> -->
+    <div class="form">
+	  <h1> Logar </h1>
+	  <form action="organizadorlogado.html" method="">
+		<label for="fname">E-mail:</label>
+		<input class="cad_user" type="email" id="user_mail" name="email" placeholder="Preencha com seu e-mail">
+		
+		<label for="fname">Senha:</label>
+		<input class="cad_user" type="password" id="user_pass" name="pass" placeholder="Preencha com sua senha">	
+		<center>
+		<input id="bt" type="submit" value="Logar">
+		</center>
+	  </form>
+	</div>
+  </div>
+</div>
+
 <script>
 	// Cria o modal Cadastro
 	var modal = document.getElementById('myModal');
+	// Cria o modal Login
+	var modal2 = document.getElementById('myModal2');
 
 	// Botão que chama a abertura do modal Cadastro
 	var btn = document.getElementById("myBtn");
+	// Botão que chama a abertura do modal Login
+	var btn2 = document.getElementById("myBtn2");
 
 	// Quando o usuário clicar no botão, abra o modal cadastro
 	btn.onclick = function() {
 		modal.style.display = "block";
 	}
+	// Quando o usuário clicar no botão, abra o modal login
+	btn2.onclick = function() {
+		modal2.style.display = "block";
+	}
 	
 	// Fechar quando o usuário clicar fora do modal 
 	window.onclick = function(event) {
-		if (event.target == modal) {
+		if (event.target == modal || event.target == modal2) {
 			modal.style.display = "none";
+			modal2.style.display = "none";
 		}
 	}
 </script>

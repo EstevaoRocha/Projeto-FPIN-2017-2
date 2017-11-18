@@ -1,6 +1,17 @@
+<?php
+	session_start();
+	include ('conf.php');
+	if($_SESSION['logado']!="ok"){
+		header("Location:index.php");// caso a sessão não seja autorizada será redirecionado para index.php
+	}	
+	
+	$usuario_logado = $_SESSION['name_user']; // pega o nome do usuário logado através da sessão
+	$nome = explode(" ", $usuario_logado); // pega somente o primeiro nome do usuário
+?>
+
 <html>
 	<head>
-		<title> Wikilítica - Candidatos </title>
+		<title> Wikilítica </title>
 		<meta charset="UTF-8">
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 		<link rel="shortcut icon" href="image/favicon.ico">		
@@ -10,22 +21,23 @@
 			<section id="geral">
 				<header>				
 					<menu>
-						<a href="index.html" class="item">PÁGINA INICIAL</a>
-						<a href="#myBtn" class="item" id="myBtn">CRIAR CONTA</a>
-						<a href="#myBtn2" class="item" id="myBtn2">ENTRAR</a>
+						<a href="index.php" class="item">PÁGINA INICIAL</a>
+						<a href="#myBtn" class="item" id="myBtn">EDITAR INFORMAÇÕES</a>
+						<a href="cad_candidato.php" class="item">CADASTRAR CANDIDATO</a>
+						<a href="sair.php" class="item">SAIR</a>
 					</menu>
 					<div id="logo">
-						<a href="index.html" > <img src="image/logotipo.png" class="logo"> </a>
+						<a href="index.php" > <img src="image/logotipo.png" class="logo"> </a>
 					</div>
 					<div id="ad">
-						<h1 id="titulo">Bem-vindos à Wikilítica</h1>
+						<h1 id="titulo">Bem-vindo(a) <?php echo $nome[0] ?> </h1>
 					</div>
 					<nav id="barra1">
-						<a href="index.html" class="item3"> <img src="image/home.png" class="home"> </a>
+						<a href="" class="item3"> <img src="image/home.png" class="home"> </a>
 						<a href="candidatos.html" class="item2">CANDIDATOS</a>
 						<a href="partidos.html" class="item2">PARTIDOS</a>
 						<a href="cidadestado.html" class="item2">CIDADES/ESTADOS</a>
-						<a href="sobre.html" class="item2">SOBRE</a>	
+						<a href="sobre.html" class="item2">SOBRE</a>
 						<form name="" method="" action="">							
 							<input type="search" name="search" placeholder="Pesquisar na Wiki" title="Pesquisar" id="pesqInput" tabindex="1" autocomplete="off">
 							<input type="image" src="image/lupa.png" width="42px" height="46px" class="item4" onClick="this.form.submit()">
@@ -35,49 +47,30 @@
 				<section id="meio">
 					<section id="esquerda">
 						<nav id="barra2">
-							 <h3 class="recent" > CANDIDATOS </h3>
+							 <h3 class="recent" > DESTAQUES </h3>
 						</nav>
 						<nav id="barra3"> </nav>
-						<div id="artigo1">
-							<h3>TOTAL DE CANDIDATOS 5</h3><br>
-							<table class="tabela">
-								<tr>
-									<th> Candidatos </th>
-									<th> Partido </th>
-									<th> Cidade </th>
-								</tr>
-								
-								<tr>
-									<td> <a href="candidato.html"> Ronaldo Lessa </a> </td>
-									<td> PDT </td>
-									<td> Maceió-AL </td>
-								</tr>
-								
-								<tr>
-									<td> <a href="">  Paulo Fernando </a> </td>
-									<td> PT </td>
-									<td> Recife-PE </td>
-								</tr>
-								
-								<tr>
-									<td> <a href="">  Cícero Almeida </a> </td>
-									<td> PODE </td>
-									<td> Maceió-AL </td>
-								</tr>
-								
-								<tr>
-									<td> <a href="">  Renan Filho </a> </td>
-									<td> PMDB </td>
-									<td> Maceió-AL </td>
-								</tr>
-								
-								<tr>
-									<td> <a href="">  João Henrique Caldas </a> </td>
-									<td> PSB </td>
-									<td> Maceió-AL </td>
-								</tr>
-							</table>
-						</div>
+						<article id="artigo1">
+							<a href="" > <img src="image/post1.jpg" width="290px" height="170px" class="img1" > </a>
+							<a href="candidato.html" class="link1"> RONALDO LESSA </a>
+							<h5 class="texto1"> Atualmente Deputado Federal , Partido Democrático Trabalhista <a href=""> (PDT) </a> , Foi um dos envolvidos no escândalo conhecido como Operação Navalha. <a href=""> MACEIÓ-AL </a> </h5>
+							
+							<a href="" > <img src="image/post2.png" width="290px" height="170px" class="img1" > </a>
+							<a href="" class="link1"> PAULO FERNANDO </a>
+							<h5 class="texto1"> é um sindicalista e político brasileiro, atualmente Deputado Federal pelo Estado de Alagoas, filiado ao <a href=""> (PT) </a>. É um dos condenados na chamada Operação Taturana. <a href=""> RECIFE-PE </a> </h5>
+							
+							<a href="" > <img src="image/post3.png" width="290px" height="170px" class="img1" > </a>
+							<a href="" class="link1"> CÍCERO ALMEIDA </a>
+							<h5 class="texto1"> Foi prefeito de Maceió, atualmente Deputado Federal pelo Estado de Alagoas, eleito em 2014 pelo <a href=""> (PRTB) </a> mas hoje filiado ao Podemos <a href=""> (PODE) </a>. É um dos condenados no chamado Escândalo das Taturanas. é réu no Supremo Tribunal Federal por envolvimento na Máfia do Lixo de Maceió. <a href=""> MACEIÓ-AL </a> </h5>
+							
+							<a href="" > <img src="image/post4.jpg" width="290px" height="170px" class="img1" > </a>
+							<a href="" class="link1"> RENAN FILHO </a>
+							<h5 class="texto1"> Filiado ao <a href=""> (PMDB) </a>, é o atual Governador do Estado de Alagoas. É filho de Renan Calheiros, ex-presidente do Senado Federal. <a href=""> MACEIÓ-AL </a> </h5>
+							
+							<a href="" > <img src="image/post5.jpg" width="290px" height="170px" class="img1" > </a>
+							<a href="" class="link1"> JOÃO HENRIQUE CALDAS </a>
+							<h5 class="texto1"> Também conhecido como JHC , filiado ao Partido Socialista Brasileiro <a href=""> (PSB) </a>. Foi o candidato a deputado federal mais votado em seu estado nas eleições de 2014 e hoje exerce a função de Terceiro-Secretário da Mesa da Câmara dos Deputados do Brasil. <a href=""> MACEIÓ-AL </a> </h5>
+						</article>
 					</section>
 					<!-- *************************************************************************************************************************** -->
 					<section id="direita">
@@ -120,7 +113,7 @@
 						</div>
 						<div id="minibar2"> <h5 class="recent5"> PÁGINAS </h5> </div>
 						<div id="finish">
-							<a href="index.html" class="fim1"> Página Inicial </a>
+							<a href="index.php" class="fim1"> Página Inicial </a>
 							<a href="candidatos.html" class="fim2"> Candidatos </a>
 							<a href="partidos.html" class="fim3"> Partidos </a>
 						</div>
@@ -154,37 +147,39 @@
 
   <!-- Conteúdo do Modal-->
   <div class="modal-content">
+    <!-- <span class="close">&times;</span> -->
     <div class="form">
 	  <h1> Cadastro de Usuário </h1>
-	  <form action="" method="">
+	  <form action="cad_user.php" method="post">
 		<label for="fname">E-mail:</label>
-		<input class="cad_user" type="email" id="user_mail" name="email" placeholder="Preencha com seu e-mail">
+		<input class="cad_user" type="email" id="user_mail" name="email_user" placeholder="Preencha com seu e-mail">
 		
 		<label for="fname">Senha:</label>
-		<input class="cad_user" type="password" id="user_pass" name="pass" placeholder="Preencha com sua senha">
+		<input class="cad_user" type="password" id="user_pass" name="pass_user" placeholder="Preencha com sua senha">
 		
 		<label for="fname">CPF:</label>
-		<input class="cad_user" type="text" id="user_cpf" name="cpf" placeholder="Preencha com o seu CPF">
+		<input class="cad_user" type="text" id="user_cpf" name="cpf_user" placeholder="Preencha com o seu CPF">
 	  
 		<label for="fname">Nome:</label>
-		<input class="cad_user" type="text" id="user_name" name="firstname" placeholder="Preencha com o seu nome completo">
+		<input class="cad_user" type="text" id="user_name" name="name_user" placeholder="Preencha com o seu nome completo">
 
 		<label for="fname">Data de Nascimento:</label>
-		<input class="cad_user" type="date" id="user_birth" name="birth" placeholder="Preencha com sua cidade">
+		<input class="cad_user" type="date" id="user_birth" name="birth_user" placeholder="Preencha com sua cidade">
 		
 		<label for="fname">Endereço:</label>
-		<input class="cad_user" type="text" id="user_address" name="address" placeholder="Preencha com seu endereço">
+		<input class="cad_user" type="text" id="user_address" name="add_user" placeholder="Preencha com seu endereço">
 		
 		<label for="fname">Estado:</label>
-		<input class="cad_user" type="text" id="user_estate" name="estate" placeholder="Preencha com o seu estado">
+		<input class="cad_user" type="text" id="user_estate" name="state_user" placeholder="Preencha com o seu estado">
 		
 		<label for="fname">Cidade:</label>
-		<input class="cad_user" type="text" id="user_city" name="city" placeholder="Preencha com sua cidade">
+		<input class="cad_user" type="text" id="user_city" name="city_user" placeholder="Preencha com sua cidade">
 		
 		<label for="sex">Sexo:</label>
-		<select class="cad_user" id="sex" name="sex">
-		  <option value="ma">Masculino</option>
-		  <option value="fe">Feminino</option>
+		<select class="cad_user" id="sex" name="sex_user">
+		  <option>Selecione</option>
+		  <option value="1">Masculino</option>
+		  <option value="2">Feminino</option>
 		</select>
 		
 		<center>
@@ -203,12 +198,12 @@
     <!-- <span class="close">&times;</span> -->
     <div class="form">
 	  <h1> Logar </h1>
-	  <form action="organizadorlogado.html" method="">
+	  <form action="logar.php" method="post">	  
 		<label for="fname">E-mail:</label>
-		<input class="cad_user" type="email" id="user_mail" name="email" placeholder="Preencha com seu e-mail">
+		<input class="cad_user" type="email" id="user_mail" name="email_user" placeholder="Preencha com seu e-mail">
 		
 		<label for="fname">Senha:</label>
-		<input class="cad_user" type="password" id="user_pass" name="pass" placeholder="Preencha com sua senha">	
+		<input class="cad_user" type="password" id="user_pass" name="pass_user" placeholder="Preencha com sua senha">	
 		<center>
 		<input id="bt" type="submit" value="Logar">
 		</center>
@@ -220,28 +215,19 @@
 <script>
 	// Cria o modal Cadastro
 	var modal = document.getElementById('myModal');
-	// Cria o modal Login
-	var modal2 = document.getElementById('myModal2');
 
 	// Botão que chama a abertura do modal Cadastro
 	var btn = document.getElementById("myBtn");
-	// Botão que chama a abertura do modal Login
-	var btn2 = document.getElementById("myBtn2");
 
 	// Quando o usuário clicar no botão, abra o modal cadastro
 	btn.onclick = function() {
 		modal.style.display = "block";
 	}
-	// Quando o usuário clicar no botão, abra o modal login
-	btn2.onclick = function() {
-		modal2.style.display = "block";
-	}
 	
 	// Fechar quando o usuário clicar fora do modal 
 	window.onclick = function(event) {
-		if (event.target == modal || event.target == modal2) {
+		if (event.target == modal) {
 			modal.style.display = "none";
-			modal2.style.display = "none";
 		}
 	}
 </script>
