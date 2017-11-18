@@ -25,7 +25,7 @@
 						<a href="index.php" class="item">PÁGINA INICIAL</a>
 						<a href="#myBtn" class="item" id="myBtn">EDITAR INFORMAÇÕES</a>									
 						<a href="cad_partido.php" class="item">GERENCIAR PARTIDO</a>
-						<a href="cad_estado.html" class="item">GERENCIAR ESTADO</a>
+						<a href="cad_estado.php" class="item">GERENCIAR ESTADO</a>
 						<a href="index.php" class="item">SAIR</a>
 					</menu>
 					<div id="logo">
@@ -65,10 +65,18 @@
 								<label for="fname">Candidatos:</label>
 								<input class="cad_user" type="text" id="cand_perf" name="part_cand">		
 								
-								<label for="sex">Cidade:</label> <!-- pega do banco de cidades cadastradas-->
+								<label for="sex">Cidade:</label>
 								<select class="cad_user" id="city" name="part_city">
-								  <option value="maceio">maceio</option>
-								  <option value="recife">recife</option>
+									<option> Selecione a cidade: </option>
+									<?php //Pegando as cidades do banco
+										$sel_city = "SELECT * FROM cidade ORDER BY city_name";
+										$sql2 = mysqli_query($connection, $sel_city);
+										
+										while($line_city = mysqli_fetch_array($sql2)){
+											$city_name = $line_city['city_name'];
+											echo "<option value='$city_name'>$city_name</option>";
+										}
+									  ?>
 								</select>	
 								
 								<center>

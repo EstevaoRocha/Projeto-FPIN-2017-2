@@ -24,7 +24,7 @@
 						<a href="index.php" class="item">PÁGINA INICIAL</a>
 						<a href="#myBtn" class="item" id="myBtn">EDITAR INFORMAÇÕES</a>									
 						<a href="cad_partido.php" class="item">GERENCIAR PARTIDO</a>
-						<a href="cad_estado.html" class="item">GERENCIAR ESTADO</a>
+						<a href="cad_estado.php" class="item">GERENCIAR ESTADO</a>
 						<a href="index.php" class="item">SAIR</a>
 					</menu>
 					<div id="logo">
