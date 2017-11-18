@@ -1,9 +1,20 @@
+<?php
+	session_start();
+	include ('conf.php');
+	if($_SESSION['logado']!="ok"){
+		header("Location:index.php");// caso a sessão não seja autorizada será redirecionado para index.php
+	}	
+	
+	$usuario_logado = $_SESSION['name_user']; // pega o nome do usuário logado através da sessão
+	$nome = explode(" ", $usuario_logado); // pega somente o primeiro nome do usuário
+?>
+
 <html>
 	<head>
-		<title> Wikilítica - Partidos </title>
+		<title> Wikilítica - Estados </title>
 		<meta charset="UTF-8">
-		<link rel="stylesheet" type="text/css" href="css/styleCandidatos.css">
 		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<link rel="stylesheet" type="text/css" href="css/styleCadEstado.css">
 		<link rel="shortcut icon" href="image/favicon.ico">		
 	</head>
 	<body>
@@ -12,25 +23,23 @@
 				<header>				
 					<menu>
 						<a href="index.php" class="item">PÁGINA INICIAL</a>
-						<a href="#myBtn" class="item" id="myBtn">CRIAR CONTA</a>
-						<a href="#myBtn2" class="item" id="myBtn2">ENTRAR</a>
+						<a href="#myBtn" class="item" id="myBtn">EDITAR INFORMAÇÕES</a>									
+						<a href="cad_partido.php" class="item">GERENCIAR PARTIDO</a>
+						<a href="cad_estado.html" class="item">GERENCIAR ESTADO</a>
+						<a href="index.php" class="item">SAIR</a>
 					</menu>
 					<div id="logo">
 						<a href="index.php" > <img src="image/logotipo.png" class="logo"> </a>
 					</div>
 					<div id="ad">
-						<h1 id="titulo">Bem-vindos à Wikilítica</h1>
+						<h1 id="titulo">Bem-vindo(a) <?php echo $nome[0] ?> </h1>
 					</div>
 					<nav id="barra1">
 						<a href="index.php" class="item3"> <img src="image/home.png" class="home"> </a>
-						<a href="candidatos.html" class="item2">CANDIDATOS</a>
-						<a href="partidos.html" class="item2">PARTIDOS</a>
+						<a href="candidatos.php" class="item2">CANDIDATOS</a>
+						<a href="partidos.php" class="item2">PARTIDOS</a>
 						<a href="cidadestado.html" class="item2">CIDADES/ESTADOS</a>
 						<a href="sobre.html" class="item2">SOBRE</a>
-						<a href="" class="item2"></a>
-						<a href="" class="item2"></a>
-						<a href="" class="item2"></a>
-						<a href="" class="item2"></a>	
 						<form name="" method="" action="">							
 							<input type="search" name="search" placeholder="Pesquisar na Wiki" title="Pesquisar" id="pesqInput" tabindex="1" autocomplete="off">
 							<input type="image" src="image/lupa.png" width="42px" height="46px" class="item4" onClick="this.form.submit()">
@@ -40,54 +49,56 @@
 				<section id="meio">
 					<section id="esquerda">
 						<nav id="barra2">
-							 <h3 class="recent" > PARTIDOS </h3>
+							 <h3 class="recent" > Cadastro Cidade</h3>
 						</nav>
 						<nav id="barra3"> </nav>
 						<div id="artigo1">
-							<h3>TOTAL DE PARTIDOS 5</h3><br>
-							<table class="tabela">
-								<tr>
-									<th> Partido </th>
-									<th> Sigla </th>
-									<th> Candidatos </th>
-									<th> Cidade </th>
-								</tr>
+							<div class="form2">
+							  <h1> Cadastrar Cidade </h1>
+							  <form action="submit_city.php" method="post">
+								<label for="sex">Estado:</label>
+								<select class="cad_user" id="" name="city_state">
+									<option value="">Selecione o Estado</option>
+									<option value="AC">Acre</option>
+									<option value="AL">Alagoas</option>
+									<option value="AP">Amapá</option>
+									<option value="AM">Amazonas</option>
+									<option value="BA">Bahia</option>
+									<option value="CE">Ceará</option>
+									<option value="DF">Distrito Federal</option>
+									<option value="ES">Espírito Santo</option>
+									<option value="GO">Goiás</option>
+									<option value="MA">Maranhão</option>
+									<option value="MT">Mato Grosso</option>
+									<option value="MS">Mato Grosso do Sul</option>
+									<option value="MG">Minas Gerais</option>
+									<option value="PA">Pará</option>
+									<option value="PB">Paraíba</option>
+									<option value="PR">Paraná</option>
+									<option value="PE">Pernambuco</option>
+									<option value="PI">Piauí</option>
+									<option value="RJ">Rio de Janeiro</option>
+									<option value="RN">Rio Grande do Norte</option>
+									<option value="RS">Rio Grande do Sul</option>
+									<option value="RO">Rondônia</option>
+									<option value="RR">Roraima</option>
+									<option value="SC">Santa Catarina</option>
+									<option value="SP">São Paulo</option>
+									<option value="SE">Sergipe</option>
+									<option value="TO">Tocantins</option>
+								</select>
 								
-								<tr>
-									<td> <a href="partido.html"> Partido Democrático Trabalhista </a> </td>
-									<td> PDT </td>
-									<td> Ronaldo Lessa</td>
-									<td> Maceió-AL </td>
-								</tr>
+								<label for="fname">Cidade:</label>
+								<input class="cad_user" type="text" id="cand_perf" name="city_name">		
 								
-								<tr>
-									<td> <a href="">  Partido dos Trabalhadores </a> </td>
-									<td> PT </td>
-									<td> Paulo Fernando </td>
-									<td> Recife-PE </td>
-								</tr>
+								<label for="fname">População da Cidade:</label>
+								<input class="cad_user" type="text" id="cand_perf" name="city_popu">
 								
-								<tr>
-									<td> <a href="">  Podemos </a> </td>
-									<td> PODE </td>
-									<td> Cícero Almeida </td>
-									<td> Maceió-AL </td>								
-								</tr>
-								
-								<tr>
-									<td> <a href="">  Partido do Movimento Democrático Brasileiro </a> </td>
-									<td> PMDB </td>
-									<td> Renan Filho </td>
-									<td> Maceió-AL </td>
-								</tr>
-								
-								<tr>
-									<td> <a href="">  Partido Socialista Brasileiro </a> </td>
-									<td> PSB </td>
-									<td> João Henrique Caldas </td>
-									<td> Maceió-AL </td>
-								</tr>
-							</table>
+								<center>
+								<input id="bt" type="submit" value="Cadastrar">
+								</center>
+							  </form>
+							</div>
 						</div>
 					</section>
 					<!-- *************************************************************************************************************************** -->
@@ -132,8 +143,8 @@
 						<div id="minibar2"> <h5 class="recent5"> PÁGINAS </h5> </div>
 						<div id="finish">
 							<a href="index.php" class="fim1"> Página Inicial </a>
-							<a href="candidatos.html" class="fim2"> Candidatos </a>
-							<a href="partidos.html" class="fim3"> Partidos </a>
+							<a href="candidatos.php" class="fim2"> Candidatos </a>
+							<a href="partidos.php" class="fim3"> Partidos </a>
 						</div>
 					</section>
 				</section>
@@ -167,22 +178,25 @@
   <div class="modal-content">
     <!-- <span class="close">&times;</span> -->
     <div class="form">
-	  <h1> Cadastro de Usuário </h1>
+	  <h1> Editar Meu Usuário </h1>
 	  <form action="" method="">
 		<label for="fname">E-mail:</label>
-		<input class="cad_user" type="email" id="user_mail" name="email" placeholder="Preencha com seu e-mail">
+		<input class="cad_user" type="email" id="user_mail" name="email" placeholder="emailexample@outlook.com.br">
 		
 		<label for="fname">Senha:</label>
-		<input class="cad_user" type="password" id="user_pass" name="pass" placeholder="Preencha com sua senha">
+		<input class="cad_user" type="password" id="user_pass" name="pass" placeholder="Redigite sua Senha para não alterar">
+		
+		<label for="fname">Antiga Senha:</label>
+		<input class="cad_user" type="password" id="user_pass" name="pass" placeholder="Confirme a Senha">
 		
 		<label for="fname">CPF:</label>
-		<input class="cad_user" type="text" id="user_cpf" name="cpf" placeholder="Preencha com o seu CPF">
+		<input class="cad_user" type="text" id="user_cpf" name="cpf" placeholder="999.999.999-99">
 	  
 		<label for="fname">Nome:</label>
-		<input class="cad_user" type="text" id="user_name" name="firstname" placeholder="Preencha com o seu nome completo">
+		<input class="cad_user" type="text" id="user_name" name="firstname" placeholder="Estevao Gabriel Santos Rocha">
 
 		<label for="fname">Data de Nascimento:</label>
-		<input class="cad_user" type="date" id="user_birth" name="birth" placeholder="Preencha com sua cidade">
+		<input class="cad_user" type="date" id="user_birth" name="birth">
 		
 		<label for="fname">Endereço:</label>
 		<input class="cad_user" type="text" id="user_address" name="address" placeholder="Preencha com seu endereço">
@@ -200,7 +214,7 @@
 		</select>
 		
 		<center>
-		<input id="bt" type="submit" value="Cadastrar">
+		<input id="bt" type="submit" value="Confirmar">
 		<input id="bt" type="reset" value="Limpar Campos">
 		</center>
 	  </form>
@@ -209,22 +223,29 @@
 
 </div>
 
-<div id="myModal2" class="modal">
+<div id="myModal3" class="modal">
   <!-- Conteúdo do Modal-->
   <div class="modal-content">
     <!-- <span class="close">&times;</span> -->
     <div class="form">
-	  <h1> Logar </h1>
-	  <form action="usuariologado.html" method="">
-		<label for="fname">E-mail:</label>
-		<input class="cad_user" type="email" id="user_mail" name="email" placeholder="Preencha com seu e-mail">
-		
-		<label for="fname">Senha:</label>
-		<input class="cad_user" type="password" id="user_pass" name="pass" placeholder="Preencha com sua senha">	
+	 <h1> Editar Estado </h1>
+	 <form action="" method="">
+		<label for="fname">Estado:</label>
+		<input class="cad_user" type="text" id="cand_perf" name="perf">
+								
+		<label for="fname">Sigla do Estado:</label>
+		<input class="cad_user" type="text" id="cand_perf" name="perf">
+								
+		<label for="fname">Cidades:</label>
+		<input class="cad_user" type="text" id="cand_perf" name="perf">		
+								
+		<label for="fname">Candidatos em Destaque:</label>
+		<input class="cad_user" type="text" id="cand_perf" name="perf">
+								
 		<center>
-		<input id="bt" type="submit" value="Logar">
+		<input id="bt" type="submit" value="Cadastrar">
 		</center>
-	  </form>
+	</form>
 	</div>
   </div>
 </div>
@@ -232,38 +253,19 @@
 <script>
 	// Cria o modal Cadastro
 	var modal = document.getElementById('myModal');
-	// Cria o modal Login
-	var modal2 = document.getElementById('myModal2');
-	// Cria o modal Editar
-	var modal3 = document.getElementById('myModal3');
 
 	// Botão que chama a abertura do modal Cadastro
 	var btn = document.getElementById("myBtn");
-	// Botão que chama a abertura do modal Login
-	var btn2 = document.getElementById("myBtn2");
-		// Botão que chama a abertura do modal Editar
-	var btn3 = document.getElementById("myBtn3");
 
 	// Quando o usuário clicar no botão, abra o modal cadastro
 	btn.onclick = function() {
 		modal.style.display = "block";
 	}
-	// Quando o usuário clicar no botão, abra o modal login
-	btn2.onclick = function() {
-		modal2.style.display = "block";
-	}
-	// Quando o usuário clicar no botão, abra o modal editar
-	btn3.onclick = function() {
-		modal3.style.display = "block";
-	}
-	
 	
 	// Fechar quando o usuário clicar fora do modal 
 	window.onclick = function(event) {
-		if (event.target == modal || event.target == modal2 || event.target == modal3) {
+		if (event.target == modal) {
 			modal.style.display = "none";
-			modal2.style.display = "none";
-			modal3.style.display = "none";
 		}
 	}
 </script>

@@ -1,6 +1,6 @@
 <html>
 	<head>
-		<title> Wikilítica - Estados </title>
+		<title> Wikilítica - Partidos </title>
 		<meta charset="UTF-8">
 		<link rel="stylesheet" type="text/css" href="css/styleCandidatos.css">
 		<link rel="stylesheet" type="text/css" href="css/style.css">
@@ -23,10 +23,14 @@
 					</div>
 					<nav id="barra1">
 						<a href="index.php" class="item3"> <img src="image/home.png" class="home"> </a>
-						<a href="candidatos.html" class="item2">CANDIDATOS</a>
-						<a href="partidos.html" class="item2">PARTIDOS</a>
+						<a href="candidatos.php" class="item2">CANDIDATOS</a>
+						<a href="partidos.php" class="item2">PARTIDOS</a>
 						<a href="cidadestado.html" class="item2">CIDADES/ESTADOS</a>
 						<a href="sobre.html" class="item2">SOBRE</a>
+						<a href="" class="item2"></a>
+						<a href="" class="item2"></a>
+						<a href="" class="item2"></a>
+						<a href="" class="item2"></a>	
 						<form name="" method="" action="">							
 							<input type="search" name="search" placeholder="Pesquisar na Wiki" title="Pesquisar" id="pesqInput" tabindex="1" autocomplete="off">
 							<input type="image" src="image/lupa.png" width="42px" height="46px" class="item4" onClick="this.form.submit()">
@@ -36,41 +40,53 @@
 				<section id="meio">
 					<section id="esquerda">
 						<nav id="barra2">
-							 <h3 class="recent" > ESTADOS </h3>
+							 <h3 class="recent" > PARTIDOS </h3>
 						</nav>
 						<nav id="barra3"> </nav>
 						<div id="artigo1">
-							<h3>TOTAL DE ESTADOS 2</h3><br>
+							<h3>TOTAL DE PARTIDOS 5</h3><br>
 							<table class="tabela">
 								<tr>
-									<th> Estado </th>
+									<th> Partido </th>
 									<th> Sigla </th>
-									<th> Cidades </th>
-									<th> Candidatos em Destaque </th>
+									<th> Candidatos </th>
+									<th> Cidade </th>
 								</tr>
 								
 								<tr>
-									<td> Alagoas </td>
-									<td> AL </td>
-									<td> Maceió </td>
-									<td> Ronaldo Lessa, Cícero Almeida, Renan Filho</td>
+									<td> <a href="partido.html"> Partido Democrático Trabalhista </a> </td>
+									<td> PDT </td>
+									<td> Ronaldo Lessa</td>
+									<td> Maceió-AL </td>
 								</tr>
 								
 								<tr>
-									<td> Alagoas </td>
-									<td> AL </td>
-									<td> Atalaia </td>
-									<td> João Caldas </td>
-								</tr>
-								
-								<tr>
-									<td> Pernambuco </td>
-									<td> PE </td>
-									<td> Recife </td>
+									<td> <a href="">  Partido dos Trabalhadores </a> </td>
+									<td> PT </td>
 									<td> Paulo Fernando </td>
+									<td> Recife-PE </td>
 								</tr>
-									
-
+								
+								<tr>
+									<td> <a href="">  Podemos </a> </td>
+									<td> PODE </td>
+									<td> Cícero Almeida </td>
+									<td> Maceió-AL </td>								
+								</tr>
+								
+								<tr>
+									<td> <a href="">  Partido do Movimento Democrático Brasileiro </a> </td>
+									<td> PMDB </td>
+									<td> Renan Filho </td>
+									<td> Maceió-AL </td>
+								</tr>
+								
+								<tr>
+									<td> <a href="">  Partido Socialista Brasileiro </a> </td>
+									<td> PSB </td>
+									<td> João Henrique Caldas </td>
+									<td> Maceió-AL </td>
+								</tr>
 							</table>
 						</div>
 					</section>
@@ -116,8 +132,8 @@
 						<div id="minibar2"> <h5 class="recent5"> PÁGINAS </h5> </div>
 						<div id="finish">
 							<a href="index.php" class="fim1"> Página Inicial </a>
-							<a href="candidatos.html" class="fim2"> Candidatos </a>
-							<a href="partidos.html" class="fim3"> Partidos </a>
+							<a href="candidatos.php" class="fim2"> Candidatos </a>
+							<a href="partidos.php" class="fim3"> Partidos </a>
 						</div>
 					</section>
 				</section>
@@ -218,11 +234,15 @@
 	var modal = document.getElementById('myModal');
 	// Cria o modal Login
 	var modal2 = document.getElementById('myModal2');
+	// Cria o modal Editar
+	var modal3 = document.getElementById('myModal3');
 
 	// Botão que chama a abertura do modal Cadastro
 	var btn = document.getElementById("myBtn");
 	// Botão que chama a abertura do modal Login
 	var btn2 = document.getElementById("myBtn2");
+		// Botão que chama a abertura do modal Editar
+	var btn3 = document.getElementById("myBtn3");
 
 	// Quando o usuário clicar no botão, abra o modal cadastro
 	btn.onclick = function() {
@@ -232,12 +252,18 @@
 	btn2.onclick = function() {
 		modal2.style.display = "block";
 	}
+	// Quando o usuário clicar no botão, abra o modal editar
+	btn3.onclick = function() {
+		modal3.style.display = "block";
+	}
+	
 	
 	// Fechar quando o usuário clicar fora do modal 
 	window.onclick = function(event) {
-		if (event.target == modal || event.target == modal2) {
+		if (event.target == modal || event.target == modal2 || event.target == modal3) {
 			modal.style.display = "none";
 			modal2.style.display = "none";
+			modal3.style.display = "none";
 		}
 	}
 </script>

@@ -25,7 +25,7 @@
 						<a href="index.php" class="item">PÁGINA INICIAL</a>
 						<a href="#myBtn" class="item" id="myBtn">EDITAR INFORMAÇÕES</a>		
 						<a href="cad_candidato.php" class="item">CADASTRAR CANDIDATO</a>
-						<!--<a href="cad_partido.html" class="item">GERENCIAR PARTIDO</a>
+						<!--<a href="cad_partido.php" class="item">GERENCIAR PARTIDO</a>
 						<a href="cad_estado.html" class="item">GERENCIAR ESTADO</a>-->
 						<a href="index.php" class="item">SAIR</a>
 					</menu>
@@ -33,11 +33,11 @@
 						<a href="index.php" > <img src="image/logotipo.png" class="logo"> </a>
 					</div>
 					<div id="ad">
-						<h1 id="titulo">Bem-vindo(a) <?php echo $nome[0] ?> </h1>
+						<h1 id="titulo">Bempartidos.phpvindo(a) <?php echo $nome[0] ?> </h1>
 					</div>
 					<nav id="barra1">
 						<a href="index.php" class="item3"> <img src="image/home.png" class="home"> </a>
-						<a href="candidatos.html" class="item2">CANDIDATOS</a>
+						<a href="candidatos.php" class="item2">CANDIDATOS</a>
 						<a href="partidos.html" class="item2">PARTIDOS</a>
 						<a href="cidadestado.html" class="item2">CIDADES/ESTADOS</a>
 						<a href="sobre.html" class="item2">SOBRE</a>
@@ -154,7 +154,7 @@
 						<div id="minibar2"> <h5 class="recent5"> PÁGINAS </h5> </div>
 						<div id="finish">
 							<a href="index.php" class="fim1"> Página Inicial </a>
-							<a href="candidatos.html" class="fim2"> Candidatos </a>
+							<a href="candidatos.php" class="fim2"> Candidatos </a>
 							<a href="partidos.html" class="fim3"> Partidos </a>
 						</div>
 					</section>

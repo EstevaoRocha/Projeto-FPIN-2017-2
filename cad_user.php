@@ -25,7 +25,7 @@
 		}
 		
 		if($db_email == $email_user){
-			echo "<script type='text/javascript'> alert( 'E-mail Já Cadastrado', window.location='index.php'); </script>";
+			echo "<script type='text/javascript'> alert( 'Epartidos.phpmail Já Cadastrado', window.location='index.php'); </script>";
 		}else{
 			
 	// cpf

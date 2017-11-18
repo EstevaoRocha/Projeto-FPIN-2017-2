@@ -15,6 +15,8 @@ https://www.apachefriends.org/pt_br/download.html
 
 4-Após instalado devemos abrir o explorer e por a pasta do projeto em "C:\xampp\htdocs\"
 
-5-Feito isso deve-se inicializar o Xampp control panel e iniciar o serviço apache no botao "start".
+5-Feito isso deve-se inicializar o Xampp control panel e iniciar o serviço apache e o MYSQL no botao "start".
 
-6-Através do seu navegador digite "localhost/nome_do_projeto".
+6-Através do seu navegador digite "localhost/phpmyadmin e no botao importar selecione o arquivo wikilitica.sql"
+
+7-Através do seu navegador digite "localhost/nome_do_projeto".

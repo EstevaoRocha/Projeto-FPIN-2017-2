@@ -34,8 +34,8 @@
 					</div>
 					<nav id="barra1">
 						<a href="" class="item3"> <img src="image/home.png" class="home"> </a>
-						<a href="candidatos.html" class="item2">CANDIDATOS</a>
-						<a href="partidos.html" class="item2">PARTIDOS</a>
+						<a href="candidatos.php" class="item2">CANDIDATOS</a>
+						<a href="partidos.php" class="item2">PARTIDOS</a>
 						<a href="cidadestado.html" class="item2">CIDADES/ESTADOS</a>
 						<a href="sobre.html" class="item2">SOBRE</a>
 						<form name="" method="" action="">							
@@ -114,8 +114,8 @@
 						<div id="minibar2"> <h5 class="recent5"> PÁGINAS </h5> </div>
 						<div id="finish">
 							<a href="index.php" class="fim1"> Página Inicial </a>
-							<a href="candidatos.html" class="fim2"> Candidatos </a>
-							<a href="partidos.html" class="fim3"> Partidos </a>
+							<a href="candidatos.php" class="fim2"> Candidatos </a>
+							<a href="partidos.php" class="fim3"> Partidos </a>
 						</div>
 					</section>
 				</section>

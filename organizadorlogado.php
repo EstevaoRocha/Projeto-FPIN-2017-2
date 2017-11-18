@@ -1,10 +1,20 @@
+<?php
+	session_start();
+	include ('conf.php');
+	if($_SESSION['logado']!="ok"){
+		header("Location:index.php");// caso a sessão não seja autorizada será redirecionado para index.php
+	}	
+	
+	$usuario_logado = $_SESSION['name_user']; // pega o nome do usuário logado através da sessão
+	$nome = explode(" ", $usuario_logado); // pega somente o primeiro nome do usuário
+?>
+
 <html>
 	<head>
-		<title> Wikilítica - Partidos </title>
+		<title> Wikilítica </title>
 		<meta charset="UTF-8">
 		<link rel="stylesheet" type="text/css" href="css/style.css">
-		<link rel="stylesheet" type="text/css" href="css/styleCadPartido.css">
-		<link rel="shortcut icon" href="image/favicon.ico">
+		<link rel="shortcut icon" href="image/favicon.ico">		
 	</head>
 	<body>
 		<section id="tudo">
@@ -13,7 +23,7 @@
 					<menu>
 						<a href="index.php" class="item">PÁGINA INICIAL</a>
 						<a href="#myBtn" class="item" id="myBtn">EDITAR INFORMAÇÕES</a>									
-						<a href="cad_partido.html" class="item">GERENCIAR PARTIDO</a>
+						<a href="cad_partido.php" class="item">GERENCIAR PARTIDO</a>
 						<a href="cad_estado.html" class="item">GERENCIAR ESTADO</a>
 						<a href="index.php" class="item">SAIR</a>
 					</menu>
@@ -21,12 +31,12 @@
 						<a href="index.php" > <img src="image/logotipo.png" class="logo"> </a>
 					</div>
 					<div id="ad">
-						<h1 id="titulo">Bem-vindos à Wikilítica</h1>
+						<h1 id="titulo">Bem-vindo(a) <?php echo $nome[0] ?> </h1>
 					</div>
 					<nav id="barra1">
-						<a href="index.php" class="item3"> <img src="image/home.png" class="home"> </a>
-						<a href="candidatos.html" class="item2">CANDIDATOS</a>
-						<a href="partidos.html" class="item2">PARTIDOS</a>
+						<a href="" class="item3"> <img src="image/home.png" class="home"> </a>
+						<a href="candidatos.php" class="item2">CANDIDATOS</a>
+						<a href="partidos.php" class="item2">PARTIDOS</a>
 						<a href="cidadestado.html" class="item2">CIDADES/ESTADOS</a>
 						<a href="sobre.html" class="item2">SOBRE</a>
 						<form name="" method="" action="">							
@@ -38,34 +48,30 @@
 				<section id="meio">
 					<section id="esquerda">
 						<nav id="barra2">
-							 <h3 class="recent" > Cadastro Partido </h3>
+							 <h3 class="recent" > DESTAQUES </h3>
 						</nav>
 						<nav id="barra3"> </nav>
-						<div id="artigo1">
-							<div class="form2">
-							  <h1> Cadastrar Partido </h1>
-							  <form action="" method="">
-								<label for="fname">Nome:</label>
-								<input class="cad_user" type="text" id="cand_perf" name="perf">
-								
-								<label for="fname">Sigla:</label>
-								<input class="cad_user" type="text" id="cand_perf" name="perf">
-								
-								<label for="fname">Candidatos:</label>
-								<input class="cad_user" type="text" id="cand_perf" name="perf">		
-								
-								<label for="sex">Cidade:</label> <!-- pega do banco de cidades cadastradas-->
-								<select class="cad_user" id="city" name="city">
-								  <option value="ma">Maceió-AL</option>
-								  <option value="fe">Recife-PE</option>
-								</select>	
-								
-								<center>
-								<input id="bt" type="submit" value="Cadastrar">
-								</center>
-							  </form>
-							</div>
-						</div>
+						<article id="artigo1">
+							<a href="" > <img src="image/post1.jpg" width="290px" height="170px" class="img1" > </a>
+							<a href="candidato.html" class="link1"> RONALDO LESSA </a>
+							<h5 class="texto1"> Atualmente Deputado Federal , Partido Democrático Trabalhista <a href=""> (PDT) </a> , Foi um dos envolvidos no escândalo conhecido como Operação Navalha. <a href=""> MACEIÓ-AL </a> </h5>
+							
+							<a href="" > <img src="image/post2.png" width="290px" height="170px" class="img1" > </a>
+							<a href="" class="link1"> PAULO FERNANDO </a>
+							<h5 class="texto1"> é um sindicalista e político brasileiro, atualmente Deputado Federal pelo Estado de Alagoas, filiado ao <a href=""> (PT) </a>. É um dos condenados na chamada Operação Taturana. <a href=""> RECIFE-PE </a> </h5>
+							
+							<a href="" > <img src="image/post3.png" width="290px" height="170px" class="img1" > </a>
+							<a href="" class="link1"> CÍCERO ALMEIDA </a>
+							<h5 class="texto1"> Foi prefeito de Maceió, atualmente Deputado Federal pelo Estado de Alagoas, eleito em 2014 pelo <a href=""> (PRTB) </a> mas hoje filiado ao Podemos <a href=""> (PODE) </a>. É um dos condenados no chamado Escândalo das Taturanas. é réu no Supremo Tribunal Federal por envolvimento na Máfia do Lixo de Maceió. <a href=""> MACEIÓ-AL </a> </h5>
+							
+							<a href="" > <img src="image/post4.jpg" width="290px" height="170px" class="img1" > </a>
+							<a href="" class="link1"> RENAN FILHO </a>
+							<h5 class="texto1"> Filiado ao <a href=""> (PMDB) </a>, é o atual Governador do Estado de Alagoas. É filho de Renan Calheiros, ex-presidente do Senado Federal. <a href=""> MACEIÓ-AL </a> </h5>
+							
+							<a href="" > <img src="image/post5.jpg" width="290px" height="170px" class="img1" > </a>
+							<a href="" class="link1"> JOÃO HENRIQUE CALDAS </a>
+							<h5 class="texto1"> Também conhecido como JHC , filiado ao Partido Socialista Brasileiro <a href=""> (PSB) </a>. Foi o candidato a deputado federal mais votado em seu estado nas eleições de 2014 e hoje exerce a função de Terceiro-Secretário da Mesa da Câmara dos Deputados do Brasil. <a href=""> MACEIÓ-AL </a> </h5>
+						</article>
 					</section>
 					<!-- *************************************************************************************************************************** -->
 					<section id="direita">
@@ -109,8 +115,8 @@
 						<div id="minibar2"> <h5 class="recent5"> PÁGINAS </h5> </div>
 						<div id="finish">
 							<a href="index.php" class="fim1"> Página Inicial </a>
-							<a href="candidatos.html" class="fim2"> Candidatos </a>
-							<a href="partidos.html" class="fim3"> Partidos </a>
+							<a href="candidatos.php" class="fim2"> Candidatos </a>
+							<a href="partidos.php" class="fim3"> Partidos </a>
 						</div>
 					</section>
 				</section>
@@ -142,6 +148,7 @@
 
   <!-- Conteúdo do Modal-->
   <div class="modal-content">
+    <!-- <span class="close">&times;</span> -->
     <div class="form">
 	  <h1> Editar Meu Usuário </h1>
 	  <form action="" method="">
@@ -179,7 +186,7 @@
 		</select>
 		
 		<center>
-		<input id="bt" type="submit" value="Confirmar">
+		<input id="bt" type="submit" value="Cadastrar">
 		<input id="bt" type="reset" value="Limpar Campos">
 		</center>
 	  </form>
@@ -187,37 +194,6 @@
   </div>
 
 </div>
-
-<div id="myModal3" class="modal">
-  <!-- Conteúdo do Modal-->
-  <div class="modal-content">
-    <!-- <span class="close">&times;</span> -->
-    <div class="form">
-	  <h1> Editar Partido </h1>
-	 <form action="" method="">
-		<label for="fname">Nome:</label>
-		<input class="cad_user" type="text" id="cand_perf" name="perf" placeholder="Partido Democrático Trabalhista">
-								
-		<label for="fname">Sigla:</label>
-		<input class="cad_user" type="text" id="cand_perf" name="perf" placeholder="PDT">
-								
-		<label for="fname">Candidatos:</label>
-		<input class="cad_user" type="text" id="cand_perf" name="perf" placeholder="Ronaldo Lessa">		
-								
-		<label for="sex">Cidade:</label>
-		<select class="cad_user" id="city" name="city">
-			<option value="ma">Maceió-AL</option>
-			<option value="fe">Recife-PE</option>
-		</select>	
-								
-		<center>
-		<input id="bt" type="submit" value="Confirmar">
-		</center>
-	</form>
-	</div>
-  </div>
-</div>
-
 <script>
 	// Cria o modal Cadastro
 	var modal = document.getElementById('myModal');

@@ -1,10 +1,21 @@
+<?php
+	session_start();
+	include ('conf.php');
+	if($_SESSION['logado']!="ok"){
+		header("Location:index.php");// caso a sessão não seja autorizada será redirecionado para index.php
+	}	
+	
+	$usuario_logado = $_SESSION['name_user']; // pega o nome do usuário logado através da sessão
+	$nome = explode(" ", $usuario_logado); // pega somente o primeiro nome do usuário
+?>
+
 <html>
 	<head>
-		<title> Wikilítica - Estados </title>
+		<title> Wikilítica - Partidos </title>
 		<meta charset="UTF-8">
 		<link rel="stylesheet" type="text/css" href="css/style.css">
-		<link rel="stylesheet" type="text/css" href="css/styleCadEstado.css">
-		<link rel="shortcut icon" href="image/favicon.ico">		
+		<link rel="stylesheet" type="text/css" href="css/styleCadPartido.css">
+		<link rel="shortcut icon" href="image/favicon.ico">
 	</head>
 	<body>
 		<section id="tudo">
@@ -13,7 +24,7 @@
 					<menu>
 						<a href="index.php" class="item">PÁGINA INICIAL</a>
 						<a href="#myBtn" class="item" id="myBtn">EDITAR INFORMAÇÕES</a>									
-						<a href="cad_partido.html" class="item">GERENCIAR PARTIDO</a>
+						<a href="cad_partido.php" class="item">GERENCIAR PARTIDO</a>
 						<a href="cad_estado.html" class="item">GERENCIAR ESTADO</a>
 						<a href="index.php" class="item">SAIR</a>
 					</menu>
@@ -21,11 +32,11 @@
 						<a href="index.php" > <img src="image/logotipo.png" class="logo"> </a>
 					</div>
 					<div id="ad">
-						<h1 id="titulo">Bem-vindos à Wikilítica</h1>
+						<h1 id="titulo">Bem-vindo(a) <?php echo $nome[0] ?> </h1>
 					</div>
 					<nav id="barra1">
 						<a href="index.php" class="item3"> <img src="image/home.png" class="home"> </a>
-						<a href="candidatos.html" class="item2">CANDIDATOS</a>
+						<a href="candidatos.php" class="item2">CANDIDATOS</a>
 						<a href="partidos.html" class="item2">PARTIDOS</a>
 						<a href="cidadestado.html" class="item2">CIDADES/ESTADOS</a>
 						<a href="sobre.html" class="item2">SOBRE</a>
@@ -38,49 +49,27 @@
 				<section id="meio">
 					<section id="esquerda">
 						<nav id="barra2">
-							 <h3 class="recent" > Cadastro Cidade</h3>
+							 <h3 class="recent" > Cadastro Partido </h3>
 						</nav>
 						<nav id="barra3"> </nav>
 						<div id="artigo1">
 							<div class="form2">
-							  <h1> Cadastrar Cidade </h1>
-							  <form action="" method="">
-								<label for="sex">Estado:</label>
-								<select class="cad_user" id="" name="">
-									<option value="AC">Acre</option>
-									<option value="AL">Alagoas</option>
-									<option value="AP">Amapá</option>
-									<option value="AM">Amazonas</option>
-									<option value="BA">Bahia</option>
-									<option value="CE">Ceará</option>
-									<option value="DF">Distrito Federal</option>
-									<option value="ES">Espírito Santo</option>
-									<option value="GO">Goiás</option>
-									<option value="MA">Maranhão</option>
-									<option value="MT">Mato Grosso</option>
-									<option value="MS">Mato Grosso do Sul</option>
-									<option value="MG">Minas Gerais</option>
-									<option value="PA">Pará</option>
-									<option value="PB">Paraíba</option>
-									<option value="PR">Paraná</option>
-									<option value="PE">Pernambuco</option>
-									<option value="PI">Piauí</option>
-									<option value="RJ">Rio de Janeiro</option>
-									<option value="RN">Rio Grande do Norte</option>
-									<option value="RS">Rio Grande do Sul</option>
-									<option value="RO">Rondônia</option>
-									<option value="RR">Roraima</option>
-									<option value="SC">Santa Catarina</option>
-									<option value="SP">São Paulo</option>
-									<option value="SE">Sergipe</option>
-									<option value="TO">Tocantins</option>
-								</select>
+							  <h1> Cadastrar Partido </h1>
+							  <form action="submit_part.php" method="post">
+								<label for="fname">Nome:</label>
+								<input class="cad_user" type="text" id="cand_perf" name="part_name">
 								
-								<label for="fname">Cidade:</label>
-								<input class="cad_user" type="text" id="cand_perf" name="perf">		
+								<label for="fname">Sigla:</label>
+								<input class="cad_user" type="text" id="cand_perf" name="part_sigla">
 								
-								<label for="fname">População da Cidade:</label>
-								<input class="cad_user" type="text" id="cand_perf" name="perf">
+								<label for="fname">Candidatos:</label>
+								<input class="cad_user" type="text" id="cand_perf" name="part_cand">		
+								
+								<label for="sex">Cidade:</label> <!-- pega do banco de cidades cadastradas-->
+								<select class="cad_user" id="city" name="part_city">
+								  <option value="maceio">maceio</option>
+								  <option value="recife">recife</option>
+								</select>	
 								
 								<center>
 								<input id="bt" type="submit" value="Cadastrar">
@@ -131,7 +120,7 @@
 						<div id="minibar2"> <h5 class="recent5"> PÁGINAS </h5> </div>
 						<div id="finish">
 							<a href="index.php" class="fim1"> Página Inicial </a>
-							<a href="candidatos.html" class="fim2"> Candidatos </a>
+							<a href="candidatos.php" class="fim2"> Candidatos </a>
 							<a href="partidos.html" class="fim3"> Partidos </a>
 						</div>
 					</section>
@@ -164,7 +153,6 @@
 
   <!-- Conteúdo do Modal-->
   <div class="modal-content">
-    <!-- <span class="close">&times;</span> -->
     <div class="form">
 	  <h1> Editar Meu Usuário </h1>
 	  <form action="" method="">
@@ -216,22 +204,25 @@
   <div class="modal-content">
     <!-- <span class="close">&times;</span> -->
     <div class="form">
-	 <h1> Editar Estado </h1>
+	  <h1> Editar Partido </h1>
 	 <form action="" method="">
-		<label for="fname">Estado:</label>
-		<input class="cad_user" type="text" id="cand_perf" name="perf">
+		<label for="fname">Nome:</label>
+		<input class="cad_user" type="text" id="cand_perf" name="perf" placeholder="Partido Democrático Trabalhista">
 								
-		<label for="fname">Sigla do Estado:</label>
-		<input class="cad_user" type="text" id="cand_perf" name="perf">
+		<label for="fname">Sigla:</label>
+		<input class="cad_user" type="text" id="cand_perf" name="perf" placeholder="PDT">
 								
-		<label for="fname">Cidades:</label>
-		<input class="cad_user" type="text" id="cand_perf" name="perf">		
+		<label for="fname">Candidatos:</label>
+		<input class="cad_user" type="text" id="cand_perf" name="perf" placeholder="Ronaldo Lessa">		
 								
-		<label for="fname">Candidatos em Destaque:</label>
-		<input class="cad_user" type="text" id="cand_perf" name="perf">
+		<label for="sex">Cidade:</label>
+		<select class="cad_user" id="city" name="city">
+			<option value="ma">Maceió-AL</option>
+			<option value="fe">Recife-PE</option>
+		</select>	
 								
 		<center>
-		<input id="bt" type="submit" value="Cadastrar">
+		<input id="bt" type="submit" value="Confirmar">
 		</center>
 	</form>
 	</div>
