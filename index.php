@@ -20,7 +20,7 @@ include ('conf.php');
 						<a href="#myBtn2" class="item" id="myBtn2">ENTRAR</a>
 					</menu>
 					<div id="logo">
-						<a href="index.php" > <img src="image/logotipo.png" class="logo"> </a>
+						<a href="usuariologado.php" > <img src="image/logotipo.png" class="logo"> </a>
 					</div>
 					<div id="ad">
 						<h1 id="titulo">Bem-vindos à Wikilítica</h1>
@@ -106,7 +106,7 @@ include ('conf.php');
 						</div>
 						<div id="minibar2"> <h5 class="recent5"> PÁGINAS </h5> </div>
 						<div id="finish">
-							<a href="index.php" class="fim1"> Página Inicial </a>
+							<a href="usuariologado.php" class="fim1"> Página Inicial </a>
 							<a href="candidatos.php" class="fim2"> Candidatos </a>
 							<a href="partidos.php" class="fim3"> Partidos </a>
 						</div>

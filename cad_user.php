@@ -25,7 +25,7 @@
 		}
 		
 		if($db_email == $email_user){
-			echo "<script type='text/javascript'> alert( 'Epartidos.phpmail Já Cadastrado', window.location='index.php'); </script>";
+			echo "<script type='text/javascript'> alert( 'E-mail Já Cadastrado', window.location='usuariologado.php'); </script>";
 		}else{
 			
 	// cpf
@@ -37,7 +37,7 @@
 		}
 		
 		if($db_cpf == $cpf_user){
-			echo "<script type='text/javascript'> alert( 'CPF Já Cadastrado', window.location='index.php'); </script>";
+			echo "<script type='text/javascript'> alert( 'CPF Já Cadastrado', window.location='usuariologado.php'); </script>";
 		}else{
 		
 	$password = sha1($pass_user); // Transformando a senha em hash SHA1
@@ -46,9 +46,9 @@
 	
 	$sql = mySQLi_query($connection, $insert);
 	if($sql){
-		echo "<script type='text/javascript'> alert( 'Usuário Cadastrado!', window.location='index.php' ); </script>";
+		echo "<script type='text/javascript'> alert( 'Usuário Cadastrado!', window.location='usuariologado.php' ); </script>";
 	}else {
-		echo "<script type='text/javascript'> alert( 'Falhou!', window.location='index.php' ); </script>";
+		echo "<script type='text/javascript'> alert( 'Falhou!', window.location='usuariologado.php' ); </script>";
 	}
 	
 }//else CPF

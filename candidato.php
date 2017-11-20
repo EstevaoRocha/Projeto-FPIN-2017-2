@@ -1,7 +1,7 @@
 <html>
 	<head>
-		<title> Wikilítica partidos.php Ronaldo Lessa </title>
-		<meta charset="UTFpartidos.php8">
+		<title> Wikilítica - Ronaldo Lessa </title>
+		<meta charset="UTF-8">
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 		<link rel="stylesheet" type="text/css" href="css/styleCandidato_ok.css">
 		<link rel="shortcut icon" href="image/favicon.ico">		
@@ -11,18 +11,18 @@
 			<section id="geral">
 				<header>				
 					<menu>
-						<a href="index.php" class="item">PÁGINA INICIAL</a>
+						<a href="usuariologado.php" class="item">PÁGINA INICIAL</a>
 						<a href="#myBtn" class="item" id="myBtn">CRIAR CONTA</a>
 						<a href="#myBtn2" class="item" id="myBtn2">ENTRAR</a>
 					</menu>
 					<div id="logo">
-						<a href="index.php" > <img src="image/logotipo.png" class="logo"> </a>
+						<a href="usuariologado.php" > <img src="image/logotipo.png" class="logo"> </a>
 					</div>
 					<div id="ad">
-						<h1 id="titulo">Bempartidos.phpvindos à Wikilítica</h1>
+						<h1 id="titulo">Bem-vindos à Wikilítica</h1>
 					</div>
 					<nav id="barra1">
-						<a href="index.php" class="item3"> <img src="image/home.png" class="home"> </a>
+						<a href="usuariologado.php" class="item3"> <img src="image/home.png" class="home"> </a>
 						<a href="candidatos.php" class="item2">CANDIDATOS</a>
 						<a href="partidos.php" class="item2">PARTIDOS</a>
 						<a href="cidadeestado.php" class="item2">CIDADES/ESTADOS</a>
@@ -48,8 +48,8 @@
 								
 							
 								<div class="textocand"> <p>Atualmente Deputado Federal , Partido Democrático Trabalhista <a href="partido.html"> (PDT) </a> , Foi um dos envolvidos no escândalo conhecido como Operação Navalha. 
-								<a href=""> MACEIÓpartidos.phpAL </a> Ronaldo Augusto Lessa Santos, ou apenas Ronaldo Lessa (Maceió, 25 de abril de 1949) é um engenheiro civil e político brasileiro, expartidos.phpprefeito de Maceió, 
-									expartidos.phpgovernador de Alagoas por dois mandatos, atualmente Deputado Federal por este Estado, filiado ao Partido Democrático Trabalhista (PDT).
+								<a href=""> MACEIÓ-AL </a> Ronaldo Augusto Lessa Santos, ou apenas Ronaldo Lessa (Maceió, 25 de abril de 1949) é um engenheiro civil e político brasileiro, ex-prefeito de Maceió, 
+									ex-governador de Alagoas por dois mandatos, atualmente Deputado Federal por este Estado, filiado ao Partido Democrático Trabalhista (PDT).
 									É primo do também Deputado Federal Maurício Quintella Lessa.</p>
 								</div>
 							
@@ -141,13 +141,13 @@
 								</div>
 						</article>
 					</section>
-					<!partidos.phppartidos.php *************************************************************************************************************************** partidos.phppartidos.php>
+					<!-- *************************************************************************************************************************** -->
 					<section id="direita">
 						<nav id="barra4">
 							<h3 class="perfil"> PERFIL </h3>							
 						</nav>
 						<nav id="barra5"> </nav>
-						<a href="" > <img src="image/post1.jpg" width="70%" class="perfil" > </a>
+						<!--<a href="" > <img src="image/post1.jpg" width="70%" class="perfil" > </a>-->
 						<div id="face">
 							<pre class="info"><b>Ronaldo Lessa</b> <br />Sexo : Masculino <br />Idade: 68 Anos <br />Profissão : Engenheiro civil <b><br />Partido : (PDT) </b><br /> Partido Democrático Trabalhista <b><br />Realizações :</b><br />Criou o bolsa família
 							</pre>
@@ -168,7 +168,7 @@
 				</div>
 				<div id="rodape">
 					<div class ="txt2">
-						PROJETO FPIN partidos.php HTML/CSS WikiLítica © 2017
+						PROJETO FPIN - HTML/CSS WikiLítica © 2017
 					</div>
 					<div class="borda">
 					</div>
@@ -178,19 +178,19 @@
 	</body>	
 	
 	
-	<!partidos.phppartidos.php MODAIS partidos.phppartidos.php>
+	<!-- MODAIS -->
 	
-<!partidos.phppartidos.php Criação do Modalpartidos.phppartidos.php>
+<!-- Criação do Modal-->
 <div id="myModal" class="modal">
 
-  <!partidos.phppartidos.php Conteúdo do Modalpartidos.phppartidos.php>
-  <div class="modalpartidos.phpcontent">
-    <!partidos.phppartidos.php <span class="close">&times;</span> partidos.phppartidos.php>
+  <!-- Conteúdo do Modal-->
+  <div class="modal-content">
+    <!-- <span class="close">&times;</span> -->
     <div class="form">
 	  <h1> Cadastro de Usuário </h1>
 	  <form action="" method="">
-		<label for="fname">Epartidos.phpmail:</label>
-		<input class="cad_user" type="email" id="user_mail" name="email" placeholder="Preencha com seu epartidos.phpmail">
+		<label for="fname">E-mail:</label>
+		<input class="cad_user" type="email" id="user_mail" name="email" placeholder="Preencha com seu e-mail">
 		
 		<label for="fname">Senha:</label>
 		<input class="cad_user" type="password" id="user_pass" name="pass" placeholder="Preencha com sua senha">
@@ -230,13 +230,13 @@
 </div>
 
 <div id="myModal2" class="modal">
-  <!partidos.phppartidos.php Conteúdo do Modalpartidos.phppartidos.php>
-  <div class="modalpartidos.phpcontent">
+  <!-- Conteúdo do Modal-->
+  <div class="modal-content">
     <div class="form">
 	  <h1> Logar </h1>
-	  <form action="usuariologado.html" method="">
-		<label for="fname">Epartidos.phpmail:</label>
-		<input class="cad_user" type="email" id="user_mail" name="email" placeholder="Preencha com seu epartidos.phpmail">
+	  <form action="usuariologado.php" method="">
+		<label for="fname">E-mail:</label>
+		<input class="cad_user" type="email" id="user_mail" name="email" placeholder="Preencha com seu e-mail">
 		
 		<label for="fname">Senha:</label>
 		<input class="cad_user" type="password" id="user_pass" name="pass" placeholder="Preencha com sua senha">	
@@ -249,8 +249,8 @@
 </div>
 
 <div id="myModal3" class="modal">
-  <!partidos.phppartidos.php Conteúdo do Modalpartidos.phppartidos.php>
-  <div class="modalpartidos.phpcontent">
+  <!-- Conteúdo do Modal-->
+  <div class="modal-content">
     <div class="form">
 	  <h1> Editar Informações </h1>
 	  <form action="" method="">

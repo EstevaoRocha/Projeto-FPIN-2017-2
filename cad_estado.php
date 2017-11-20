@@ -2,7 +2,7 @@
 	session_start();
 	include ('conf.php');
 	if($_SESSION['logado']!="ok"){
-		header("Location:index.php");// caso a sessão não seja autorizada será redirecionado para index.php
+		header("Location:usuariologado.php");// caso a sessão não seja autorizada será redirecionado para usuariologado.php
 	}	
 	
 	$usuario_logado = $_SESSION['name_user']; // pega o nome do usuário logado através da sessão
@@ -22,20 +22,20 @@
 			<section id="geral">
 				<header>				
 					<menu>
-						<a href="index.php" class="item">PÁGINA INICIAL</a>
+						<a href="usuariologado.php" class="item">PÁGINA INICIAL</a>
 						<a href="#myBtn" class="item" id="myBtn">EDITAR INFORMAÇÕES</a>									
 						<a href="cad_partido.php" class="item">GERENCIAR PARTIDO</a>
 						<a href="cad_estado.php" class="item">GERENCIAR ESTADO</a>
-						<a href="index.php" class="item">SAIR</a>
+						<a href="sair.php" class="item">SAIR</a>
 					</menu>
 					<div id="logo">
-						<a href="index.php" > <img src="image/logotipo.png" class="logo"> </a>
+						<a href="usuariologado.php" > <img src="image/logotipo.png" class="logo"> </a>
 					</div>
 					<div id="ad">
 						<h1 id="titulo">Bem-vindo(a) <?php echo $nome[0] ?> </h1>
 					</div>
 					<nav id="barra1">
-						<a href="index.php" class="item3"> <img src="image/home.png" class="home"> </a>
+						<a href="usuariologado.php" class="item3"> <img src="image/home.png" class="home"> </a>
 						<a href="candidatos.php" class="item2">CANDIDATOS</a>
 						<a href="partidos.php" class="item2">PARTIDOS</a>
 						<a href="cidadeestado.php" class="item2">CIDADES/ESTADOS</a>
@@ -142,7 +142,7 @@
 						</div>
 						<div id="minibar2"> <h5 class="recent5"> PÁGINAS </h5> </div>
 						<div id="finish">
-							<a href="index.php" class="fim1"> Página Inicial </a>
+							<a href="usuariologado.php" class="fim1"> Página Inicial </a>
 							<a href="candidatos.php" class="fim2"> Candidatos </a>
 							<a href="partidos.php" class="fim3"> Partidos </a>
 						</div>

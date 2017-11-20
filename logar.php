@@ -20,7 +20,11 @@
 		$_SESSION['state_user'] = $linha['state_user'];
 		$_SESSION['city_user'] = $linha['city_user'];
 		$_SESSION['sex_user'] = $linha['sex_user'];
-		header("Location:usuariologado.php");
+		
+		if($_SESSION['id_user'] <= 20)// verifica se é usuario comum ou organizador logando
+			header("Location:organizadorlogado.php");
+		else
+			header("Location:usuariologado.php");
 	} else {
 		echo "<script type='text/javascript'> alert( 'Dados Inválidos, Tente Novamente', window.location.href='index.php' ); </script>";
 	}
