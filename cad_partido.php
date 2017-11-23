@@ -65,20 +65,52 @@
 								<label for="fname">Candidatos:</label>
 								<input class="cad_user" type="text" id="cand_perf" name="part_cand">		
 								
-								<label for="sex">Cidade:</label>
+								<label for="sex">Estado Sede:</label>
 								<select class="cad_user" id="city" name="part_city">
-									<option> Selecione a cidade: </option>
-									<?php //Pegando as cidades do banco
-										$sel_city = "SELECT * FROM cidade ORDER BY city_name";
-										$sql2 = mysqli_query($connection, $sel_city);
-										
-										while($line_city = mysqli_fetch_array($sql2)){
-											$city_name = $line_city['city_name'];
-											echo "<option value='$city_name'>$city_name</option>";
-										}
-									  ?>
-								</select>	
+									<option>Selecione o Estado</option> 
+									<option value="Acre">Acre</option> 
+									<option value="Alagoas">Alagoas</option> 
+									<option value="Amazonas">Amazonas</option> 
+									<option value="Amapa">Amapá</option> 
+									<option value="Bahia">Bahia</option> 
+									<option value="Ceara">Ceará</option> 
+									<option value="Distrito">Distrito Federal</option> 
+									<option value="Espirito">Espírito Santo</option> 
+									<option value="Goias">Goiás</option> 
+									<option value="Maranhao">Maranhão</option> 
+									<option value="Mato Grosso">Mato Grosso</option> 
+									<option value="Mato Grosso do Sul">Mato Grosso do Sul</option> 
+									<option value="Minas Gerais">Minas Gerais</option> 
+									<option value="Para">Pará</option> 
+									<option value="Paraiba">Paraíba</option> 
+									<option value="Parana">Paraná</option> 
+									<option value="Pernambuco">Pernambuco</option> 
+									<option value="Piaui">Piauí</option> 
+									<option value="Rio de Janeiro">Rio de Janeiro</option> 
+									<option value="Rio Grande do Norte">Rio Grande do Norte</option> 
+									<option value="Rondonia">Rondônia</option> 
+									<option value="Rio Grande do Sul">Rio Grande do Sul</option> 
+									<option value="Roraima">Roraima</option> 
+									<option value="Santa Catarina">Santa Catarina</option> 
+									<option value="Sergipe">Sergipe</option> 
+									<option value="Sao Paulo">São Paulo</option> 
+									<option value="Tocantins">Tocantins</option> 
+								</select>
 								
+								<label for="fname">História/Descrição</label>
+								<input class="cad_user" type="textarea" id="cand_perf" name="part_hist">
+								
+								<label for="fname">Número Eleitoral:</label>
+								<input class="cad_user" type="text" id="cand_perf" name="part_numb">
+								
+								<label for="fname">Presidente:</label>
+								<input class="cad_user" type="text" id="cand_perf" name="part_pres">
+								
+								<label for="fname">Fundação:</label>
+								<input class="cad_user" type="date" id="cand_perf" name="part_fund">
+								
+								<label for="fname">Página Oficial:</label>
+								<input class="cad_user" type="text" id="cand_perf" name="part_page">
 								<center>
 								<input id="bt" type="submit" value="Cadastrar">
 								</center>

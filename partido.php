@@ -1,6 +1,29 @@
+<?php
+	session_start();
+	include ('conf.php');
+	
+	$part_id = $_GET['part_id'];// pega o id do partido via URL
+	
+	$select = "SELECT * FROM partido WHERE part_id = $part_id"; // select das informacoes do partido
+	$sql = mysqli_query($connection, $select);
+	
+	while($line = mysqli_fetch_array($sql)){//atribuicao dos dados do partido em variaveis
+		$part_id = $line['part_id'];
+		$part_name = $line['part_name'];
+		$part_sigla = $line['part_sigla']; 
+		$part_cand = $line['part_cand'];
+		$part_city = $line['part_city'];
+		$part_hist = $line['part_hist'];
+		$part_numb = $line['part_numb'];
+		$part_pres = $line['part_pres'];
+		$part_fund = $line['part_fund'];
+		$part_page = $line['part_page'];
+	};
+?>
+
 <html>
 	<head>
-		<title> Wikilítica - PDT </title>
+		<title> Wikilítica - Partido </title>
 		<meta charset="UTF-8">
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 		<link rel="stylesheet" type="text/css" href="css/stylePartido_ok.css">
@@ -36,12 +59,12 @@
 				<section id="meio">
 					<section id="esquerda">
 						<nav id="barra2">
-							 <h3 class="recent" > PDT </h3>
+							 <h3 class="recent" > <?php echo $part_sigla ?> </h3>
 						</nav>
 						<nav id="barra3"> <a href="#myBtn3" class="edit" id="myBtn3">Editar</a> </nav>
 						<article id="artigo1">
 							<a href="" > <img src="image/pdt.jpg" width="290px" height="170px" class="img1" > </a>
-							<h5 class="texto1"> O Partido Democrático Trabalhista (PDT) é um partido político brasileiro. Foi fundado em 1979, logo após o início do processo de abertura política da regime militar, e é alinhado às ideologias trabalhista e social-democrata. Seu número eleitoral é o 12. É o único partido brasileiro a integrar a Internacional Socialista. </h5>
+							<h5 class="texto1"> <?php echo $part_hist ?> </h5>
 							<br><br><br><br><br><br><br><br><br><br><br>
 							<h4>
 								<br>
@@ -61,16 +84,20 @@
 						<nav id="barra5"> </nav>
 						<div id="face">
 							<pre class="info">
-								Número eleitoral 12
-				
-								Presidente Carlos Lupi
+								Número eleitoral <?php echo $part_numb ?>
 								
-								Fundação 17 de junho de 1979
+				
+								Presidente <?php echo $part_pres ?>
+								
+								
+								Fundação <?php echo $part_fund ?>
+								
 									
-								Sede Brasília, DF
+								Estado Sede <?php echo $part_city ?>
+								
 									
 								Página oficial
-								<a href="http://www.pdt.org.br/" class="site">www.pdt.org.br </a>
+								<a href="http://<?php echo $part_page ?>/" class="site"> <?php echo $part_page ?></a>
 							</pre>
 							
 						

@@ -5,6 +5,11 @@
 	$part_sigla = $_POST['part_sigla']; 
 	$part_cand = $_POST['part_cand'];
 	$part_city = $_POST['part_city'];
+	$part_hist = $_POST['part_hist'];
+	$part_numb = $_POST['part_numb'];
+	$part_pres = $_POST['part_pres'];
+	$part_fund = $_POST['part_fund'];
+	$part_page = $_POST['part_page'];
 	
 	$db_sigla = 'sigla';	
 		
@@ -18,10 +23,10 @@
 		}
 		
 		if($db_sigla == $part_sigla){
-			echo "<script type='text/javascript'> alert( 'Sigla Já Cadastrada', window.location='cad_partido.php'); </script>";
+			echo "<script type='text/javascript'> alert( 'Sigla J? Cadastrada', window.location='cad_partido.php'); </script>";
 		}else{
 		
-	$insert = "INSERT INTO partido (part_name, part_sigla, part_cand, part_city) VALUES ('$part_name','$part_sigla','$part_cand','$part_city')";
+	$insert = "INSERT INTO partido (part_name, part_sigla, part_cand, part_city, part_hist, part_numb, part_pres, part_fund, part_page) VALUES ('$part_name','$part_sigla','$part_cand','$part_city','$part_hist','$part_numb','$part_pres','$part_fund','$part_page')";
 	
 	$sql = mySQLi_query($connection, $insert);
 	if($sql){

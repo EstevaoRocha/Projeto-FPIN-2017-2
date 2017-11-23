@@ -60,7 +60,8 @@
 									<th> Partido </th>
 									<th> Sigla </th>
 									<th> Candidatos </th>
-									<th> Cidade </th>
+									<th> Estado Sede </th>
+									<th> Página </th>
 								</tr>
 								
 								<?php
@@ -80,6 +81,7 @@
 											<td>$part_sigla</td>
 											<td>$part_cand</td> 
 											<td>$part_city</td> 
+											<td><button><a href='partido.php?part_id=$part_id'>Sobre</a></button></td>
 										  </tr>";
 										  
 									}
