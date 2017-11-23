@@ -45,7 +45,7 @@ include ('conf.php');
 						<nav id="barra3"> </nav>
 						<article id="artigo1">
 							<a href="" > <img src="image/post1.jpg" width="290px" height="170px" class="img1" > </a>
-							<a href="candidato.html" class="link1"> RONALDO LESSA </a>
+							<a href="candidato.php" class="link1"> RONALDO LESSA </a>
 							<h5 class="texto1"> Atualmente Deputado Federal , Partido Democrático Trabalhista <a href=""> (PDT) </a> , Foi um dos envolvidos no escândalo conhecido como Operação Navalha. <a href=""> MACEIÓ-AL </a> </h5>
 							
 							<a href="" > <img src="image/post2.png" width="290px" height="170px" class="img1" > </a>

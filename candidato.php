@@ -271,40 +271,75 @@
   <div class="modal-content">
     <div class="form">
 	  <h1> Editar Informações </h1>
-	  <form action="" method="">
+	  <form action="edita_candidato.php" method="post">
+		<input type="hidden" name="cand_id" value="<?php echo $cand_id?>">
 		<label for="fname">Nome:</label>
-		<input class="cad_user" type="text" id="cand_perf" name="perf">
+		<input class="cad_user" type="text" id="cand_perf" name="cand_name" value="<?php echo $cand_name?>">
 								
 		<label for="sex">Sexo:</label>
-		<select class="cad_user" id="sex_edit" name="sex_edit">
-			<option value="ma">Masculino</option>
-			<option value="fe">Feminino</option>
+		<select class="cad_user" id="sex_edit" name="cand_sex">
+			<?php
+				echo"<option selected='selected' value='$cand_sex'>";//pega o sexo do candidato como pré selecionado
+				if($cand_sex == '1'){//se for 1 exibe masculino se não exibe feminino
+					echo "Masculino</option>
+					<option value='2'>Feminino</option>";
+				}else{
+					echo "Feminino</option>
+					<option value'1'>Masculino</option>";
+				}
+			?>
 		</select>
 								
 		<label for="fname">Idade:</label>
-		<input class="cad_user" type="text" id="cand_perf" name="perf">
+		<input class="cad_user" type="text" id="cand_perf" name="cand_age" value="<?php echo $cand_age?>">
 								
 		<label for="fname">Profissão:</label>
-		<input class="cad_user" type="text" id="cand_perf" name="perf">
+		<input class="cad_user" type="text" id="cand_perf" name="cand_job" value="<?php echo $cand_job?>">
 								
 		<label for="sex">Partido:</label>
-		<select class="cad_user" id="" name="partido">
-			<option value="PDT">Partido Democrático Trabalhista</option>
-			<option value="PT">Partido dos Trabalhadores</option>
-			<option value="PODE">Podemos</option>
-			<option value="PMDB">Partido do Movimento Democrático Brasileiro</option>
-			<option value="PSB">Partido Socialista Brasileiro</option>
+		<select class="cad_user" name="cand_part">
+			<?php 
+				//pega o partido do candidato como pré selecionado
+				//Pegando os partidos do banco
+				$sel_part = "SELECT * FROM partido";//pega os partidos do banco
+				$sql = mysqli_query($connection, $sel_part);
+				echo"<option selected='selected' value='$cand_part'>"; // nao esta funcionando		
+				while($line_part = mysqli_fetch_array($sql)){
+					$part_sigla = $line_part['part_sigla'];
+					$part_name = $line_part['part_name'];
+					echo "<option value='$part_sigla'>$part_name</option>";
+				}				
+			?>
 		</select>
 								
 		<label for="fname">Realizações:</label>
-		<input class="cad_user" type="text" id="cand_perf" name="realizacoes">
+		<input class="cad_user" type="text" id="cand_perf" name="cand_work" value="<?php echo $cand_work?>">
 								
 		<label for="fname">História</label>
-		<input class="cad_user" type="textarea" id="cand_text" name="cand_histo">	
-								
-		<label for="fname">Propostas</label>
-		<input class="cad_user" type="textarea" id="cand_text" name="cand_proposta">	
+		<input class="cad_user" type="textarea" id="cand_text" name="cand_hist" value="<?php echo $cand_hist?>">	
 		
+		<label for="fname">Propostas</label>
+		<input class="cad_user" type="textarea" id="cand_text" name="cand_prop" value="<?php echo $cand_prop?>">
+		
+		<label for="fname">Ideias</label>
+		<input class="cad_user" type="textarea" id="cand_text" name="cand_idea" value="<?php echo $cand_idea?>">
+								
+		<label for="fname">Fonte Ideias</label>
+		<input class="cad_user" type="textarea" id="cand_text" name="cand_source" value="<?php echo $cand_source?>">	
+		
+		<label for="sex">Cidade:</label>
+		<select class="cad_user" name="cand_city">
+		<?php
+			$sel_city = "SELECT * FROM cidade";//pega as cidades do banco
+				$sql2 = mysqli_query($connection, $sel_city);
+				echo"<option selected='selected' value='$cand_city'>";	// tambem nao esta funcionando		
+				while($line_city = mysqli_fetch_array($sql2)){
+					$city_id = $line_city['city_id'];
+					$city_name = $line_city['city_name'];
+					echo "<option value='$city_id'>$city_name</option>";
+				}
+		?>
+		</select>
 		<center>
 			<input id="bt" type="submit" value="Editar">
 		</center>
