@@ -303,7 +303,7 @@
 				//Pegando os partidos do banco
 				$sel_part = "SELECT * FROM partido";//pega os partidos do banco
 				$sql = mysqli_query($connection, $sel_part);
-				echo"<option selected='selected' value='$cand_part'>"; // nao esta funcionando		
+				echo"<option selected='selected' value='$cand_part'> $cand_part </option>";
 				while($line_part = mysqli_fetch_array($sql)){
 					$part_sigla = $line_part['part_sigla'];
 					$part_name = $line_part['part_name'];
@@ -332,7 +332,7 @@
 		<?php
 			$sel_city = "SELECT * FROM cidade";//pega as cidades do banco
 				$sql2 = mysqli_query($connection, $sel_city);
-				echo"<option selected='selected' value='$cand_city'>";	// tambem nao esta funcionando		
+				echo"<option selected='selected' value='$cand_city'> $cand_city </option>";// nao esta funcionando pois o fetch ainda nao foi feito		
 				while($line_city = mysqli_fetch_array($sql2)){
 					$city_id = $line_city['city_id'];
 					$city_name = $line_city['city_name'];

@@ -203,23 +203,65 @@
     <!-- <span class="close">&times;</span> -->
     <div class="form">
 	  <h1> Editar Informações </h1>
-	  <form action="" method="">
-		<label for="fname">Numero Eleitoral:</label>
-		<input class="cad_user" type="text" id="cand_perf" name="perf">
-		
-		<label for="fname">Fundação:</label>
-		<input class="cad_user" type="text" id="cand_perf" name="perf">
-		
-		<label for="fname">Presidente:</label>
-		<input class="cad_user" type="text" id="cand_perf" name="perf">
-		
-		<label for="fname">Site Oficial:</label>
-		<input class="cad_user" type="text" id="cand_perf" name="perf">
-		
-		<label for="fname">História:</label>
-		<input class="edit_cand" type="textarea" id="cand_text" name="cand_text">	
-		<center>
-		<input id="bt" type="submit" value="Editar">
+	  <form action="edita_partido" method="post">
+		<label for="fname">Nome:</label>
+		<input class="cad_user" type="text" id="cand_perf" name="part_name" value="<?php echo $part_name?>">
+
+		<label for="fname">Sigla:</label>
+		<input class="cad_user" type="text" id="cand_perf" name="part_sigla" value="<?php echo $part_sigla?>">
+								
+		<label for="fname">Candidatos:</label>
+		<input class="cad_user" type="text" id="cand_perf" name="part_cand" value="<?php echo $part_cand?>">		
+								
+		<label for="sex">Estado Sede:</label>
+			<select class="cad_user" id="city" name="part_city">
+			<?php
+				echo"
+				<option selected='selected' value='$part_city'> $part_city </option>
+				<option value='Acre'>Acre</option> 
+				<option value='Alagoas'>Alagoas</option> 
+				<option value='Amazonas'>Amazonas</option> 
+				<option value='Amapa'>Amapá</option> 
+				<option value='Bahia'>Bahia</option> 
+				<option value='Ceara'>Ceará</option> 
+				<option value='Distrito'>Distrito Federal</option> 
+				<option value='Espirito'>Espírito Santo</option> 
+				<option value='Goias'>Goiás</option> 
+				<option value='Maranhao'>Maranhão</option> 
+				<option value='Mato Grosso'>Mato Grosso</option> 
+				<option value='Mato Grosso do Sul'>Mato Grosso do Sul</option> 
+				<option value='Minas Gerais'>Minas Gerais</option> 
+				<option value='Para'>Pará</option> 
+				<option value='Paraiba'>Paraíba</option> 
+				<option value='Parana'>Paraná</option> 
+				<option value='Pernambuco'>Pernambuco</option> 
+				<option value='Piaui'>Piauí</option> 
+				<option value='Rio de Janeiro'>Rio de Janeiro</option> 
+				<option value='Rio Grande do Norte'>Rio Grande do Norte</option> 
+				<option value='Rondonia'>Rondônia</option> 
+				<option value='Rio Grande do Sul'>Rio Grande do Sul</option> 
+				<option value='Roraima'>Roraima</option> 
+				<option value='Santa Catarina'>Santa Catarina</option> 
+				<option value='Sergipe'>Sergipe</option> 
+				<option value='Sao Paulo'>São Paulo</option> 
+				<option value='Tocantins'>Tocantins</option>";
+			?>
+			</select>
+								
+			<label for="fname">História/Descrição</label>
+			<input class="cad_user" type="textarea" id="cand_perf" name="part_hist" value="<?php echo $part_hist?>">
+								
+			<label for="fname">Número Eleitoral:</label>
+			<input class="cad_user" type="text" id="cand_perf" name="part_numb" value="<?php echo $part_numb?>">
+								
+			<label for="fname">Presidente:</label>
+			<input class="cad_user" type="text" id="cand_perf" name="part_pres" value="<?php echo $part_pres?>">
+								
+			<label for="fname">Fundação:</label>
+			<input class="cad_user" type="date" id="cand_perf" name="part_fund" value="<?php echo $part_fund?>">
+								
+			<label for="fname">Página Oficial:</label>
+			<input class="cad_user" type="text" id="cand_perf" name="part_page" value="<?php echo $part_page?>">
 		</center>
 	  </form>
 	</div>
