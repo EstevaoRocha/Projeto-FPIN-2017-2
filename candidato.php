@@ -1,6 +1,30 @@
+<?php
+	session_start();
+	include ('conf.php');
+	
+	$cand_id = $_GET['cand_id'];// pega o id do candidato via URL
+	
+	$select = "SELECT * FROM candidato WHERE cand_id = $cand_id"; // select das informacoes do candidato
+	$sql = mysqli_query($connection, $select);
+	
+	while($line = mysqli_fetch_array($sql)){//atribuicao dos dados do candidato em variaveis
+		$cand_id = $line['cand_id'];
+		$cand_name = $line['cand_name'];
+		$cand_sex = $line['cand_sex']; 
+		$cand_age = $line['cand_age'];
+		$cand_job = $line['cand_job'];
+		$cand_part = $line['cand_part']; 
+		$cand_work = $line['cand_work'];
+		$cand_hist = $line['cand_hist'];
+		$cand_prop = $line['cand_prop'];
+		$cand_idea = $line['cand_idea'];
+		$cand_source = $line['cand_source'];
+	};
+?>
+
 <html>
 	<head>
-		<title> Wikilítica - Ronaldo Lessa </title>
+		<title> Wikilítica - Candidato </title>
 		<meta charset="UTF-8">
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 		<link rel="stylesheet" type="text/css" href="css/styleCandidato_ok.css">
@@ -40,19 +64,16 @@
 				<section id="meio">
 					<section id="esquerda">
 						<nav id="barra2">
-							 <h3 class="recent" > RONALDO LESSA </h3>
+							 <h3 class="recent" > <?php echo $cand_name ?></h3>
 						</nav>
 						<nav id="barra3"> <a href="#myBtn3" class="edit" id="myBtn3">Editar</a> </nav>
 						<article id="artigo1">
 						
 								
 							
-								<div class="textocand"> <p>Atualmente Deputado Federal , Partido Democrático Trabalhista <a href="partido.html"> (PDT) </a> , Foi um dos envolvidos no escândalo conhecido como Operação Navalha. 
-								<a href=""> MACEIÓ-AL </a> Ronaldo Augusto Lessa Santos, ou apenas Ronaldo Lessa (Maceió, 25 de abril de 1949) é um engenheiro civil e político brasileiro, ex-prefeito de Maceió, 
-									ex-governador de Alagoas por dois mandatos, atualmente Deputado Federal por este Estado, filiado ao Partido Democrático Trabalhista (PDT).
-									É primo do também Deputado Federal Maurício Quintella Lessa.</p>
+								<div class="textocand"> <p> <?php echo $cand_hist ?> </p>
 								</div>
-							
+							<!--
 								<div class="tabela">
 								<table class="tabela" id="tabela_candidato">
 									<caption>Histórico de Cargos Eletivos Ocupados</caption>
@@ -137,8 +158,8 @@
 										<td> Veja! </td>
 									</tr>
 								</table>
-								
 								</div>
+							-->
 						</article>
 					</section>
 					<!-- *************************************************************************************************************************** -->
@@ -149,10 +170,7 @@
 						<nav id="barra5"> </nav>
 						<!--<a href="" > <img src="image/post1.jpg" width="70%" class="perfil" > </a>-->
 						<div id="face">
-							<pre class="info"><b>Ronaldo Lessa</b> <br />Sexo : Masculino <br />Idade: 68 Anos <br />Profissão : Engenheiro civil <b><br />Partido : (PDT) </b><br /> Partido Democrático Trabalhista <b><br />Realizações :</b><br />Criou o bolsa família
-							</pre>
-							
-						
+							<pre class="info"> <b><?php echo $cand_name ?></b><br /> <?php if($cand_sex == 1)echo 'Sexo: Masculino';else 'Sexo: Feminino'; ?> <br /> Idade: <?php echo $cand_age ?> <br /> Profissão : <?php echo $cand_job ?> <b><br /> Partido : <?php echo $cand_part ?></b><br/><b><br /> Realizações :</b><br/> <?php echo $cand_work ?> </pre>
 					    </div>
 					</section>
 				</section>

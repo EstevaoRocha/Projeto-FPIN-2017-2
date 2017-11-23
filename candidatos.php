@@ -54,7 +54,7 @@
 								<tr>
 									<th> Candidatos </th>
 									<th> Partido </th>
-									<th> Cidade </th>
+									<th> Página </th>
 								</tr>
 							
 							
@@ -80,7 +80,7 @@
 									echo "<tr>
 											<td>$cand_name</td>
 											<td>$cand_part</td>
-											<td></td> 
+											<td><button><a href='candidato.php?cand_id=$cand_id'>Sobre</a></button></td>
 										  </tr>";
 									}
 									?>
