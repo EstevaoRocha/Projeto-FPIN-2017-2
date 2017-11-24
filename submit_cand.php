@@ -12,7 +12,15 @@
 	$cand_idea = $_POST['cand_idea'];
 	$cand_source = $_POST['cand_source'];	
 	$cand_city = $_POST['cand_city'];	
-		
+	/*
+	$cand_pict = $_FILES['cand_pict'];
+	
+	move_uploaded_file($_FILES['cand_pict']['tmp_name'], '../image/'.getPicture());
+
+	echo '<pre>';
+	print_r($_FILES);
+	echo '</pre>';
+	*/
 	$insert = "INSERT INTO candidato (cand_name, cand_sex, cand_age, cand_job, cand_part, cand_work, cand_hist, cand_prop, cand_idea, cand_source, cand_city) VALUES ('$cand_name','$cand_sex','$cand_age','$cand_job','$cand_part','$cand_work','$cand_hist','$cand_prop','$cand_idea','$cand_source','$cand_city')";
 	
 	$sql = mySQLi_query($connection, $insert);

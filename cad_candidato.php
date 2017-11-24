@@ -56,7 +56,7 @@
 						<div id="artigo1">
 							<div class="form2">
 							  <h1> Cadastrar Candidato </h1>
-							  <form action="submit_cand.php" method="post">
+							  <form enctype="multipart/form-data" action="submit_cand.php" method="post">							
 								<label for="fname">Nome:</label>
 								<input class="cad_user" type="text" id="cand_perf" name="cand_name">
 								
@@ -116,6 +116,9 @@
 									}
 								  ?>
 								</select>
+								
+								<label for="sex">Imagem:</label>
+							  	<input type="file" name="cand_pict" width="140" height="140"><br>
 								
 								<center>
 								<input id="bt" type="submit" value="Cadastrar">
