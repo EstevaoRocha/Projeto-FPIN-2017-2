@@ -30,7 +30,7 @@
 }
 
 
-/* propriedades das informações adicionadas sobre o candidato */
+/* propriedades das informações adicionadas sobre o partido */
 
 .info{
 	float: left;
@@ -43,12 +43,11 @@
 }
 
 
-/*texto informativo abaixo do artigo sobre o candidato*/
+/*texto informativo abaixo do artigo sobre o partido*/
 .extra{
 	float: left;
 	margin: 0px 0px 0px -500px;
 }
-
 
 
 

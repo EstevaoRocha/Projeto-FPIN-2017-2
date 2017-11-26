@@ -9,7 +9,7 @@
 		$cand_work = $line['cand_work'];
 																							
 	echo"
-			<a> <img src='image/post1.jpg' width='290px' height='170px' class='img1'> </a>
+			<a> <img src='image/camera.png' width='290px' height='170px' class='img1'> </a>
 			<a href='candidato.php?cand_id=$cand_id' class='link1'> $cand_name </a>
 			<h5 class='texto1'> $cand_hist </h5>
 		";		

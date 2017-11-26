@@ -50,25 +50,25 @@
 						</nav>
 						<nav id="barra3"> </nav>
 						<article id="artigo1">
-							<a href="" > <img src="image/post1.jpg" width="290px" height="170px" class="img1" > </a>
-							<a href="candidato.html" class="link1"> RONALDO LESSA </a>
-							<h5 class="texto1"> Atualmente Deputado Federal , Partido Democrático Trabalhista <a href=""> (PDT) </a> , Foi um dos envolvidos no escândalo conhecido como Operação Navalha. <a href=""> MACEIÓ-AL </a> </h5>
-							
-							<a href="" > <img src="image/post2.png" width="290px" height="170px" class="img1" > </a>
+						
+							 <?php include ('recentes.php'); ?>
+							<!--							
+							<a> <img src="image/post2.png" width="290px" height="170px" class="img1" > </a>
 							<a href="" class="link1"> PAULO FERNANDO </a>
 							<h5 class="texto1"> é um sindicalista e político brasileiro, atualmente Deputado Federal pelo Estado de Alagoas, filiado ao <a href=""> (PT) </a>. É um dos condenados na chamada Operação Taturana. <a href=""> RECIFE-PE </a> </h5>
 							
-							<a href="" > <img src="image/post3.png" width="290px" height="170px" class="img1" > </a>
+							<a> <img src="image/post3.png" width="290px" height="170px" class="img1" > </a>
 							<a href="" class="link1"> CÍCERO ALMEIDA </a>
 							<h5 class="texto1"> Foi prefeito de Maceió, atualmente Deputado Federal pelo Estado de Alagoas, eleito em 2014 pelo <a href=""> (PRTB) </a> mas hoje filiado ao Podemos <a href=""> (PODE) </a>. É um dos condenados no chamado Escândalo das Taturanas. é réu no Supremo Tribunal Federal por envolvimento na Máfia do Lixo de Maceió. <a href=""> MACEIÓ-AL </a> </h5>
 							
-							<a href="" > <img src="image/post4.jpg" width="290px" height="170px" class="img1" > </a>
+							<a> <img src="image/post4.jpg" width="290px" height="170px" class="img1" > </a>
 							<a href="" class="link1"> RENAN FILHO </a>
 							<h5 class="texto1"> Filiado ao <a href=""> (PMDB) </a>, é o atual Governador do Estado de Alagoas. É filho de Renan Calheiros, ex-presidente do Senado Federal. <a href=""> MACEIÓ-AL </a> </h5>
 							
-							<a href="" > <img src="image/post5.jpg" width="290px" height="170px" class="img1" > </a>
+							<a> <img src="image/post5.jpg" width="290px" height="170px" class="img1" > </a>
 							<a href="" class="link1"> JOÃO HENRIQUE CALDAS </a>
 							<h5 class="texto1"> Também conhecido como JHC , filiado ao Partido Socialista Brasileiro <a href=""> (PSB) </a>. Foi o candidato a deputado federal mais votado em seu estado nas eleições de 2014 e hoje exerce a função de Terceiro-Secretário da Mesa da Câmara dos Deputados do Brasil. <a href=""> MACEIÓ-AL </a> </h5>
+							-->
 						</article>
 					</section>
 					<!-- *************************************************************************************************************************** -->

@@ -4,13 +4,8 @@
 	
 	$cand_id = $_GET['cand_id'];// pega o id do candidato via URL
 	
-	$select = "SELECT * FROM candidato WHERE cand_id = $cand_id"; 
-	// select das informacoes do candidato
+	$select = "SELECT * FROM candidato WHERE cand_id = $cand_id"; // select das informacoes do candidato
 	$sql = mysqli_query($connection, $select);
-	
-	$select2 = "SELECT cand_prop, cand_source, cand_idea FROM candidato WHERE cand_id = $cand_id"; 
-	// select das propostas,ideias e fontes para listagem na linha 155
-	$sql2 = mysqli_query($connection, $select2);
 	
 	while($line = mysqli_fetch_array($sql)){//atribuicao dos dados do candidato em variaveis
 		$cand_id = $line['cand_id'];
@@ -135,39 +130,28 @@
 									<tr>
 										<th> Descrição </th>
 										<th> Fonte </th>
-									</tr>
-									<!-- 
-									<tr>
-										<td> <?php //echo $propostas[0] ?> </td>
-										<td> <?php //echo $fontes[0] ?> </td>
-									</tr>
-									<tr>
-										<td> <?php //echo $propostas[1] ?> </td>
-										<td> <?php //echo $fontes[1] ?> </td>
-									</tr>
-									<tr>
-										<td> <?php //echo $propostas[2] ?> </th>
-										<td> <?php //echo $fontes[2] ?> </th>
-									</tr>
-									-->
-									
+									</tr>							
 									<?php	
+										$select2 = "SELECT cand_prop, cand_source, cand_idea FROM candidato WHERE cand_id = $cand_id"; 
+										// select das propostas,ideias e fontes
+										$sql2 = mysqli_query($connection, $select2);
+										$count = 0; //contador para listagem das propostas e ideias
+										
 										while($line2 = mysqli_fetch_array($sql2)){
 											$cand_prop = $line2['cand_prop'];
 											$cand_source = $line2['cand_source'];
 											$cand_idea = $line2['cand_idea'];
-											
-										$count = 0; //contador para listagem das propostas e ideias
+																					
 										$propostas = explode(",", $cand_prop); //divide as propostas separadas por vírgulas em um array
 										$fontes = explode(",", $cand_source); //divide as fontes separadas por vírgulas em um array
 										$ideias = explode(",", $cand_idea); //divide as ideias separadas por vírgulas em um array
 											
 										echo "<tr>
-												<td> <?php $propostas[0] ?> </td>
-												<td> <?php $fontes[0] ?> </td>
+												<td> $propostas[$count] </td>
+												<td> $fontes[$count] </td>
 											  </tr>";
 											  
-											  $count++;
+										$count++;
 										}
 									?>
 								</table>
@@ -175,13 +159,15 @@
 								<table class="tabela" id="tabela_candidato">
 									<caption>Ideias</caption>
 									<tr>
-										<th> <?php echo $ideias[0] ?> </th>
-										<th> <?php echo $fontes[0] ?> </th>
+										<th> Descrição </th>
+										<th> Fonte </th>
 									</tr>
-									<tr>
-										<td> <?php echo $ideias[1] ?> </td>
-										<td> <?php echo $fontes[1] ?> </td>
-									</tr>
+									<?php
+									echo "<tr>
+											<td> $ideias[$count] </td>
+											<td> $fontes[$count] </td>
+										  </tr>";
+									?>
 								</table>
 								</div>
 							
@@ -193,7 +179,7 @@
 							<h3 class="perfil"> PERFIL </h3>							
 						</nav>
 						<nav id="barra5"> </nav>
-						<a href="" > <img src="image/post1.jpg" width="70%" class="perfil" > </a>
+						<a href="" > <img src="image/camera.png" width="70%" class="perfil" > </a>
 						<div id="face">
 							<pre class="info"> <b><?php echo $cand_name ?></b><br /> <?php if($cand_sex == 1)echo 'Sexo: Masculino';else 'Sexo: Feminino'; ?> <br /> Idade: <?php echo $cand_age ?> <br /> Profissão : <?php echo $cand_job ?> <b><br /> Partido : <?php echo $cand_part ?></b><br/><b><br /> Realizações :</b><br/> <?php echo $cand_work ?> </pre>
 					    </div>

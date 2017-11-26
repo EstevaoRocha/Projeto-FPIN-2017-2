@@ -63,7 +63,7 @@
 						</nav>
 						<nav id="barra3"> <a href="#myBtn3" class="edit" id="myBtn3">Editar</a> </nav>
 						<article id="artigo1">
-							<a href="" > <img src="image/pdt.jpg" width="290px" height="170px" class="img1" > </a>
+							<a href="" > <img src="image/camera.png" width="290px" height="170px" class="img1" > </a>
 							<h5 class="texto1"> <?php echo $part_hist ?> </h5>
 							<br><br><br><br><br><br><br><br><br><br><br>
 							<h4>
@@ -97,7 +97,7 @@
 								
 									
 								Página oficial
-								<a href="http://<?php echo $part_page ?>/" class="site"> <?php echo $part_page ?></a>
+								<a href="http://<?php echo $part_page ?>/" class="site" target="_blank"> <?php echo $part_page ?></a>
 							</pre>
 							
 						
