@@ -2,23 +2,10 @@
 	session_start();
 	include ('conf.php');
 	if($_SESSION['logado']!="ok"){
-		header("Location:index.php");// caso a sessão não seja autorizada será redirecionado para usuariologado.php
+		header("Location:index.php");// caso a sessão não seja autorizada será redirecionado para home
 	}	
 	
-	$usuario_logado = $_SESSION['name_user']; // pega o nome do usuário logado através da sessão
-	$nome = explode(" ", $usuario_logado); // pega somente o primeiro nome do usuário
-	
-	//pega os dados do usuario através da sessão para poder editar no modal
-	$id_user = $_SESSION['id_user'];
-	$email_user = $_SESSION['email_user'];
-	$pass_user = $_SESSION['pass_user'];
-	$cpf_user = $_SESSION['cpf_user'];
-	$name_user = $_SESSION['name_user'];
-	$birth_user = $_SESSION['birth_user'];
-	$add_user = $_SESSION['add_user'];
-	$state_user = $_SESSION['state_user'];
-	$city_user = $_SESSION['city_user'];
-	$sex_user = $_SESSION['sex_user'];
+	include ('edit_data.php');
 ?>
 
 <html>
@@ -59,7 +46,7 @@
 				<section id="meio">
 					<section id="esquerda">
 						<nav id="barra2">
-							 <h3 class="recent" > DESTAQUES </h3>
+							 <h3 class="recent" > RECENTES </h3>
 						</nav>
 						<nav id="barra3"> </nav>
 						<article id="artigo1">
@@ -93,7 +80,7 @@
 						<div id="pesq">
 							<img src="image/graphic.png" class="graph">
 						<nav id="barra6">
-							<a class="recent2"> RECENTES </a>
+							<a class="recent2"> DESTAQUES </a>
 							<a class="recent3">  </a>
 							<a class="recent4">  </a>
 						</nav>

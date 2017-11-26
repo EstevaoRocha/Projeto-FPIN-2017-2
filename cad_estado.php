@@ -2,11 +2,10 @@
 	session_start();
 	include ('conf.php');
 	if($_SESSION['logado']!="ok"){
-		header("Location:usuariologado.php");// caso a sessão não seja autorizada será redirecionado para usuariologado.php
+		header("Location:organizadorlogado.php");// caso a sessão não seja autorizada será redirecionado para organizadorlogado.php
 	}	
 	
-	$usuario_logado = $_SESSION['name_user']; // pega o nome do usuário logado através da sessão
-	$nome = explode(" ", $usuario_logado); // pega somente o primeiro nome do usuário
+	include ('edit_data.php');
 ?>
 
 <html>
@@ -110,7 +109,7 @@
 						<div id="pesq">
 							<img src="image/graphic.png" class="graph">
 						<nav id="barra6">
-							<a class="recent2"> RECENTES </a>
+							<a class="recent2"> DESTAQUES </a>
 							<a class="recent3">  </a>
 							<a class="recent4">  </a>
 						</nav>
@@ -179,38 +178,49 @@
     <!-- <span class="close">&times;</span> -->
     <div class="form">
 	  <h1> Editar Meu Usuário </h1>
-	  <form action="" method="">
+	  <form action="edita_usuario.php" method="post">
+		<input type="hidden" name="id_user" value="<?php echo $id_user?>">
 		<label for="fname">E-mail:</label>
-		<input class="cad_user" type="email" id="user_mail" name="email" placeholder="emailexample@outlook.com.br">
+		<input class="cad_user" type="email" id="user_mail" name="email_user" value="<?php echo $email_user?>">
 		
 		<label for="fname">Senha:</label>
-		<input class="cad_user" type="password" id="user_pass" name="pass" placeholder="Redigite sua Senha para não alterar">
+		<input class="cad_user" type="password" id="user_pass" name="pass_user" placeholder="Redigite a sua senha para não alterar" required>
 		
-		<label for="fname">Antiga Senha:</label>
-		<input class="cad_user" type="password" id="user_pass" name="pass" placeholder="Confirme a Senha">
+		<!--
+			<label for="fname">Antiga Senha:</label>
+			<input class="cad_user" type="password" id="user_pass" name="pass_old" placeholder="Antiga senha">
+		-->
 		
 		<label for="fname">CPF:</label>
-		<input class="cad_user" type="text" id="user_cpf" name="cpf" placeholder="999.999.999-99">
+		<input class="cad_user" type="text" id="user_cpf" name="cpf_user" value="<?php echo $cpf_user?>">
 	  
 		<label for="fname">Nome:</label>
-		<input class="cad_user" type="text" id="user_name" name="firstname" placeholder="Estevao Gabriel Santos Rocha">
+		<input class="cad_user" type="text" id="user_name" name="name_user" value="<?php echo $name_user?>">
 
 		<label for="fname">Data de Nascimento:</label>
-		<input class="cad_user" type="date" id="user_birth" name="birth">
+		<input class="cad_user" type="date" id="user_birth" name="birth_user" value="<?php echo $birth_user?>">
 		
 		<label for="fname">Endereço:</label>
-		<input class="cad_user" type="text" id="user_address" name="address" placeholder="Preencha com seu endereço">
+		<input class="cad_user" type="text" id="user_address" name="add_user" value="<?php echo $add_user?>">
 		
 		<label for="fname">Estado:</label>
-		<input class="cad_user" type="text" id="user_estate" name="estate" placeholder="Preencha com o seu estado">
+		<input class="cad_user" type="text" id="user_estate" name="state_user" value="<?php echo $state_user?>">
 		
 		<label for="fname">Cidade:</label>
-		<input class="cad_user" type="text" id="user_city" name="city" placeholder="Preencha com sua cidade">
+		<input class="cad_user" type="text" id="user_city" name="city_user" value="<?php echo $city_user?>">
 		
 		<label for="sex">Sexo:</label>
-		<select class="cad_user" id="sex" name="sex">
-		  <option value="ma">Masculino</option>
-		  <option value="fe">Feminino</option>
+		<select class="cad_user" id="sex" name="sex_user">
+			<?php
+				echo"<option selected='selected' value='$sex_user'>";//pega o sexo do usuário como pré selecionado
+				if($sex_user == '1'){//se for 1 exibe masculino se não exibe feminino
+					echo "Masculino</option>
+					<option value='2'>Feminino</option>";
+				}else{
+					echo "Feminino</option>
+					<option value'1'>Masculino</option>";
+				}
+			?>
 		</select>
 		
 		<center>

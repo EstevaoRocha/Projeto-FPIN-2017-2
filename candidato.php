@@ -4,8 +4,13 @@
 	
 	$cand_id = $_GET['cand_id'];// pega o id do candidato via URL
 	
-	$select = "SELECT * FROM candidato WHERE cand_id = $cand_id"; // select das informacoes do candidato
+	$select = "SELECT * FROM candidato WHERE cand_id = $cand_id"; 
+	// select das informacoes do candidato
 	$sql = mysqli_query($connection, $select);
+	
+	$select2 = "SELECT cand_prop, cand_source, cand_idea FROM candidato WHERE cand_id = $cand_id"; 
+	// select das propostas,ideias e fontes para listagem na linha 155
+	$sql2 = mysqli_query($connection, $select2);
 	
 	while($line = mysqli_fetch_array($sql)){//atribuicao dos dados do candidato em variaveis
 		$cand_id = $line['cand_id'];
@@ -19,7 +24,7 @@
 		$cand_prop = $line['cand_prop'];
 		$cand_idea = $line['cand_idea'];
 		$cand_source = $line['cand_source'];
-	};
+	};	
 ?>
 
 <html>
@@ -73,9 +78,11 @@
 							
 								<div class="textocand"> <p> <?php echo $cand_hist ?> </p>
 								</div>
-							<!--
+							
 								<div class="tabela">
+								<!--
 								<table class="tabela" id="tabela_candidato">
+								
 									<caption>Histórico de Cargos Eletivos Ocupados</caption>
 									<tr>
 										<th> Cargos </th>
@@ -122,44 +129,62 @@
 										<td> 1986 </td>
 									</tr>
 								</table>
-								
+								-->
 								<table class="tabela" id="tabela_candidato">
 									<caption>Propostas</caption>
 									<tr>
 										<th> Descrição </th>
 										<th> Fonte </th>
 									</tr>
+									<!-- 
 									<tr>
-										<td> Combater a fome</td>
-										<td> Gazeta de Alagoas </td>
+										<td> <?php //echo $propostas[0] ?> </td>
+										<td> <?php //echo $fontes[0] ?> </td>
 									</tr>
 									<tr>
-										<td> Arrumar a saúde </td>
-										<td> globo.com </td>
+										<td> <?php //echo $propostas[1] ?> </td>
+										<td> <?php //echo $fontes[1] ?> </td>
 									</tr>
 									<tr>
-										<td> Acabar com o trânsito </th>
-										<td> Carango </th>
+										<td> <?php //echo $propostas[2] ?> </th>
+										<td> <?php //echo $fontes[2] ?> </th>
 									</tr>
+									-->
+									
+									<?php	
+										while($line2 = mysqli_fetch_array($sql2)){
+											$cand_prop = $line2['cand_prop'];
+											$cand_source = $line2['cand_source'];
+											$cand_idea = $line2['cand_idea'];
+											
+										$count = 0; //contador para listagem das propostas e ideias
+										$propostas = explode(",", $cand_prop); //divide as propostas separadas por vírgulas em um array
+										$fontes = explode(",", $cand_source); //divide as fontes separadas por vírgulas em um array
+										$ideias = explode(",", $cand_idea); //divide as ideias separadas por vírgulas em um array
+											
+										echo "<tr>
+												<td> <?php $propostas[0] ?> </td>
+												<td> <?php $fontes[0] ?> </td>
+											  </tr>";
+											  
+											  $count++;
+										}
+									?>
 								</table>
 								
 								<table class="tabela" id="tabela_candidato">
 									<caption>Ideias</caption>
 									<tr>
-										<th> Descrição </th>
-										<th> Fonte </th>
+										<th> <?php echo $ideias[0] ?> </th>
+										<th> <?php echo $fontes[0] ?> </th>
 									</tr>
 									<tr>
-										<td> Redução da poluição</td>
-										<td> Gazeta de Alagoas </td>
-									</tr>
-									<tr>
-										<td> CNH a partir de 16 anos </td>
-										<td> Veja! </td>
+										<td> <?php echo $ideias[1] ?> </td>
+										<td> <?php echo $fontes[1] ?> </td>
 									</tr>
 								</table>
 								</div>
-							-->
+							
 						</article>
 					</section>
 					<!-- *************************************************************************************************************************** -->
@@ -168,7 +193,7 @@
 							<h3 class="perfil"> PERFIL </h3>							
 						</nav>
 						<nav id="barra5"> </nav>
-						<!--<a href="" > <img src="image/post1.jpg" width="70%" class="perfil" > </a>-->
+						<a href="" > <img src="image/post1.jpg" width="70%" class="perfil" > </a>
 						<div id="face">
 							<pre class="info"> <b><?php echo $cand_name ?></b><br /> <?php if($cand_sex == 1)echo 'Sexo: Masculino';else 'Sexo: Feminino'; ?> <br /> Idade: <?php echo $cand_age ?> <br /> Profissão : <?php echo $cand_job ?> <b><br /> Partido : <?php echo $cand_part ?></b><br/><b><br /> Realizações :</b><br/> <?php echo $cand_work ?> </pre>
 					    </div>

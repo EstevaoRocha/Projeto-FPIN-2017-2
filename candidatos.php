@@ -83,7 +83,7 @@
 											<td><button><a href='candidato.php?cand_id=$cand_id'>Sobre</a></button></td>
 										  </tr>";
 									}
-									?>
+								?>
 							</table>
 						</div>
 					</section>
@@ -96,7 +96,7 @@
 						<div id="pesq">
 							<img src="image/graphic.png" class="graph">
 						<nav id="barra6">
-							<a class="recent2"> RECENTES </a>
+							<a class="recent2"> DESTAQUES </a>
 							<a class="recent3">  </a>
 							<a class="recent4">  </a>
 						</nav>
