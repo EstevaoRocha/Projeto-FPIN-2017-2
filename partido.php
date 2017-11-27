@@ -63,8 +63,8 @@
 						</nav>
 						<nav id="barra3"> <a href="#myBtn3" class="edit" id="myBtn3">Editar</a> </nav>
 						<article id="artigo1">
-							<a href="" > <img src="image/camera.png" width="290px" height="170px" class="img1" > </a>
-							<h5 class="texto1"> <?php echo $part_hist ?> </h5>
+							<div class="textocand"> <p> <?php echo $part_hist ?> </p>
+								</div>
 							<br><br><br><br><br><br><br><br><br><br><br>
 							<h4>
 								<br>
@@ -82,8 +82,10 @@
 							<h3 class="perfil"> PERFIL </h3>							
 						</nav>
 						<nav id="barra5"> </nav>
-						<div id="face">
+						<img src="image/camera.png" width="70%" class="perfil" >
+						<div id="face">						
 							<pre class="info">
+								
 								Número eleitoral <?php echo $part_numb ?>
 								
 				

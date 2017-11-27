@@ -21,9 +21,9 @@
 	
 	$sql = mySQLi_query($connection, $insert);
 	if($sql){
-		echo "<script type='text/javascript'> alert( 'Candidato Cadastrado!', window.location='cad_candidato.php' ); </script>";
+		echo "<script type='text/javascript'> alert( 'Candidato Cadastrado!', window.location='usuariologado.php' ); </script>";
 	}else {
-		echo "<script type='text/javascript'> alert( 'Falhou!', window.location='cad_candidato.php' ); </script>";
+		echo "<script type='text/javascript'> alert( 'Falhou!', window.location='usuariologado.php' ); </script>";
 	}
 	
 ?>

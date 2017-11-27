@@ -35,7 +35,7 @@
 .info{
 	float: left;
 	margin : 0px 0px 30px -440px;
-	font-size: 14px;
+	font-size: 20px;
 }
 
 .site{
@@ -49,6 +49,11 @@
 	margin: 0px 0px 0px -500px;
 }
 
+/* propriedades do texto do partido em destaque */
+.texto1{
+	float: left; 
+	margin: -130px 0 0 320px;
+}
 
 
 

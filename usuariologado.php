@@ -2,8 +2,13 @@
 	session_start();
 	include ('conf.php');
 	if($_SESSION['logado']!="ok"){
-		header("Location:index.php");// caso a sessão não seja autorizada será redirecionado para home
+		header("Location:index.php");// caso seja efetuado a tentativa de acessar pela URL sem estar logado, não é autorizado e será redirecionado para home
 	}	
+	
+	if($_SESSION['id_user'] <= 20)// verifica se é usuario comum ou organizador logando
+			header("Location:organizadorlogado.php");
+		else
+			header("Location:usuariologado.php");
 	
 	include ('edit_data.php');
 ?>

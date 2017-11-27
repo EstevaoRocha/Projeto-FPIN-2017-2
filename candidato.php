@@ -145,13 +145,15 @@
 										$propostas = explode(",", $cand_prop); //divide as propostas separadas por vírgulas em um array
 										$fontes = explode(",", $cand_source); //divide as fontes separadas por vírgulas em um array
 										$ideias = explode(",", $cand_idea); //divide as ideias separadas por vírgulas em um array
-											
+										
+										if(isset($propostas)){
 										echo "<tr>
 												<td> $propostas[$count] </td>
 												<td> $fontes[$count] </td>
 											  </tr>";
 											  
 										$count++;
+											}
 										}
 									?>
 								</table>
@@ -162,11 +164,30 @@
 										<th> Descrição </th>
 										<th> Fonte </th>
 									</tr>
-									<?php
-									echo "<tr>
-											<td> $ideias[$count] </td>
-											<td> $fontes[$count] </td>
-										  </tr>";
+									<?php					
+										// mesmo processo para tabela de propostas, agora para ideias.
+										$select2 = "SELECT cand_prop, cand_source, cand_idea FROM candidato WHERE cand_id = $cand_id"; 
+											$sql2 = mysqli_query($connection, $select2);
+											$count = 0;
+											
+											while($line2 = mysqli_fetch_array($sql2)){
+												$cand_prop = $line2['cand_prop'];
+												$cand_source = $line2['cand_source'];
+												$cand_idea = $line2['cand_idea'];
+																						
+											$propostas = explode(",", $cand_prop);
+											$fontes = explode(",", $cand_source);
+											$ideias = explode(",", $cand_idea);
+											
+											if(isset($ideias)){
+											echo "<tr>
+													<td> $ideias[$count] </td>
+													<td> $fontes[$count] </td>
+												  </tr>";	
+
+												$count++;
+												}
+											}
 									?>
 								</table>
 								</div>
@@ -179,7 +200,7 @@
 							<h3 class="perfil"> PERFIL </h3>							
 						</nav>
 						<nav id="barra5"> </nav>
-						<a href="" > <img src="image/camera.png" width="70%" class="perfil" > </a>
+						<img src="image/camera.png" width="70%" class="perfil" >
 						<div id="face">
 							<pre class="info"> <b><?php echo $cand_name ?></b><br /> <?php if($cand_sex == 1)echo 'Sexo: Masculino';else 'Sexo: Feminino'; ?> <br /> Idade: <?php echo $cand_age ?> <br /> Profissão : <?php echo $cand_job ?> <b><br /> Partido : <?php echo $cand_part ?></b><br/><b><br /> Realizações :</b><br/> <?php echo $cand_work ?> </pre>
 					    </div>

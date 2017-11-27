@@ -23,7 +23,7 @@
 						<a href="usuariologado.php" > <img src="image/logotipo.png" class="logo"> </a>
 					</div>
 					<div id="ad">
-						<h1 id="titulo">Bem vindos à Wikilítica</h1>
+						<h1 id="titulo">Bem-vindos à Wikilítica</h1>
 					</div>
 					<nav id="barra1">
 						<a href="usuariologado.php" class="item3"> <img src="image/home.png" class="home"> </a>
