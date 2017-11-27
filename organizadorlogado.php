@@ -18,7 +18,7 @@
 	<body>
 		<section id="tudo">
 			<section id="geral">
-				<header>				
+				<header>					
 					<menu>
 						<a href="usuariologado.php" class="item">PÁGINA INICIAL</a>
 						<a href="#myBtn" class="item" id="myBtn">EDITAR INFORMAÇÕES</a>									

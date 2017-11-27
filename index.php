@@ -1,6 +1,12 @@
 <?php
-//session_start();
+session_start();
 include ('conf.php');
+
+$_SESSION['logado'] = "inicializando";
+
+if($_SESSION['logado']=="ok"){
+		header("Location:usuariologado.php");
+	}	
 ?>
 
 <html>
