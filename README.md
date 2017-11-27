@@ -20,3 +20,7 @@ https://www.apachefriends.org/pt_br/download.html
 6-Através do seu navegador digite "localhost/phpmyadmin e no botao importar selecione o arquivo wikilitica.sql"
 
 7-Através do seu navegador digite "localhost/nome_do_projeto".
+
+Usuários já cadastrados:
+	organizador -> estevaogabrielsr@outlook, 1234
+	usuario comum -> usuario@hotmail.com, 1234

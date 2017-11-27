@@ -143,7 +143,7 @@ include ('conf.php');
     <!-- <span class="close">&times;</span> -->
     <div class="form">
 	  <h1> Cadastro de Usuário </h1>
-	  <form action="cad_user.php" method="post">
+	  <form action="cad_user.php" method="post" accept-charset="UTF-8">
 		<label for="fname">E-mail:</label>
 		<input class="cad_user" type="email" id="user_mail" name="email_user" placeholder="Preencha com seu e-mail">
 		

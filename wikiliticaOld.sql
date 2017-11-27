@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 27-Nov-2017 às 19:49
+-- Generation Time: 27-Nov-2017 às 17:42
 -- Versão do servidor: 10.1.26-MariaDB
 -- PHP Version: 7.1.9
 
@@ -21,6 +21,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `wikilitica`
 --
+CREATE DATABASE IF NOT EXISTS `wikilitica` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `wikilitica`;
 
 -- --------------------------------------------------------
 
@@ -28,6 +30,7 @@ SET time_zone = "+00:00";
 -- Estrutura da tabela `candidato`
 --
 
+DROP TABLE IF EXISTS `candidato`;
 CREATE TABLE `candidato` (
   `cand_id` int(11) NOT NULL,
   `cand_name` varchar(100) NOT NULL,
@@ -35,22 +38,22 @@ CREATE TABLE `candidato` (
   `cand_age` varchar(20) NOT NULL,
   `cand_job` varchar(100) DEFAULT NULL,
   `cand_part` varchar(100) DEFAULT NULL,
-  `cand_work` mediumtext,
-  `cand_hist` mediumtext NOT NULL,
+  `cand_work` text,
+  `cand_hist` text NOT NULL,
   `cand_prop` varchar(200) NOT NULL,
   `cand_idea` varchar(200) DEFAULT NULL,
   `cand_source` varchar(300) NOT NULL,
   `cand_city` varchar(60) NOT NULL,
   `cand_pict` longblob NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `candidato`
 --
 
 INSERT INTO `candidato` (`cand_id`, `cand_name`, `cand_sex`, `cand_age`, `cand_job`, `cand_part`, `cand_work`, `cand_hist`, `cand_prop`, `cand_idea`, `cand_source`, `cand_city`, `cand_pict`) VALUES
-(2, 'RONALDO LESSA', 0, '68 ANOS', 'Engenheiro Civil', 'PDT', 'Quem Sabe', 'Ronaldo Augusto Lessa Santos, ou apenas Ronaldo Lessa (Maceió, 25 de abril de 1949) é um engenheiro civil e político brasileiro, ex-prefeito de Maceió, ex-governador de Alagoas por dois mandatos, atualmente Deputado Federal por este Estado, filiado ao Partido Democrático Trabalhista (PDT). É primo do também Deputado Federal Maurício Quintella Lessa.', 'Combater a fome, Organizar a saúde, Reduzir o trânsito', 'Reducao da poluicao, CNH a partir de 16 anos', 'Gazeta de Alagoas, veja', 'maceio', ''),
-(3, 'PAULO FERNANDO', 1, '50 Anos', '', 'PT', 'Quem Sabe', 'Paulo Fernando dos Santos, mais conhecido como Paulão ou Paulão do PT (Recife, 15 de setembro de 1957), é um sindicalista e político brasileiro, atualmente Deputado Federal pelo Estado de Alagoas, filiado ao PT.\r\n\r\nÉ um dos condenados na chamada Operação Taturana.', 'Propostas 1, Propostas 5', 'Algumas 1, Algumas 2, Algumas 3', 'Folha de S Paulo', 'recife', ''),
+(2, 'RONALDO LESSA', 1, '68 ANOS', 'Engenheiro Civil', 'PDT', 'Quem Sabe', 'Ronaldo Augusto Lessa Santos, ou apenas Ronaldo Lessa (Maceió, 25 de abril de 1949) é um engenheiro civil e político brasileiro, ex-prefeito de Maceió, ex-governador de Alagoas por dois mandatos, atualmente Deputado Federal por este Estado, filiado ao Partido Democrático Trabalhista (PDT). É primo do também Deputado Federal Maurício Quintella Lessa.', 'Combater a fome, Arrumar a saÃºde, Acabar com o trÃ¢nsito', 'Reducao da poluicao, CNH a partir de 16 anos', 'Gazeta de Alagoas, veja', 'maceio', ''),
+(3, 'PAULO FERNANDO', 1, '50 Anos', '', 'PT', 'Quem Sabe', 'Paulo Fernando dos Santos, mais conhecido como Paulão ou Paulão do PT (Recife, 15 de setembro de 1957), é um sindicalista e político brasileiro, atualmente Deputado Federal pelo Estado de Alagoas, filiado ao PT.\r\n\r\nÉ um dos condenados na chamada Operação Taturana.', 'Propostas 1, Propostas 5', 'Algumas 1, Algumas 2, Algumas 3', 'Folha de S Paulo', 'maceio', ''),
 (5, 'RENAN FILHO', 1, '30 Anos', 'Economista', 'PMDB', 'Quem Sabe', 'José Renan Vasconcelos Calheiros Filho (Murici, 8 de outubro de 1979) é um político brasileiro. Filiado ao PMDB, é o atual Governador do Estado de Alagoas.\r\n\r\nÉ filho de Renan Calheiros, ex-presidente do Senado Federal.', 'Propostas 2, Propostas 3', 'Algumas 4, Algumas 1', 'Gazeta', 'maceio', ''),
 (6, 'JOAO HENRIQUE CALDAS', 1, '27 Anos', 'Advogado', 'PSB', 'Quem Sabe', 'João Henrique Holanda Caldas, também conhecido como JHC (Maceió, 22 de julho de 1987), é um político brasileiro, filiado ao Partido Socialista Brasileiro (PSB). Foi o candidato a deputado federal mais votado em seu estado nas eleições de 2014 e hoje exerce a função de Terceiro-Secretário da Mesa da Câmara dos Deputados do Brasil.\r\n\r\nÉ filho do também político João Caldas da Silva', 'Propostas 3, Propostas 6', 'Algumas 5, Algumas 6', 'Abril', 'maceio', ''),
 (7, 'CICERO ALMEIDA', 1, '65 Anos', 'Radialista', 'PODE', 'Quem Sabe', 'José Cícero Soares de Almeida, ou apenas Cícero Almeida (Maribondo, 8 de janeiro de 1958) é um radialista, cantor e político brasileiro. Foi prefeito de Maceió, atualmente Deputado Federal pelo Estado de Alagoas, eleito em 2014 pelo PRTB mas hoje filiado ao Podemos (PODE).', 'Propostas 4, Propostas 7', 'Algumas 7, Algumas 18', 'Veja', 'maceio', '');
@@ -61,12 +64,13 @@ INSERT INTO `candidato` (`cand_id`, `cand_name`, `cand_sex`, `cand_age`, `cand_j
 -- Estrutura da tabela `cidade`
 --
 
+DROP TABLE IF EXISTS `cidade`;
 CREATE TABLE `cidade` (
   `city_id` int(11) NOT NULL,
   `city_state` varchar(100) NOT NULL,
   `city_name` varchar(100) NOT NULL,
   `city_popu` varchar(100) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `cidade`
@@ -82,18 +86,19 @@ INSERT INTO `cidade` (`city_id`, `city_state`, `city_name`, `city_popu`) VALUES
 -- Estrutura da tabela `partido`
 --
 
+DROP TABLE IF EXISTS `partido`;
 CREATE TABLE `partido` (
   `part_id` int(11) NOT NULL,
   `part_name` varchar(100) NOT NULL,
   `part_sigla` varchar(10) NOT NULL,
-  `part_cand` mediumtext NOT NULL,
+  `part_cand` text NOT NULL,
   `part_city` varchar(100) NOT NULL,
-  `part_hist` mediumtext NOT NULL,
+  `part_hist` text NOT NULL,
   `part_numb` int(11) NOT NULL,
   `part_pres` varchar(50) NOT NULL,
   `part_fund` date DEFAULT NULL,
   `part_page` varchar(100) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `partido`
@@ -112,10 +117,11 @@ INSERT INTO `partido` (`part_id`, `part_name`, `part_sigla`, `part_cand`, `part_
 -- Estrutura da tabela `usuario`
 --
 
+DROP TABLE IF EXISTS `usuario`;
 CREATE TABLE `usuario` (
   `id_user` int(11) NOT NULL,
   `email_user` varchar(100) NOT NULL,
-  `pass_user` mediumtext NOT NULL,
+  `pass_user` text NOT NULL,
   `cpf_user` varchar(15) NOT NULL,
   `name_user` varchar(100) NOT NULL,
   `birth_user` date DEFAULT NULL,
@@ -123,7 +129,7 @@ CREATE TABLE `usuario` (
   `state_user` varchar(60) DEFAULT NULL,
   `city_user` varchar(60) DEFAULT NULL,
   `sex_user` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `usuario`
@@ -170,7 +176,7 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT for table `candidato`
 --
 ALTER TABLE `candidato`
-  MODIFY `cand_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `cand_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `cidade`

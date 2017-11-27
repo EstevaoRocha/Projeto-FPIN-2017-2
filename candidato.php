@@ -19,7 +19,8 @@
 		$cand_prop = $line['cand_prop'];
 		$cand_idea = $line['cand_idea'];
 		$cand_source = $line['cand_source'];
-	};	
+		$cand_city = $line['cand_city'];
+	};		
 ?>
 
 <html>
@@ -238,35 +239,36 @@
     <!-- <span class="close">&times;</span> -->
     <div class="form">
 	  <h1> Cadastro de Usuário </h1>
-	  <form action="" method="">
+	  <form action="cad_user.php" method="post">
 		<label for="fname">E-mail:</label>
-		<input class="cad_user" type="email" id="user_mail" name="email" placeholder="Preencha com seu e-mail">
+		<input class="cad_user" type="email" id="user_mail" name="email_user" placeholder="Preencha com seu e-mail">
 		
 		<label for="fname">Senha:</label>
-		<input class="cad_user" type="password" id="user_pass" name="pass" placeholder="Preencha com sua senha">
+		<input class="cad_user" type="password" id="user_pass" name="pass_user" placeholder="Preencha com sua senha">
 		
 		<label for="fname">CPF:</label>
-		<input class="cad_user" type="text" id="user_cpf" name="cpf" placeholder="Preencha com o seu CPF">
+		<input class="cad_user" type="text" id="user_cpf" name="cpf_user" placeholder="Preencha com o seu CPF">
 	  
 		<label for="fname">Nome:</label>
-		<input class="cad_user" type="text" id="user_name" name="firstname" placeholder="Preencha com o seu nome completo">
+		<input class="cad_user" type="text" id="user_name" name="name_user" placeholder="Preencha com o seu nome completo">
 
 		<label for="fname">Data de Nascimento:</label>
-		<input class="cad_user" type="date" id="user_birth" name="birth" placeholder="Preencha com sua cidade">
+		<input class="cad_user" type="date" id="user_birth" name="birth_user" placeholder="Preencha com sua cidade">
 		
 		<label for="fname">Endereço:</label>
-		<input class="cad_user" type="text" id="user_address" name="address" placeholder="Preencha com seu endereço">
+		<input class="cad_user" type="text" id="user_address" name="add_user" placeholder="Preencha com seu endereço">
 		
 		<label for="fname">Estado:</label>
-		<input class="cad_user" type="text" id="user_estate" name="estate" placeholder="Preencha com o seu estado">
+		<input class="cad_user" type="text" id="user_estate" name="state_user" placeholder="Preencha com o seu estado">
 		
 		<label for="fname">Cidade:</label>
-		<input class="cad_user" type="text" id="user_city" name="city" placeholder="Preencha com sua cidade">
+		<input class="cad_user" type="text" id="user_city" name="city_user" placeholder="Preencha com sua cidade">
 		
 		<label for="sex">Sexo:</label>
-		<select class="cad_user" id="sex" name="sex">
-		  <option value="ma">Masculino</option>
-		  <option value="fe">Feminino</option>
+		<select class="cad_user" id="sex" name="sex_user">
+		  <option>Selecione</option>
+		  <option value="1">Masculino</option>
+		  <option value="2">Feminino</option>
 		</select>
 		
 		<center>
@@ -303,7 +305,7 @@
   <div class="modal-content">
     <div class="form">
 	  <h1> Editar Informações </h1>
-	  <form action="edita_candidato.php" method="post">
+	  <form action="edita_candidato.php" method="post" enctype="multipart/form-data">
 		<input type="hidden" name="cand_id" value="<?php echo $cand_id?>">
 		<label for="fname">Nome:</label>
 		<input class="cad_user" type="text" id="cand_perf" name="cand_name" value="<?php echo $cand_name?>">
@@ -363,13 +365,13 @@
 		<select class="cad_user" name="cand_city">
 		<?php
 			$sel_city = "SELECT * FROM cidade";//pega as cidades do banco
-				$sql2 = mysqli_query($connection, $sel_city);
-				echo"<option selected='selected' value='$cand_city'> $cand_city </option>";// nao esta funcionando pois o fetch ainda nao foi feito		
-				while($line_city = mysqli_fetch_array($sql2)){
-					$city_id = $line_city['city_id'];
-					$city_name = $line_city['city_name'];
-					echo "<option value='$city_id'>$city_name</option>";
-				}
+			$sql2 = mysqli_query($connection, $sel_city);
+			echo"<option selected='selected' value='$cand_city'> $cand_city </option>";	
+			while($line_city = mysqli_fetch_array($sql2)){
+				$city_id = $line_city['city_id'];
+				$city_name = $line_city['city_name'];
+				echo "<option value='$city_name'>$city_name</option>";
+			}
 		?>
 		</select>
 		<center>
