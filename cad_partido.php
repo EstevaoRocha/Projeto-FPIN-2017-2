@@ -5,6 +5,9 @@
 		header("Location:organizadorlogado.php");// caso a sessão não seja autorizada será redirecionado para organizadorlogado.php
 	}	
 	
+	if($_SESSION['id_user'] > 20)// verifica se não é organizador logado
+	header("Location:usuariologado.php");
+	
 	include ('edit_data.php');
 ?>
 
