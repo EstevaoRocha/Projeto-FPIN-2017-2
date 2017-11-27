@@ -5,6 +5,9 @@
 		header("Location:usuariologado.php");// caso a sessão não seja autorizada será redirecionado para usuariologado.php
 	}	
 	
+	if($_SESSION['id_user'] <= 20)// verifica se é organizador logado
+			header("Location:organizadorlogado.php");
+	
 	include ('edit_data.php');
 ?>
 
@@ -55,7 +58,7 @@
 						<div id="artigo1">
 							<div class="form2">
 							  <h1> Cadastrar Candidato </h1>
-							  <form enctype="multipart/form-data" action="submit_cand.php" method="post">							
+							  <form enctype="multipart/form-data" action="submit_cand.php" method="post"  accept-charset="UTF-8">							
 								<label for="fname">Nome:</label>
 								<input class="cad_user" type="text" id="cand_perf" name="cand_name">
 								

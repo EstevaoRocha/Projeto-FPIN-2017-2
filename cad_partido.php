@@ -54,7 +54,7 @@
 						<div id="artigo1">
 							<div class="form2">
 							  <h1> Cadastrar Partido </h1>
-							  <form action="submit_part.php" method="post">
+							  <form action="submit_part.php" method="post" accept-charset="UTF-8">
 								<label for="fname">Nome:</label>
 								<input class="cad_user" type="text" id="cand_perf" name="part_name">
 								

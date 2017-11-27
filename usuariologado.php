@@ -5,10 +5,8 @@
 		header("Location:index.php");// caso seja efetuado a tentativa de acessar pela URL sem estar logado, não é autorizado e será redirecionado para home
 	}	
 	
-	if($_SESSION['id_user'] <= 20)// verifica se é usuario comum ou organizador logando
+	if($_SESSION['id_user'] <= 20)// verifica se é organizador
 			header("Location:organizadorlogado.php");
-		else
-			header("Location:usuariologado.php");
 	
 	include ('edit_data.php');
 ?>

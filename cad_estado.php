@@ -54,7 +54,7 @@
 						<div id="artigo1">
 							<div class="form2">
 							  <h1> Cadastrar Cidade </h1>
-							  <form action="submit_city.php" method="post">
+							  <form action="submit_city.php" method="post" accept-charset="UTF-8">
 								<label for="sex">Estado:</label>
 								<select class="cad_user" id="" name="city_state">
 									<option value="">Selecione o Estado</option>
