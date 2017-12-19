@@ -20,7 +20,11 @@
 		$cand_idea = $line['cand_idea'];
 		$cand_source = $line['cand_source'];
 		$cand_city = $line['cand_city'];
+		$cand_pict = $line['cand_pict'];
 	};		
+	
+	//Cookies para quantidade de acessos
+	include ('acessos.php');
 ?>
 
 <html>
@@ -35,11 +39,7 @@
 		<section id="tudo">
 			<section id="geral">
 				<header>				
-					<menu>
-						<a href="usuariologado.php" class="item">PÁGINA INICIAL</a>
-						<a href="#myBtn" class="item" id="myBtn">CRIAR CONTA</a>
-						<a href="#myBtn2" class="item" id="myBtn2">ENTRAR</a>
-					</menu>
+					<?php include ('menu.php'); ?>
 					<div id="logo">
 						<a href="usuariologado.php" > <img src="image/logotipo.png" class="logo"> </a>
 					</div>
@@ -51,7 +51,7 @@
 						<a href="candidatos.php" class="item2">CANDIDATOS</a>
 						<a href="partidos.php" class="item2">PARTIDOS</a>
 						<a href="cidadeestado.php" class="item2">CIDADES/ESTADOS</a>
-						<a href="sobre.html" class="item2">SOBRE</a>
+						<a href="sobre.php" class="item2">SOBRE</a>
 						<a href="" class="item2"></a>
 						<a href="" class="item2"></a>
 						<a href="" class="item2"></a>
@@ -305,7 +305,7 @@
   <div class="modal-content">
     <div class="form">
 	  <h1> Editar Informações </h1>
-	  <form action="edita_candidato.php" method="post" enctype="multipart/form-data">
+	  <form action="edita_candidato.php" method="post" enctype="multipart/form-data" accept-charset="UTF-8">
 		<input type="hidden" name="cand_id" value="<?php echo $cand_id?>">
 		<label for="fname">Nome:</label>
 		<input class="cad_user" type="text" id="cand_perf" name="cand_name" value="<?php echo $cand_name?>">
@@ -374,6 +374,8 @@
 			}
 		?>
 		</select>
+		<label for="img">Imagem:</label>
+		<input type="file" name="cand_pict" width="140" height="140" value="<?php echo $cand_pict?>" required><br>	
 		<center>
 			<input id="bt" type="submit" value="Editar">
 		</center>

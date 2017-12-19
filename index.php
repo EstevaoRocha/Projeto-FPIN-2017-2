@@ -3,6 +3,7 @@ session_start();
 include ('conf.php');
 
 $_SESSION['logado'] = "inicializando";
+$_SESSION['type_user'] = 5;//inicializando como usuario visitante
 
 if($_SESSION['logado']=="ok"){
 		header("Location:usuariologado.php");
@@ -19,12 +20,8 @@ if($_SESSION['logado']=="ok"){
 	<body>
 		<section id="tudo">
 			<section id="geral">
-				<header>				
-					<menu>
-						<a href="" class="item">PÁGINA INICIAL</a>
-						<a href="#myBtn" class="item" id="myBtn">CRIAR CONTA</a>
-						<a href="#myBtn2" class="item" id="myBtn2">ENTRAR</a>
-					</menu>
+				<header>
+					<?php include ('menu.php'); ?>
 					<div id="logo">
 						<a href="usuariologado.php" > <img src="image/logotipo.png" class="logo"> </a>
 					</div>
@@ -36,7 +33,7 @@ if($_SESSION['logado']=="ok"){
 							<a href="candidatos.php" class="item2">CANDIDATOS</a>
 							<a href="partidos.php" class="item2">PARTIDOS</a>
 							<a href="cidadeestado.php" class="item2">CIDADES/ESTADOS</a>
-							<a href="sobre.html" class="item2">SOBRE</a>
+							<a href="sobre.php" class="item2">SOBRE</a>
 						<form name="" method="" action="">							
 							<input type="search" name="search" placeholder="Pesquisar na Wiki" title="Pesquisar" id="pesqInput" tabindex="1" autocomplete="off">
 							<input type="image" src="image/lupa.png" width="42px" height="46px" class="item4" onClick="this.form.submit()">
@@ -50,25 +47,7 @@ if($_SESSION['logado']=="ok"){
 						</nav>
 						<nav id="barra3"> </nav>
 						<article id="artigo1">
-						
 							 <?php include ('recentes.php'); ?>
-							<!--							
-							<a> <img src="image/post2.png" width="290px" height="170px" class="img1" > </a>
-							<a href="" class="link1"> PAULO FERNANDO </a>
-							<h5 class="texto1"> é um sindicalista e político brasileiro, atualmente Deputado Federal pelo Estado de Alagoas, filiado ao <a href=""> (PT) </a>. É um dos condenados na chamada Operação Taturana. <a href=""> RECIFE-PE </a> </h5>
-							
-							<a> <img src="image/post3.png" width="290px" height="170px" class="img1" > </a>
-							<a href="" class="link1"> CÍCERO ALMEIDA </a>
-							<h5 class="texto1"> Foi prefeito de Maceió, atualmente Deputado Federal pelo Estado de Alagoas, eleito em 2014 pelo <a href=""> (PRTB) </a> mas hoje filiado ao Podemos <a href=""> (PODE) </a>. É um dos condenados no chamado Escândalo das Taturanas. é réu no Supremo Tribunal Federal por envolvimento na Máfia do Lixo de Maceió. <a href=""> MACEIÓ-AL </a> </h5>
-							
-							<a> <img src="image/post4.jpg" width="290px" height="170px" class="img1" > </a>
-							<a href="" class="link1"> RENAN FILHO </a>
-							<h5 class="texto1"> Filiado ao <a href=""> (PMDB) </a>, é o atual Governador do Estado de Alagoas. É filho de Renan Calheiros, ex-presidente do Senado Federal. <a href=""> MACEIÓ-AL </a> </h5>
-							
-							<a> <img src="image/post5.jpg" width="290px" height="170px" class="img1" > </a>
-							<a href="" class="link1"> JOÃO HENRIQUE CALDAS </a>
-							<h5 class="texto1"> Também conhecido como JHC , filiado ao Partido Socialista Brasileiro <a href=""> (PSB) </a>. Foi o candidato a deputado federal mais votado em seu estado nas eleições de 2014 e hoje exerce a função de Terceiro-Secretário da Mesa da Câmara dos Deputados do Brasil. <a href=""> MACEIÓ-AL </a> </h5>
-							-->
 						</article>
 					</section>
 					<!-- *************************************************************************************************************************** -->

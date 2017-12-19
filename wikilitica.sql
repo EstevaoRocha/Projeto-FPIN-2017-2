@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 27-Nov-2017 às 19:49
--- Versão do servidor: 10.1.26-MariaDB
--- PHP Version: 7.1.9
+-- Generation Time: 06-Dez-2017 às 15:06
+-- Versão do servidor: 10.1.28-MariaDB
+-- PHP Version: 7.1.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -122,17 +122,18 @@ CREATE TABLE `usuario` (
   `add_user` varchar(100) DEFAULT NULL,
   `state_user` varchar(60) DEFAULT NULL,
   `city_user` varchar(60) DEFAULT NULL,
-  `sex_user` int(11) DEFAULT NULL
+  `sex_user` int(11) DEFAULT NULL,
+  `type_user` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `usuario`
 --
 
-INSERT INTO `usuario` (`id_user`, `email_user`, `pass_user`, `cpf_user`, `name_user`, `birth_user`, `add_user`, `state_user`, `city_user`, `sex_user`) VALUES
-(1, 'estevaogabrielsr@outlook.com.br', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', '99999999950', 'ESTEVAO GABRIEL SANTOS ', '0000-00-00', '', '', '', 1),
-(16, 'teste@teste.com', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', '99999999908', 'teste', '0000-00-00', '', '', '', 1),
-(21, 'usuario@hotmail.com', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', '99999999906', 'Usuario Comum', '1997-07-07', '', '', '', 2);
+INSERT INTO `usuario` (`id_user`, `email_user`, `pass_user`, `cpf_user`, `name_user`, `birth_user`, `add_user`, `state_user`, `city_user`, `sex_user`, `type_user`) VALUES
+(1, 'estevaogabrielsr@outlook.com.br', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', '99999999950', 'ESTEVAO GABRIEL SANTOS ', '0000-00-00', '', '', '', 1, 0),
+(16, 'teste@teste.com', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', '99999999908', 'teste', '0000-00-00', '', '', '', 1, 0),
+(21, 'usuario@hotmail.com', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', '99999999906', 'Usuario Comum', '1997-07-07', '', '', '', 2, 1);
 
 --
 -- Indexes for dumped tables

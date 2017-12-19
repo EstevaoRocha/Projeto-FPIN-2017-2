@@ -10,10 +10,11 @@
 	$state_user = $_POST['state_user'];
 	$city_user = $_POST['city_user'];
 	$sex_user = $_POST['sex_user'];
+	//$type_user = $_POST['type_user'];
 	
 	$db_email = 'email';
 	$db_cpf = 'cpf';	
-	
+	$type_user = 1;
 		
 	//Checagem de valores ja cadastrados
 	// email 
@@ -42,7 +43,7 @@
 		
 	$password = sha1($pass_user); // Transformando a senha em hash SHA1
 		
-	$insert = "INSERT INTO usuario (email_user, pass_user, cpf_user, name_user, birth_user, add_user, state_user, city_user, sex_user) VALUES ('$email_user','$password','$cpf_user','$name_user','$birth_user','$add_user','$state_user','$city_user','$sex_user')";
+	$insert = "INSERT INTO usuario (email_user, pass_user, cpf_user, name_user, birth_user, add_user, state_user, city_user, sex_user, type_user) VALUES ('$email_user','$password','$cpf_user','$name_user','$birth_user','$add_user','$state_user','$city_user','$sex_user','$type_user')";
 	
 	$sql = mySQLi_query($connection, $insert);
 	if($sql){

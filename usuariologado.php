@@ -5,7 +5,7 @@
 		header("Location:index.php");// caso seja efetuado a tentativa de acessar pela URL sem estar logado, não é autorizado e será redirecionado para home
 	}	
 	
-	if($_SESSION['id_user'] <= 20)// verifica se é organizador
+	if($_SESSION['id_user'] == 0)// verifica se é organizador
 			header("Location:organizadorlogado.php");
 	
 	include ('edit_data.php');
@@ -22,12 +22,7 @@
 		<section id="tudo">
 			<section id="geral">
 				<header>				
-					<menu>
-						<a href="usuariologado.php" class="item">PÁGINA INICIAL</a>
-						<a href="#myBtn" class="item" id="myBtn">EDITAR INFORMAÇÕES</a>
-						<a href="cad_candidato.php" class="item">CADASTRAR CANDIDATO</a>
-						<a href="sair.php" class="item">SAIR</a>
-					</menu>
+					<?php include ('menu.php'); ?>
 					<div id="logo">
 						<a href="usuariologado.php" > <img src="image/logotipo.png" class="logo"> </a>
 					</div>
@@ -39,7 +34,7 @@
 						<a href="candidatos.php" class="item2">CANDIDATOS</a>
 						<a href="partidos.php" class="item2">PARTIDOS</a>
 						<a href="cidadeestado.php" class="item2">CIDADES/ESTADOS</a>
-						<a href="sobre.html" class="item2">SOBRE</a>
+						<a href="sobre.php" class="item2">SOBRE</a>
 						<form name="" method="" action="">							
 							<input type="search" name="search" placeholder="Pesquisar na Wiki" title="Pesquisar" id="pesqInput" tabindex="1" autocomplete="off">
 							<input type="image" src="image/lupa.png" width="42px" height="46px" class="item4" onClick="this.form.submit()">

@@ -20,8 +20,9 @@
 		$_SESSION['state_user'] = $linha['state_user'];
 		$_SESSION['city_user'] = $linha['city_user'];
 		$_SESSION['sex_user'] = $linha['sex_user'];
+		$_SESSION['type_user'] = $linha['type_user'];
 		
-		if($_SESSION['id_user'] <= 20)// verifica se é usuario comum ou organizador logando
+		if($_SESSION['type_user'] == 0)// verifica se é usuario comum ou organizador logando
 			header("Location:organizadorlogado.php");
 		else
 			header("Location:usuariologado.php");

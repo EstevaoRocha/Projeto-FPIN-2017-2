@@ -19,6 +19,9 @@
 		$part_fund = $line['part_fund'];
 		$part_page = $line['part_page'];
 	};
+	
+	//Cookies para quantidade de acessos
+	include ('acessos.php');
 ?>
 
 <html>
@@ -33,11 +36,7 @@
 		<section id="tudo">
 			<section id="geral">
 				<header>				
-					<menu>
-						<a href="" class="item">PÁGINA INICIAL</a>
-						<a href="#myBtn" class="item" id="myBtn">CRIAR CONTA</a>
-						<a href="#myBtn2" class="item" id="myBtn2">ENTRAR</a>
-					</menu>
+					<?php include ('menu.php'); ?>
 					<div id="logo">
 						<a href="usuariologado.php" > <img src="image/logotipo.png" class="logo"> </a>
 					</div>
@@ -49,7 +48,7 @@
 						<a href="candidatos.php" class="item2">CANDIDATOS</a>
 						<a href="partidos.php" class="item2">PARTIDOS</a>
 						<a href="cidadeestado.php" class="item2">CIDADES/ESTADOS</a>
-						<a href="sobre.html" class="item2">SOBRE</a>
+						<a href="sobre.php" class="item2">SOBRE</a>
 						<form name="" method="" action="">							
 							<input type="search" name="search" placeholder="Pesquisar na Wiki" title="Pesquisar" id="pesqInput" tabindex="1" autocomplete="off">
 							<input type="image" src="image/lupa.png" width="42px" height="46px" class="item4" onClick="this.form.submit()">

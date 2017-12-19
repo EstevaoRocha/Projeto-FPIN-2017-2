@@ -15,27 +15,7 @@
 		<section id="tudo">
 			<section id="geral">
 				<header>				
-					<?php
-						if($_SESSION['logado']!="ok"){	
-					?>
-					<menu>
-						<a href="usuariologado.php" class="item">PÁGINA INICIAL</a>
-						<a href="#myBtn" class="item" id="myBtn">CRIAR CONTA</a>
-						<a href="#myBtn2" class="item" id="myBtn2">ENTRAR</a>
-					</menu>
-					<?php
-						}else{
-					?>				
-					<menu>
-						<a href="usuariologado.php" class="item">PÁGINA INICIAL</a>
-						<a href="#myBtn" class="item" id="myBtn">EDITAR INFORMAÇÕES</a>									
-						<a href="cad_partido.php" class="item">GERENCIAR PARTIDO</a>
-						<a href="cad_estado.php" class="item">GERENCIAR CIDADE</a>
-						<a href="sair.php" class="item">SAIR</a>
-					</menu>
-					<?php
-						}
-					?>
+					<?php include ('menu.php'); ?>
 					<div id="logo">
 						<a href="usuariologado.php" > <img src="image/logotipo.png" class="logo"> </a>
 					</div>
@@ -47,7 +27,7 @@
 						<a href="candidatos.php" class="item2">CANDIDATOS</a>
 						<a href="partidos.php" class="item2">PARTIDOS</a>
 						<a href="cidadeestado.php" class="item2">CIDADES/ESTADOS</a>
-						<a href="sobre.html" class="item2">SOBRE</a>
+						<a href="sobre.php" class="item2">SOBRE</a>
 						<a href="" class="item2"></a>
 						<a href="" class="item2"></a>
 						<a href="" class="item2"></a>

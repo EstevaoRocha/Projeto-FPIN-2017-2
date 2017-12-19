@@ -7,11 +7,12 @@
 		$cand_name = $line['cand_name'];										
 		$cand_hist = $line['cand_hist'];
 		$cand_work = $line['cand_work'];
+		$cand_pict = $line['cand_pict'];
 																							
 	echo"
-			<a> <img src='image/camera.png' width='290px' height='170px' class='img1'> </a>
+			<a> <img src='image/'.$cand_pict.'' width='290px' height='170px' class='img1'> </a>
 			<a href='candidato.php?cand_id=$cand_id' class='link1'> $cand_name </a>
 			<h5 class='texto1'> $cand_hist </h5>
-		";		
+		";
 	}
 ?>
