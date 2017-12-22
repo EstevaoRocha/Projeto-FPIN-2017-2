@@ -207,7 +207,8 @@
 							<h3 class="perfil"> PERFIL </h3>							
 						</nav>
 						<nav id="barra5"> </nav>
-						<img src="image/camera.png" width="70%" class="perfil" >
+						<!-- <img src="image/camera.png" width="70%" class="perfil"> -->
+						<?php echo"<img src='image/'.$cand_pict.''width='290px' height='260px' class='perfil'>" ?>
 						<div id="face">
 							<pre class="info"> <b><?php echo $cand_name ?></b><br /> <?php if($cand_sex == 1)echo 'Sexo: Masculino';else 'Sexo: Feminino'; ?> <br /> Idade: <?php echo $cand_age ?> <br /> Profissão : <?php echo $cand_job ?> <b><br /> Partido : <?php echo $cand_part ?></b><br/><b><br /> Realizações :</b><br/> <?php echo $cand_work ?> </pre>
 					    </div>

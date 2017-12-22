@@ -51,7 +51,7 @@
 						<div id="artigo1">
 							<div class="form2">
 							  <h1> Cadastrar Partido </h1>
-							  <form action="submit_part.php" method="post" accept-charset="UTF-8">
+							  <form enctype="multipart/form-data" action="submit_part.php" method="post" accept-charset="UTF-8">
 								<label for="fname">Nome:</label>
 								<input class="cad_user" type="text" id="cand_perf" name="part_name">
 								
@@ -106,6 +106,9 @@
 								
 								<label for="fname">Página Oficial:</label>
 								<input class="cad_user" type="text" id="cand_perf" name="part_page">
+								
+								<label for="img">Imagem:</label>
+							  	<input type="file" name="part_pict" width="140" height="140" required><br>			
 								<center>
 								<input id="bt" type="submit" value="Cadastrar">
 								</center>

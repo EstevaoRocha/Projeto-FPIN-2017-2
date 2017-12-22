@@ -10,6 +10,13 @@
 	$part_pres = $_POST['part_pres'];
 	$part_fund = $_POST['part_fund'];
 	$part_page = $_POST['part_page'];
+	$part_pict = $_FILES['part_pict']['name'];
+	// troca de nomes
+	$part_pict = $_FILES['part_pict']['name'];
+	
+	if(isset($part_pict)){
+		move_uploaded_file($_FILES['part_pict']['tmp_name'], 'image/' . $part_pict);
+	}
 	
 	$db_sigla = 'sigla';	
 		
@@ -26,7 +33,7 @@
 			echo "<script type='text/javascript'> alert( 'Sigla J? Cadastrada', window.location='cad_partido.php'); </script>";
 		}else{
 		
-	$insert = "INSERT INTO partido (part_name, part_sigla, part_cand, part_city, part_hist, part_numb, part_pres, part_fund, part_page) VALUES ('$part_name','$part_sigla','$part_cand','$part_city','$part_hist','$part_numb','$part_pres','$part_fund','$part_page')";
+	$insert = "INSERT INTO partido (part_name, part_sigla, part_cand, part_city, part_hist, part_numb, part_pres, part_fund, part_page, part_pict) VALUES ('$part_name','$part_sigla','$part_cand','$part_city','$part_hist','$part_numb','$part_pres','$part_fund','$part_page','$part_pict')";
 	
 	$sql = mySQLi_query($connection, $insert);
 	if($sql){

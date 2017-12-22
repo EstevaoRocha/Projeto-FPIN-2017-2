@@ -18,6 +18,7 @@
 		$part_pres = $line['part_pres'];
 		$part_fund = $line['part_fund'];
 		$part_page = $line['part_page'];
+		$part_pict = $line['part_pict'];
 	};
 	
 	//Cookies para quantidade de acessos
@@ -81,7 +82,8 @@
 							<h3 class="perfil"> PERFIL </h3>							
 						</nav>
 						<nav id="barra5"> </nav>
-						<img src="image/camera.png" width="70%" class="perfil" >
+						<!-- <img src="image/camera.png" width="70%" class="perfil" > -->
+						<?php echo"<img src='image/'.$part_pict.''width='290px' height='260px' class='perfil'>" ?>
 						<div id="face">						
 							<pre class="info">
 								
