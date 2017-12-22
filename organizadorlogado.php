@@ -30,13 +30,13 @@
 						<h1 id="titulo">Bem-vindo(a) <?php echo $nome[0] ?> </h1>
 					</div>
 					<nav id="barra1">
-						<a href="" class="item3"> <img src="image/home.png" class="home"> </a>
+						<a href="usuariologado.php" class="item3"> <img src="image/home.png" class="home"> </a>
 						<a href="candidatos.php" class="item2">CANDIDATOS</a>
 						<a href="partidos.php" class="item2">PARTIDOS</a>
 						<a href="cidadeestado.php" class="item2">CIDADES/ESTADOS</a>
 						<a href="sobre.php" class="item2">SOBRE</a>
-						<form name="" method="" action="">							
-							<input type="search" name="search" placeholder="Pesquisar na Wiki" title="Pesquisar" id="pesqInput" tabindex="1" autocomplete="off">
+						<form name="frmBusca" method="post" action="pesq.php?a=buscar">							
+							<input type="search" name="palavra" placeholder="Pesquisar na Wiki" title="Pesquisar" id="pesqInput" tabindex="1" autocomplete="off">
 							<input type="image" src="image/lupa.png" width="42px" height="46px" class="item4" onClick="this.form.submit()">
 						</form>
 				    </nav>

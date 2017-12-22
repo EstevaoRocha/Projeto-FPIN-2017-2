@@ -1,13 +1,13 @@
 <?php
-session_start();
-include ('conf.php');
+	session_start();
+	include ('conf.php');
 
-$_SESSION['logado'] = "inicializando";
-$_SESSION['type_user'] = 5;//inicializando como usuario visitante
+	$_SESSION['logado'] = "inicializando";
+	$_SESSION['type_user'] = 5;//inicializando como usuario visitante
 
-if($_SESSION['logado']=="ok"){
-		header("Location:usuariologado.php");
-	}	
+	if($_SESSION['logado']=="ok"){
+			header("Location:usuariologado.php");
+		}	
 ?>
 
 <html>
@@ -29,13 +29,13 @@ if($_SESSION['logado']=="ok"){
 						<h1 id="titulo">Bem-vindos à Wikilítica</h1>
 					</div>
 					<nav id="barra1">
-							<a href="" class="item3"> <img src="image/home.png" class="item2"> </a>
+							<a href="usuariologado.php" class="item3"> <img src="image/home.png" class="item2"> </a>
 							<a href="candidatos.php" class="item2">CANDIDATOS</a>
 							<a href="partidos.php" class="item2">PARTIDOS</a>
 							<a href="cidadeestado.php" class="item2">CIDADES/ESTADOS</a>
 							<a href="sobre.php" class="item2">SOBRE</a>
-						<form name="" method="" action="">							
-							<input type="search" name="search" placeholder="Pesquisar na Wiki" title="Pesquisar" id="pesqInput" tabindex="1" autocomplete="off">
+						<form name="frmBusca" method="post" action="pesq.php?a=buscar">							
+							<input type="search" name="palavra" placeholder="Pesquisar na Wiki" title="Pesquisar" id="pesqInput" tabindex="1" autocomplete="off">
 							<input type="image" src="image/lupa.png" width="42px" height="46px" class="item4" onClick="this.form.submit()">
 						</form>
 				    </nav>

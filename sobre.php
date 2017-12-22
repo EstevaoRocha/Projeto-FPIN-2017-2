@@ -1,6 +1,13 @@
 <?php
 	session_start();
 	include ('conf.php');
+
+	if($_SESSION['logado']=="ok"){
+		include ('edit_data.php');
+	}else{
+		$_SESSION['logado'] = "inicializar";
+		$_SESSION['type_user'] = 5;//inicializando como usuario visitante
+	}
 ?>
 
 <html>
@@ -26,9 +33,9 @@
 						<a href="candidatos.php" class="item2">CANDIDATOS</a>
 						<a href="partidos.php" class="item2">PARTIDOS</a>
 						<a href="cidadeestado.php" class="item2">CIDADES/ESTADOS</a>
-						<a href="sobre.html" class="item2">SOBRE</a>
-						<form name="" method="" action="">							
-							<input type="search" name="search" placeholder="Pesquisar na Wiki" title="Pesquisar" id="pesqInput" tabindex="1" autocomplete="off">
+						<a href="sobre.php" class="item2">SOBRE</a>
+						<form name="frmBusca" method="post" action="pesq.php?a=buscar">							
+							<input type="search" name="palavra" placeholder="Pesquisar na Wiki" title="Pesquisar" id="pesqInput" tabindex="1" autocomplete="off">
 							<input type="image" src="image/lupa.png" width="42px" height="46px" class="item4" onClick="this.form.submit()">
 						</form>
 				    </nav>
@@ -69,7 +76,7 @@
 								<li class="green"> <a href="cad_partido.php"> Cadastro Partido </a> </li>
 								<li class="blue"> <a href="cidadeestado.php"> Cidades/Estados </a> </li>
 								<li class="blue"> <a href="cad_estado.php"> Cadastro Cidade </a> </li>								
-								<li class="orange"> <a href="sobre.html"> Sobre </a> </li>
+								<li class="orange"> <a href="sobre.php"> Sobre </a> </li>
 							</ul>						
 						</div>
 					</section>
@@ -150,40 +157,54 @@
   <div class="modal-content">
     <!-- <span class="close">&times;</span> -->
     <div class="form">
-	  <h1> Cadastro de Usuário </h1>
-	  <form action="" method="">
+	  <h1> Editar Meu Usuário </h1>
+	  <form action="edita_usuario.php" method="post">
+		<input type="hidden" name="id_user" value="<?php echo $id_user?>">
 		<label for="fname">E-mail:</label>
-		<input class="cad_user" type="email" id="user_mail" name="email" placeholder="Preencha com seu e-mail">
+		<input class="cad_user" type="email" id="user_mail" name="email_user" value="<?php echo $email_user?>">
 		
 		<label for="fname">Senha:</label>
-		<input class="cad_user" type="password" id="user_pass" name="pass" placeholder="Preencha com sua senha">
+		<input class="cad_user" type="password" id="user_pass" name="pass_user" placeholder="Redigite a sua senha para não alterar" required>
+		
+		<!--
+			<label for="fname">Antiga Senha:</label>
+			<input class="cad_user" type="password" id="user_pass" name="pass_old" placeholder="Antiga senha">
+		-->
 		
 		<label for="fname">CPF:</label>
-		<input class="cad_user" type="text" id="user_cpf" name="cpf" placeholder="Preencha com o seu CPF">
+		<input class="cad_user" type="text" id="user_cpf" name="cpf_user" value="<?php echo $cpf_user?>">
 	  
 		<label for="fname">Nome:</label>
-		<input class="cad_user" type="text" id="user_name" name="firstname" placeholder="Preencha com o seu nome completo">
+		<input class="cad_user" type="text" id="user_name" name="name_user" value="<?php echo $name_user?>">
 
 		<label for="fname">Data de Nascimento:</label>
-		<input class="cad_user" type="date" id="user_birth" name="birth" placeholder="Preencha com sua cidade">
+		<input class="cad_user" type="date" id="user_birth" name="birth_user" value="<?php echo $birth_user?>">
 		
 		<label for="fname">Endereço:</label>
-		<input class="cad_user" type="text" id="user_address" name="address" placeholder="Preencha com seu endereço">
+		<input class="cad_user" type="text" id="user_address" name="add_user" value="<?php echo $add_user?>">
 		
 		<label for="fname">Estado:</label>
-		<input class="cad_user" type="text" id="user_estate" name="estate" placeholder="Preencha com o seu estado">
+		<input class="cad_user" type="text" id="user_estate" name="state_user" value="<?php echo $state_user?>">
 		
 		<label for="fname">Cidade:</label>
-		<input class="cad_user" type="text" id="user_city" name="city" placeholder="Preencha com sua cidade">
+		<input class="cad_user" type="text" id="user_city" name="city_user" value="<?php echo $city_user?>">
 		
 		<label for="sex">Sexo:</label>
-		<select class="cad_user" id="sex" name="sex">
-		  <option value="ma">Masculino</option>
-		  <option value="fe">Feminino</option>
+		<select class="cad_user" id="sex" name="sex_user">
+			<?php
+				echo"<option selected='selected' value='$sex_user'>";//pega o sexo do usuário como pré selecionado
+				if($sex_user == '1'){//se for 1 exibe masculino se não exibe feminino
+					echo "Masculino</option>
+					<option value='2'>Feminino</option>";
+				}else{
+					echo "Feminino</option>
+					<option value'1'>Masculino</option>";
+				}
+			?>
 		</select>
 		
 		<center>
-		<input id="bt" type="submit" value="Cadastrar">
+		<input id="bt" type="submit" value="Confirmar">
 		<input id="bt" type="reset" value="Limpar Campos">
 		</center>
 	  </form>
@@ -198,12 +219,12 @@
     <!-- <span class="close">&times;</span> -->
     <div class="form">
 	  <h1> Logar </h1>
-	  <form action="organizadorlogado.php" method="">
+	  <form action="logar.php" method="post">	  
 		<label for="fname">E-mail:</label>
-		<input class="cad_user" type="email" id="user_mail" name="email" placeholder="Preencha com seu e-mail">
+		<input class="cad_user" type="email" id="user_mail" name="email_user" placeholder="Preencha com seu e-mail">
 		
 		<label for="fname">Senha:</label>
-		<input class="cad_user" type="password" id="user_pass" name="pass" placeholder="Preencha com sua senha">	
+		<input class="cad_user" type="password" id="user_pass" name="pass_user" placeholder="Preencha com sua senha">	
 		<center>
 		<input id="bt" type="submit" value="Logar">
 		</center>

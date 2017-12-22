@@ -1,7 +1,7 @@
 <?php
 	session_start();
 	include ('conf.php');
-	
+
 	$cand_id = $_GET['cand_id'];// pega o id do candidato via URL
 	
 	$select = "SELECT * FROM candidato WHERE cand_id = $cand_id"; // select das informacoes do candidato
@@ -23,7 +23,13 @@
 		$cand_pict = $line['cand_pict'];
 	};		
 	
-	//Cookies para quantidade de acessos
+	//Informações do usuario logado para edição
+	if($_SESSION['logado']=="ok"){
+		include ('edit_data.php');
+	}
+	
+	
+	//Cookies para quantidade de acessos (NAO TESTADO)
 	include ('acessos.php');
 ?>
 
@@ -56,8 +62,8 @@
 						<a href="" class="item2"></a>
 						<a href="" class="item2"></a>
 						<a href="" class="item2"></a>	
-						<form name="" method="" action="">							
-							<input type="search" name="search" placeholder="Pesquisar na Wiki" title="Pesquisar" id="pesqInput" tabindex="1" autocomplete="off">
+						<form name="frmBusca" method="post" action="pesq.php?a=buscar">							
+							<input type="search" name="palavra" placeholder="Pesquisar na Wiki" title="Pesquisar" id="pesqInput" tabindex="1" autocomplete="off">
 							<input type="image" src="image/lupa.png" width="42px" height="46px" class="item4" onClick="this.form.submit()">
 						</form>
 				    </nav>
@@ -217,6 +223,8 @@
 					que todos possam editar e melhorar. 
 					O projeto é definido pelos princípios fundadores.
 				</div>
+				<!-- gambiarra pro modal de editar candidato funcionar com o menu dinamico -->
+				<a href='#myBtn2' class='item' id='myBtn2'></a>
 				<div id="rodape">
 					<div class ="txt2">
 						PROJETO FPIN - HTML/CSS WikiLítica © 2017
@@ -238,41 +246,49 @@
   <div class="modal-content">
     <!-- <span class="close">&times;</span> -->
     <div class="form">
-	  <h1> Cadastro de Usuário </h1>
-	  <form action="cad_user.php" method="post">
+	  <h1> Editar Meu Usuário </h1>
+	  <form action="edita_usuario.php" method="post">
+		<input type="hidden" name="id_user" value="<?php echo $id_user?>">
 		<label for="fname">E-mail:</label>
-		<input class="cad_user" type="email" id="user_mail" name="email_user" placeholder="Preencha com seu e-mail">
+		<input class="cad_user" type="email" id="user_mail" name="email_user" value="<?php echo $email_user?>">
 		
 		<label for="fname">Senha:</label>
-		<input class="cad_user" type="password" id="user_pass" name="pass_user" placeholder="Preencha com sua senha">
+		<input class="cad_user" type="password" id="user_pass" name="pass_user" placeholder="Redigite a sua senha para não alterar" required>
 		
 		<label for="fname">CPF:</label>
-		<input class="cad_user" type="text" id="user_cpf" name="cpf_user" placeholder="Preencha com o seu CPF">
+		<input class="cad_user" type="text" id="user_cpf" name="cpf_user" value="<?php echo $cpf_user?>">
 	  
 		<label for="fname">Nome:</label>
-		<input class="cad_user" type="text" id="user_name" name="name_user" placeholder="Preencha com o seu nome completo">
+		<input class="cad_user" type="text" id="user_name" name="name_user" value="<?php echo $name_user?>">
 
 		<label for="fname">Data de Nascimento:</label>
-		<input class="cad_user" type="date" id="user_birth" name="birth_user" placeholder="Preencha com sua cidade">
+		<input class="cad_user" type="date" id="user_birth" name="birth_user" value="<?php echo $birth_user?>">
 		
 		<label for="fname">Endereço:</label>
-		<input class="cad_user" type="text" id="user_address" name="add_user" placeholder="Preencha com seu endereço">
+		<input class="cad_user" type="text" id="user_address" name="add_user" value="<?php echo $add_user?>">
 		
 		<label for="fname">Estado:</label>
-		<input class="cad_user" type="text" id="user_estate" name="state_user" placeholder="Preencha com o seu estado">
+		<input class="cad_user" type="text" id="user_estate" name="state_user" value="<?php echo $state_user?>">
 		
 		<label for="fname">Cidade:</label>
-		<input class="cad_user" type="text" id="user_city" name="city_user" placeholder="Preencha com sua cidade">
+		<input class="cad_user" type="text" id="user_city" name="city_user" value="<?php echo $city_user?>">
 		
 		<label for="sex">Sexo:</label>
 		<select class="cad_user" id="sex" name="sex_user">
-		  <option>Selecione</option>
-		  <option value="1">Masculino</option>
-		  <option value="2">Feminino</option>
+			<?php
+				echo"<option selected='selected' value='$sex_user'>";//pega o sexo do usuário como pré selecionado
+				if($sex_user == '1'){//se for 1 exibe masculino se não exibe feminino
+					echo "Masculino</option>
+					<option value='2'>Feminino</option>";
+				}else{
+					echo "Feminino</option>
+					<option value'1'>Masculino</option>";
+				}
+			?>
 		</select>
 		
 		<center>
-		<input id="bt" type="submit" value="Cadastrar">
+		<input id="bt" type="submit" value="Confirmar">
 		<input id="bt" type="reset" value="Limpar Campos">
 		</center>
 	  </form>
