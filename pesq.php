@@ -63,8 +63,9 @@
 									if($numRegistros != 0){
 										while($candidato = mysqli_fetch_object($sql)){
 											echo "<br>";
-											//echo $candidato->cand_name . " ( Partido: ".$candidato->cand_part.") <br />";
-											echo $candidato->cand_name . " ( Partido: ".$candidato->cand_part.") <br />";
+											echo "<a href='candidato.php?cand_id=$candidato->cand_id'> $candidato->cand_name</a><br/>
+													Partido: $candidato->cand_part <br/><hr/>
+											";
 										}
 									}else{
 										echo "Nenhum candidato foi encontrado com o nome ".$palavra."";

@@ -7,10 +7,7 @@
 	$cand_job = $_POST['cand_job'];
 	$cand_part = $_POST['cand_part']; 
 	$cand_work = $_POST['cand_work'];
-	$cand_hist = $_POST['cand_hist'];
-	$cand_prop = $_POST['cand_prop'];
-	$cand_idea = $_POST['cand_idea'];
-	$cand_source = $_POST['cand_source'];	
+	$cand_hist = $_POST['cand_hist'];	
 	$cand_city = $_POST['cand_city'];
 	//Imagem
 	$cand_pict = $_FILES['cand_pict']['name'];
@@ -21,7 +18,7 @@
 		move_uploaded_file($_FILES['cand_pict']['tmp_name'], 'image/' . $cand_pict);
 	}
 	
-	$insert = "INSERT INTO candidato (cand_name, cand_sex, cand_age, cand_job, cand_part, cand_work, cand_hist, cand_prop, cand_idea, cand_source, cand_city, cand_pict) VALUES ('$cand_name','$cand_sex','$cand_age','$cand_job','$cand_part','$cand_work','$cand_hist','$cand_prop','$cand_idea','$cand_source','$cand_city','$cand_pict')";
+	$insert = "INSERT INTO candidato (cand_name, cand_sex, cand_age, cand_job, cand_part, cand_work, cand_hist, cand_city, cand_pict) VALUES ('$cand_name','$cand_sex','$cand_age','$cand_job','$cand_part','$cand_work','$cand_hist','$cand_city','$cand_pict')";
 	
 	$sql = mySQLi_query($connection, $insert);
 	if($sql){

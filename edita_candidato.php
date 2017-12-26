@@ -8,10 +8,7 @@
 	$cand_job = $_POST['cand_job'];
 	$cand_part = $_POST['cand_part']; 
 	$cand_work = $_POST['cand_work'];
-	$cand_hist = $_POST['cand_hist'];
-	$cand_prop = $_POST['cand_prop'];
-	$cand_idea = $_POST['cand_idea'];
-	$cand_source = $_POST['cand_source'];	
+	$cand_hist = $_POST['cand_hist'];	
 	$cand_city = $_POST['cand_city'];	
 		
 	$update = "UPDATE candidato SET cand_name = '$cand_name', 
@@ -20,10 +17,7 @@
 							   cand_job = '$cand_job', 
 							   cand_part = '$cand_part', 
 							   cand_work = '$cand_work', 
-							   cand_hist = '$cand_hist',
-							   cand_prop = '$cand_prop',
-							   cand_idea = '$cand_idea',
-							   cand_source = '$cand_source',
+							   cand_hist = '$cand_hist',						
 							   cand_city = '$cand_city'
 							   WHERE cand_id = $cand_id ";
 	

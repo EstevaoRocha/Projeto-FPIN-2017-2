@@ -73,10 +73,6 @@
 										$cand_part = $line['cand_part']; 
 										$cand_work = $line['cand_work'];
 										$cand_hist = $line['cand_hist'];
-										$cand_prop = $line['cand_prop'];
-										$cand_idea = $line['cand_idea'];
-										$cand_source = $line['cand_source'];
-										//$cand_city = $line['$cand_city'];
 										
 										
 									echo "<tr>

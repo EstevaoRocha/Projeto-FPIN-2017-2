@@ -88,16 +88,7 @@
 								
 								<label for="fname">História</label>
 								<input class="cad_user" type="textarea" id="cand_text" name="cand_hist">	
-								
-								<label for="fname">Propostas</label>
-								<input class="cad_user" type="textarea" id="cand_text" name="cand_prop">	
-								
-								<label for="fname">Ideias</label>
-								<input class="cad_user" type="textarea" id="cand_text" name="cand_idea">	
-								
-								<label for="fname">Fonte Ideias</label>
-								<input class="cad_user" type="textarea" id="cand_text" name="cand_source">
-								
+
 								<label for="sex">Cidade:</label>
 								<select class="cad_user" id="sex_edit" name="cand_city">
 								  <option> Selecione </option>

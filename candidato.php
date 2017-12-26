@@ -16,9 +16,6 @@
 		$cand_part = $line['cand_part']; 
 		$cand_work = $line['cand_work'];
 		$cand_hist = $line['cand_hist'];
-		$cand_prop = $line['cand_prop'];
-		$cand_idea = $line['cand_idea'];
-		$cand_source = $line['cand_source'];
 		$cand_city = $line['cand_city'];
 		$cand_pict = $line['cand_pict'];
 	};		
@@ -73,7 +70,11 @@
 						<nav id="barra2">
 							 <h3 class="recent" > <?php echo $cand_name ?></h3>
 						</nav>
-						<nav id="barra3"> <a href="#myBtn3" class="edit" id="myBtn3">Editar</a> </nav>
+						<nav id="barra3"> 
+							<a href="#myBtn3" class="edit" id="myBtn3">/ Editar </a>
+							<a href="#myBtn4" class="edit" id="myBtn4">/ + Proposta</a>
+							<a href="#myBtn5" class="edit" id="myBtn5"> + Ideia</a>
+						</nav>
 						<article id="artigo1">
 						
 								
@@ -138,30 +139,20 @@
 										<th> Descrição </th>
 										<th> Fonte </th>
 									</tr>							
-									<?php	
-										$select2 = "SELECT cand_prop, cand_source, cand_idea FROM candidato WHERE cand_id = $cand_id"; 
-										// select das propostas,ideias e fontes
+									<?php		
+										// SELECT ERRADO
+										$select2 = "SELECT descricao, fonte_nome FROM proposta, fonte WHERE candidato_id = $cand_id GROUP BY descricao";
 										$sql2 = mysqli_query($connection, $select2);
-										$count = 0; //contador para listagem das propostas e ideias
 										
 										while($line2 = mysqli_fetch_array($sql2)){
-											$cand_prop = $line2['cand_prop'];
-											$cand_source = $line2['cand_source'];
-											$cand_idea = $line2['cand_idea'];
-																					
-										$propostas = explode(",", $cand_prop); //divide as propostas separadas por vírgulas em um array
-										$fontes = explode(",", $cand_source); //divide as fontes separadas por vírgulas em um array
-										$ideias = explode(",", $cand_idea); //divide as ideias separadas por vírgulas em um array
-										
-										if(isset($propostas)){
+											$descricao = $line2['descricao'];
+											$fonte_nome = $line2['fonte_nome'];		
+											
 										echo "<tr>
-												<td> $propostas[$count] </td>
-												<td> $fontes[$count] </td>
+												<td> $descricao </td>
+												<td> $fonte_nome </td>
 											  </tr>";
-											  
-										$count++;
-											}
-										}
+											}									
 									?>
 								</table>
 								
@@ -171,30 +162,19 @@
 										<th> Descrição </th>
 										<th> Fonte </th>
 									</tr>
-									<?php					
-										// mesmo processo para tabela de propostas, agora para ideias.
-										$select2 = "SELECT cand_prop, cand_source, cand_idea FROM candidato WHERE cand_id = $cand_id"; 
-											$sql2 = mysqli_query($connection, $select2);
-											$count = 0;
+									<?php											
+										$select3 = "SELECT descricao_ideia, fonte_nome FROM ideia, fonte WHERE candidato_id = $cand_id GROUP BY descricao_ideia"; 
+										$sql3 = mysqli_query($connection, $select3);
+										
+										while($line3 = mysqli_fetch_array($sql3)){
+											$descricao_ideia = $line3['descricao_ideia'];
+											$fonte_nome = $line3['fonte_nome'];		
 											
-											while($line2 = mysqli_fetch_array($sql2)){
-												$cand_prop = $line2['cand_prop'];
-												$cand_source = $line2['cand_source'];
-												$cand_idea = $line2['cand_idea'];
-																						
-											$propostas = explode(",", $cand_prop);
-											$fontes = explode(",", $cand_source);
-											$ideias = explode(",", $cand_idea);
-											
-											if(isset($ideias)){
-											echo "<tr>
-													<td> $ideias[$count] </td>
-													<td> $fontes[$count] </td>
-												  </tr>";	
-
-												$count++;
-												}
-											}
+										echo "<tr>
+												<td> $descricao_ideia </td>
+												<td> $fonte_nome </td>
+											  </tr>";
+											}									
 									?>
 								</table>
 								</div>
@@ -367,16 +347,7 @@
 		<input class="cad_user" type="text" id="cand_perf" name="cand_work" value="<?php echo $cand_work?>">
 								
 		<label for="fname">História</label>
-		<input class="cad_user" type="textarea" id="cand_text" name="cand_hist" value="<?php echo $cand_hist?>">	
-		
-		<label for="fname">Propostas</label>
-		<input class="cad_user" type="textarea" id="cand_text" name="cand_prop" value="<?php echo $cand_prop?>">
-		
-		<label for="fname">Ideias</label>
-		<input class="cad_user" type="textarea" id="cand_text" name="cand_idea" value="<?php echo $cand_idea?>">
-								
-		<label for="fname">Fonte Ideias</label>
-		<input class="cad_user" type="textarea" id="cand_text" name="cand_source" value="<?php echo $cand_source?>">	
+		<input class="cad_user" type="textarea" id="cand_text" name="cand_hist" value="<?php echo $cand_hist?>">
 		
 		<label for="sex">Cidade:</label>
 		<select class="cad_user" name="cand_city">
@@ -401,6 +372,68 @@
   </div>
 </div>
 
+<div id="myModal4" class="modal">
+  <!-- Conteúdo do Modal-->
+  <div class="modal-content">
+    <div class="form">
+	  <h1> Nova Proposta  </h1>
+	  <form action="submit_prop.php" method="post" accept-charset="UTF-8">
+		<input type="hidden" name="candidato_id" value="<?php echo $cand_id?>">
+		<label for="fname">Descrição:</label>
+		<input class="cad_user" type="text" id="descricao" name="descricao">
+								
+		<label for="sex">Fonte:</label>
+		<select class="cad_user" id="sex_edit" name="fonte">
+			<?php //Pegando os partidos do banco
+				$sel_part = "SELECT * FROM fonte";
+				$sql = mysqli_query($connection, $sel_part);
+									
+				while($line_part = mysqli_fetch_array($sql)){
+					$id_fonte = $line_part['id_fonte'];
+					$fonte_nome = $line_part['fonte_nome'];
+					echo "<option value='$id_fonte'>$fonte_nome</option>";
+				}
+			?>
+		</select>
+		<center>
+			<input id="bt" type="submit" value="Cadastrar">
+		</center>
+	  </form>
+	</div>
+  </div>
+</div>
+
+<div id="myModal5" class="modal">
+  <!-- Conteúdo do Modal-->
+  <div class="modal-content">
+    <div class="form">
+	  <h1> Nova Ideia  </h1>
+	  <form action="submit_ideia.php" method="post" accept-charset="UTF-8">
+		<input type="hidden" name="candidato_id" value="<?php echo $cand_id?>">
+		<label for="fname">Descrição:</label>
+		<input class="cad_user" type="text" id="descricao_ideia" name="descricao_ideia">
+								
+		<label for="sex">Fonte:</label>
+		<select class="cad_user" id="sex_edit" name="fonte_ideia">
+			<?php //Pegando os partidos do banco
+				$sel_part = "SELECT * FROM fonte";
+				$sql = mysqli_query($connection, $sel_part);
+									
+				while($line_part = mysqli_fetch_array($sql)){
+					$id_fonte = $line_part['id_fonte'];
+					$fonte_nome = $line_part['fonte_nome'];
+					echo "<option value='$id_fonte'>$fonte_nome</option>";
+				}
+			?>
+		</select>
+		<center>
+			<input id="bt" type="submit" value="Cadastrar">
+		</center>
+	  </form>
+	</div>
+  </div>
+</div>
+
 <script>
 	// Cria o modal Cadastro
 	var modal = document.getElementById('myModal');
@@ -408,13 +441,21 @@
 	var modal2 = document.getElementById('myModal2');
 	// Cria o modal Editar
 	var modal3 = document.getElementById('myModal3');
+	// Cria o modal de nova proposta/ideia
+	var modal4 = document.getElementById('myModal4');
+	// Cria o modal de nova proposta/ideia
+	var modal5 = document.getElementById('myModal5');
 
 	// Botão que chama a abertura do modal Cadastro
 	var btn = document.getElementById("myBtn");
 	// Botão que chama a abertura do modal Login
 	var btn2 = document.getElementById("myBtn2");
-		// Botão que chama a abertura do modal Editar
+	// Botão que chama a abertura do modal Editar
 	var btn3 = document.getElementById("myBtn3");
+	// Botão que chama a abertura do modal Nova Proposta/ideia
+	var btn4 = document.getElementById("myBtn4");
+	// Botão que chama a abertura do modal Nova Proposta/ideia
+	var btn5 = document.getElementById("myBtn5");
 
 	// Quando o usuário clicar no botão, abra o modal cadastro
 	btn.onclick = function() {
@@ -428,14 +469,24 @@
 	btn3.onclick = function() {
 		modal3.style.display = "block";
 	}
+	// Quando o usuário clicar no botão, abra o modal nova proposta
+	btn4.onclick = function() {
+		modal4.style.display = "block";
+	}
+	// Quando o usuário clicar no botão, abra o modal nova ideia
+	btn5.onclick = function() {
+		modal5.style.display = "block";
+	}
 	
 	
 	// Fechar quando o usuário clicar fora do modal 
 	window.onclick = function(event) {
-		if (event.target == modal || event.target == modal2 || event.target == modal3) {
+		if (event.target == modal || event.target == modal2 || event.target == modal3 || event.target == modal4 || event.target == modal5) {
 			modal.style.display = "none";
 			modal2.style.display = "none";
 			modal3.style.display = "none";
+			modal4.style.display = "none";
+			modal5.style.display = "none";
 		}
 	}
 </script>
