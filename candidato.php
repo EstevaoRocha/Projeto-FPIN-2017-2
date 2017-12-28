@@ -141,16 +141,22 @@
 									</tr>							
 									<?php		
 										// SELECT ERRADO
-										$select2 = "SELECT descricao, fonte_nome FROM proposta, fonte WHERE candidato_id = $cand_id GROUP BY descricao";
+										$select2 = "SELECT L.descricao AS Descricao, E.fonte_nome AS Fonte
+													FROM proposta AS L
+													INNER JOIN fonte AS E
+													ON L.fonte = E.id_fonte
+													WHERE L.candidato_id = $cand_id";
+										
+										//$select2 = "SELECT descricao, fonte FROM proposta WHERE candidato_id = $cand_id";
 										$sql2 = mysqli_query($connection, $select2);
 										
 										while($line2 = mysqli_fetch_array($sql2)){
-											$descricao = $line2['descricao'];
-											$fonte_nome = $line2['fonte_nome'];		
+											$descricao = $line2['Descricao'];
+											$fonte = $line2['Fonte'];		
 											
 										echo "<tr>
 												<td> $descricao </td>
-												<td> $fonte_nome </td>
+												<td> $fonte </td>
 											  </tr>";
 											}									
 									?>
@@ -162,13 +168,19 @@
 										<th> Descrição </th>
 										<th> Fonte </th>
 									</tr>
-									<?php											
-										$select3 = "SELECT descricao_ideia, fonte_nome FROM ideia, fonte WHERE candidato_id = $cand_id GROUP BY descricao_ideia"; 
+									<?php
+										
+										$select3 = "SELECT L.descricao_ideia AS Descricao, E.fonte_nome AS Fonte
+													FROM ideia AS L
+													INNER JOIN fonte AS E
+													ON L.fonte_ideia = E.id_fonte
+													WHERE L.candidato_id = $cand_id";
+										//$select3 = "SELECT descricao_ideia, fonte_nome FROM ideia, fonte WHERE candidato_id = $cand_id"; 
 										$sql3 = mysqli_query($connection, $select3);
 										
 										while($line3 = mysqli_fetch_array($sql3)){
-											$descricao_ideia = $line3['descricao_ideia'];
-											$fonte_nome = $line3['fonte_nome'];		
+											$descricao_ideia = $line3['Descricao'];
+											$fonte_nome = $line3['Fonte'];		
 											
 										echo "<tr>
 												<td> $descricao_ideia </td>

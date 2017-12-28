@@ -61,7 +61,7 @@
 								<tr>
 									<th> Partido </th>
 									<th> Sigla </th>
-									<th> Candidatos </th>
+									<!--<th> Candidatos </th>-->
 									<th> Estado Sede </th>
 									<th> Página </th>
 								</tr>
@@ -74,14 +74,13 @@
 										$part_id = $line['part_id'];
 										$part_name = $line['part_name'];
 										$part_sigla = $line['part_sigla']; 
-										$part_cand = $line['part_cand'];
+										//$part_cand = $line['part_cand'];
 										$part_city = $line['part_city'];
 										
 										
 									echo "<tr>
 											<td>$part_name</td>
 											<td>$part_sigla</td>
-											<td>$part_cand</td> 
 											<td>$part_city</td> 
 											<td><button><a href='partido.php?part_id=$part_id'>Sobre</a></button></td>
 										  </tr>";
